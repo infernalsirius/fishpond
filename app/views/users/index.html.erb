@@ -7,7 +7,7 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= link_to 'Voir', user %></td>
-    <td><%= link_to 'Édition', edit_user_path(user) %></td>
+    <td><%= link_to 'Éditer', edit_user_path(user) %></td>
     <td><%= link_to 'Détruire', user, :confirm => 'Êtes-vous sûr?', :method => :delete %></td>
   </tr>
 <% end %>

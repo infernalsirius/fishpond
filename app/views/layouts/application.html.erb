@@ -17,18 +17,18 @@
 <h4>Follow your hardware, your servers and your licenses.</h4>
 
 <!-- This based on last_request_at, if they were active < 10 minutes they are logged in -->
-<%= pluralize User.logged_in.count, "user" %> currently logged in
+<%= pluralize User.logged_in.count, "utilisateur(s)" %> présentement connecté(s)
 <br /> 
 <br />
 <br />
 
 
 <% if !current_user %>
-  <%= link_to "Register", new_account_path %> |
-  <%= link_to "Log In", new_user_session_path %>
+  <%= link_to "Enregistrement", new_account_path %> |
+  <%= link_to "Connection", new_user_session_path %>
 <% else %>
-  <%= link_to "My Account", account_path %> |
-  <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
+  <%= link_to "Mon compte", account_path %> |
+  <%= link_to "Déconnection", user_session_path, :method => :delete, :confirm => "Voulez-vous vraiment déconnecter?" %>
 <% end %>
 
 <p style="color: green"><%= flash[:notice] %></p>

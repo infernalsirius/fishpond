@@ -2,8 +2,8 @@
 
 <% form_for @user, :url => account_path do |f| %>
   <%= f.error_messages %>
-  <%= render :partial => "form", :object => f %>
-  <%= f.submit "Update" %>
+  <%= render :partial => "form", :locals => { :form => f } %>
+  <%= f.submit "Mettre à jour" %>
 <% end %>
 
 <br /><%= link_to "Mon profile", account_path %>
