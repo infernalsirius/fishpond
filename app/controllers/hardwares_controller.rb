@@ -1,0 +1,2 @@
+class HardwaresController < ApplicationController
+end
