@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.xml
-  before_filter :require_no_user, :only => [:new, :create]
+    before_filter :require_no_user, :only => [:new, :create]
     before_filter :require_user, :only => [:show, :edit, :update]
 
     def new
@@ -12,7 +10,7 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       if @user.save
         flash[:notice] = "Account registered!"
-        redirect_back_or_default account_url
+        redirect_back_or_default new_user_session_path
       else
         render :action => :new
       end

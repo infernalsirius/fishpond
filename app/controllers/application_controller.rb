@@ -2,7 +2,6 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  helper :all
   helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
 
@@ -21,7 +20,7 @@ class ApplicationController < ActionController::Base
         unless current_user
           store_location
           flash[:notice] = "You must be logged in to access this page"
-          redirect_to new_user_session_url
+          redirect_to new_user_session_path
           return false
         end
       end
