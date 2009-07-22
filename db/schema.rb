@@ -9,7 +9,83 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090618211443) do
+ActiveRecord::Schema.define(:version => 20090722010919) do
+
+  create_table "accessories", :force => true do |t|
+    t.string   "idNum"
+    t.string   "diag"
+    t.string   "serial"
+    t.string   "maker"
+    t.string   "model"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accessories", ["maker"], :name => "index_accessories_on_maker"
+  add_index "accessories", ["model"], :name => "index_accessories_on_model"
+
+  create_table "hardwares", :force => true do |t|
+    t.integer  "idNum"
+    t.string   "maker"
+    t.string   "mac"
+    t.string   "model"
+    t.string   "serial"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hardwares", ["maker"], :name => "index_hardwares_on_maker"
+  add_index "hardwares", ["model"], :name => "index_hardwares_on_model"
+
+  create_table "licenses", :force => true do |t|
+    t.string   "software"
+    t.string   "version"
+    t.string   "language"
+    t.string   "serial"
+    t.string   "user"
+    t.string   "os"
+    t.string   "type"
+    t.integer  "numLicense"
+    t.integer  "numInstalled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "licenses", ["os"], :name => "index_licenses_on_os"
+  add_index "licenses", ["software"], :name => "index_licenses_on_software"
+
+  create_table "locations", :force => true do |t|
+    t.string   "building"
+    t.integer  "num"
+    t.integer  "floor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "servers", :force => true do |t|
+    t.string  "usage"
+    t.string  "privIp"
+    t.string  "pubIp"
+    t.string  "servName"
+    t.string  "priUrl"
+    t.string  "secUrl"
+    t.string  "usrLocal"
+    t.string  "passLocal"
+    t.string  "maker"
+    t.string  "model"
+    t.string  "raid"
+    t.string  "configHd"
+    t.string  "os"
+    t.string  "osVersion"
+    t.string  "osLang"
+    t.string  "location"
+    t.string  "rack"
+    t.string  "relation"
+    t.integer "numHd"
+    t.integer "rackPosition"
+  end
+
+  add_index "servers", ["servName"], :name => "index_servers_on_servName"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -34,6 +110,8 @@ ActiveRecord::Schema.define(:version => 20090618211443) do
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
+    t.string   "name"
+    t.string   "email"
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"
