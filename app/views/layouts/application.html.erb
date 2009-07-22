@@ -18,10 +18,7 @@
 
 <!-- This based on last_request_at, if they were active < 10 minutes they are logged in -->
 <%= pluralize User.logged_in.count, "utilisateur(s)" %> présentement connecté(s)
-<br /> 
-<br />
-<br />
-
+<br /><br /><br />
 
 <% if !current_user %>
   <%= link_to "Enregistrement", new_account_path %> |
@@ -30,6 +27,36 @@
   <%= link_to "Mon compte", account_path %> |
   <%= link_to "Déconnection", user_session_path, :method => :delete, :confirm => "Voulez-vous vraiment déconnecter?" %>
 <% end %>
+
+<div id='menu'>
+	<ul>
+		<ul>Matériel
+			<li><%= link_to "Liste", hardwares_path %></li>
+			<li>Ajout</li>
+			<li>Enlever</li>
+		</ul>
+		<ul>Licenses
+			<li><%= link_to "Liste", licenses_path %></li>
+			<li>Ajout</li>
+			<li>Enlever</li>
+		</ul>
+		<ul>Serveurs
+			<li><%= link_to "Liste", servers_path %></li>
+			<li>Ajout</li>
+			<li>Enlever</li>
+		</ul>
+		<ul>Accessoires
+			<li><%= link_to "Liste", accessories_path %></li>
+			<li>Ajout</li>
+			<li>Enlever</li>
+		</ul>
+		<ul>Emplacement
+			<li><%= link_to "Liste", locations_path %></li>
+			<li>Ajout</li>
+			<li>Enlever</li>
+		</ul>
+	</ul>
+</div><!-- end menu -->
 
 <p style="color: green"><%= flash[:notice] %></p>
 

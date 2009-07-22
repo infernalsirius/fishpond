@@ -1,9 +1,19 @@
 <h1>Liste du Matériel</h1>
 <table>
-	<tr></tr>
+	<th>Numéro</th>
+	<th>Fabriquant</th>
+	<th>Modèle</th>
+	<th>Numéro de série</th>
+	<th>Adresse MAC</th>
+	
+	<% @allhardware.each do |h| -%>
 	<tr>
-		<td></td>
+		<td><%= h.idNum %></td>
+		<td><%= h.maker %></td>
+		<td><%= h.model %></td>
+		<td><%= h.serial %></td>
+		<td><%= h.mac %></td>
 	</tr>
+	
+	<% end -%>
 </table>
-
-<%=  %>

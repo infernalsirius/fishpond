@@ -1,0 +1,7 @@
+<h1>Édition</h1>
+
+<%= error_messages_for :hardware %>
+
+<% form_for @hardware do |f| -%>
+  <%= render :partial => 'form', :locals => {:form => f} %>
+<% end -%>

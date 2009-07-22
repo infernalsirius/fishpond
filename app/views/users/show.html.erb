@@ -1,37 +1,37 @@
 <p>
-  <b>Login:</b>
+  <b>Nom d'utilisateur:</b>
   <%=h @user.login %>
 </p>
 
 <p>
-  <b>Login count:</b>
+  <b>Nombre de connections:</b>
   <%=h @user.login_count %>
 </p>
 
 <p>
-  <b>Last request at:</b>
+  <b>Dernière demande:</b>
   <%=h @user.last_request_at %>
 </p>
 
 <p>
-  <b>Last login at:</b>
+  <b>Dernière connection:</b>
   <%=h @user.last_login_at %>
 </p>
 
 <p>
-  <b>Current login at:</b>
+  <b>Connection présente:</b>
   <%=h @user.current_login_at %>
 </p>
 
 <p>
-  <b>Last login ip:</b>
+  <b>Dernière adrresse IP:</b>
   <%=h @user.last_login_ip %>
 </p>
 
 <p>
-  <b>Current login ip:</b>
+  <b>Adresse IP actuelle:</b>
   <%=h @user.current_login_ip %>
 </p>
 
 
-<%= link_to 'Edit', edit_account_path %>
+<%= link_to 'Éditer', edit_account_path %>
