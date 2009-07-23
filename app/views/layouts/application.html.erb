@@ -29,35 +29,35 @@
 <% end %>
 
 <ul id= 'menu'>
-	<li><h4>Matériel</h4>
+	<li>Matériel
 		<ul>
 			<li><%= link_to "Liste", hardwares_path %></li>
 			<li><%= link_to "Ajout", new_hardware_path %></li>
 			<li>Enlever</li>
 		</ul>
 	</li>
-	<li><h4>Licenses</h4>
+	<li>Licenses
 		<ul>
 			<li><%= link_to "Liste", licenses_path %></li>
 			<li><%= link_to "Ajout", new_license_path %></li>
 			<li>Enlever</li>
 		</ul>
 	</li>
-	<li><h4>Serveurs</h4>
+	<li>Serveurs
 		<ul>
 			<li><%= link_to "Liste", servers_path %></li>
 			<li><%= link_to "Ajout", new_server_path %></li>
 			<li>Enlever</li>
 		</ul>
 	</li>
-	<li><h4>Accessoires</h4>
+	<li>Accessoires
 		<ul>
 			<li><%= link_to "Liste", accessories_path %></li>
 			<li><%= link_to "Ajout", new_accessory_path %></li>
 			<li>Enlever</li>
 		</ul>
 	</li>
-	<li><h4>Emplacement</h4>
+	<li>Emplacement
 		<ul>
 			<li><%= link_to "Liste", locations_path %></li>
 			<li><%= link_to "Ajout", new_location_path %></li>
@@ -65,7 +65,6 @@
 		</ul>
 	</li>
 </ul>
-
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>
