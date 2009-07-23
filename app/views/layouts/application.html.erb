@@ -28,35 +28,43 @@
   <%= link_to "Déconnection", user_session_path, :method => :delete, :confirm => "Voulez-vous vraiment déconnecter?" %>
 <% end %>
 
-<div id='menu'>
-	<ul>
-		<ul>Matériel
+<ul id= 'menu'>
+	<li><h4>Matériel</h4>
+		<ul>
 			<li><%= link_to "Liste", hardwares_path %></li>
-			<li>Ajout</li>
+			<li><%= link_to "Ajout", new_hardware_path %></li>
 			<li>Enlever</li>
 		</ul>
-		<ul>Licenses
+	</li>
+	<li><h4>Licenses</h4>
+		<ul>
 			<li><%= link_to "Liste", licenses_path %></li>
-			<li>Ajout</li>
+			<li><%= link_to "Ajout", new_license_path %></li>
 			<li>Enlever</li>
 		</ul>
-		<ul>Serveurs
+	</li>
+	<li><h4>Serveurs</h4>
+		<ul>
 			<li><%= link_to "Liste", servers_path %></li>
-			<li>Ajout</li>
+			<li><%= link_to "Ajout", new_server_path %></li>
 			<li>Enlever</li>
 		</ul>
-		<ul>Accessoires
+	</li>
+	<li><h4>Accessoires</h4>
+		<ul>
 			<li><%= link_to "Liste", accessories_path %></li>
-			<li>Ajout</li>
+			<li><%= link_to "Ajout", new_accessory_path %></li>
 			<li>Enlever</li>
 		</ul>
-		<ul>Emplacement
+	</li>
+	<li><h4>Emplacement</h4>
+		<ul>
 			<li><%= link_to "Liste", locations_path %></li>
-			<li>Ajout</li>
+			<li><%= link_to "Ajout", new_location_path %></li>
 			<li>Enlever</li>
 		</ul>
-	</ul>
-</div><!-- end menu -->
+	</li>
+</ul>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
