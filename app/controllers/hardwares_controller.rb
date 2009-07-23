@@ -28,9 +28,10 @@ class HardwaresController < ApplicationController
     
     respond_to do |wants|
       if @hardware.save
-        flash[:notice] = 'Le matériel a été sauvegardé avec succès'
-        wants.html
+        flash[:notice] = "Le matériel a été sauvegardé avec succès"
+        wants.html { redirect_to hardwares_path }
       else
+        flash[:notice] = "Le matériel n'a pas été sauvegardé"
         wants.html { render new_hardware_path }
       end
     end
@@ -41,7 +42,8 @@ class HardwaresController < ApplicationController
     
     respond_to do |wants|
       if @hardware.update_attributes(params[:hardware])
-        wants.html          
+        flash[:notice] = "Le matériel a été modifié"
+        wants.html { redirect_to hardwares_path}        
       else
         wants.html { render edit_hardware_path }
       end
@@ -53,7 +55,7 @@ class HardwaresController < ApplicationController
     @hardware.destroy
     
     respond_to do |wants|
-      wants.html { redirect_back_or_default }
+      wants.html { redirect_to hardwares_path}
     end
   end
   

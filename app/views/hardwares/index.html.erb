@@ -13,6 +13,8 @@
 		<td><%= h.model %></td>
 		<td><%= h.serial %></td>
 		<td><%= h.mac %></td>
+		<td><%= link_to "Éditer", edit_hardware_path(h.id) %></td>
+		<td><%= link_to "Effacer", hardware_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %></td>
 	</tr>
 	
 	<% end -%>
