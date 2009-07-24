@@ -1,10 +1,10 @@
 <%= form.label :idNum, "Numéro d'identification" %>
 <br />
-<%= form.text_field :idNum %>
+<%= form.text_field :idNum %>*
 <br />
 <%= form.label :maker, "Fabriquant" %>
 <br />
-<%= form.text_field :maker %>
+<%= form.text_field :maker %>*
 <br />
 <%= form.label :mac, "Adresse MAC" %>
 <br />
@@ -16,7 +16,7 @@
 <br />
 <%= form.label :serial, "Numéro de série" %>
 <br />
-<%= form.text_field :serial %>
+<%= form.text_field :serial %>*
 <br />
 
 <%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
