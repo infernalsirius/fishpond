@@ -1,8 +1,8 @@
 class AddUserEmailandName < ActiveRecord::Migration
   def self.up
     change_table :users do |t|
-      t.column :name, :string, :null => false
-      t.column :email, :string, :null => false
+      t.column :name, :string
+      t.column :email, :string
       t.index :name, :email
     end
   end
