@@ -45,7 +45,7 @@ class HardwaresController < ApplicationController
         flash[:notice] = "Le matériel a été modifié"
         wants.html { redirect_to hardwares_path}        
       else
-        wants.html { render edit_hardware_path }
+        wants.html { render edit_hardware_path(params[:id]) }
       end
     end
   end
@@ -55,7 +55,7 @@ class HardwaresController < ApplicationController
     @hardware.destroy
     
     respond_to do |wants|
-      wants.html { redirect_to hardwares_path}
+      wants.html { redirect_to hardwares_path }
     end
   end
   
