@@ -6,15 +6,15 @@
 	<th>Numéro de série</th>
 	<th>Adresse MAC</th>
 	
-	<% @allhardware.each do |h| -%>
+	<% @licenses.each do |h| -%>
 	<tr>
 		<td><%= h.idNum %></td>
 		<td><%= h.maker %></td>
 		<td><%= h.model %></td>
 		<td><%= h.serial %></td>
-		<td><%= h.mac %></td>
-		<td><%= link_to "Éditer", edit_hardware_path(h.id) %></td>
-		<td><%= link_to "Effacer", hardware_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %></td>
+		<td><%= h.diag %></td>
+		<td><%= link_to "Éditer", edit_accessory_path(h.id) %></td>
+		<td><%= link_to "Effacer", accessory_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %></td>
 	</tr>
 	
 	<% end -%>
