@@ -1,13 +1,16 @@
-<%= form.label :building, "Bâtiment" %>
-<br />
-<%= form.text_field :building %>*
-<br />
-<%= form.label :num, "Adresse" %>
-<br />
-<%= form.text_field :num %>*
-<br />
-<%= form.label :floor, "Étage" %>
-<br />
-<%= form.text_field :floor %>
+<fieldset>
+	<legend>Ajout d'emplacement</legend>
+	<%= form.label :building, "Bâtiment" %>
+	<br />
+	<%= form.text_field :building %>*
+	<br />
+	<%= form.label :num, "Adresse" %>
+	<br />
+	<%= form.text_field :num %>*
+	<br />
+	<%= form.label :floor, "Étage" %>
+	<br />
+	<%= form.text_field :floor %>
 
-<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
+	<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>	
+</fieldset>

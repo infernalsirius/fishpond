@@ -1,29 +1,32 @@
-<%= form.label :software, "Logiciel" %>
-<br />
-<%= form.text_field :software %>*
-<br />
-<%= form.label :version, "Version" %>
-<br />
-<%= form.text_field :version %>*
-<br />
-<%= form.label :language, "Langue" %>
-<br />
-<%= form.text_field :language %>
-<br />
-<%= form.label :serial, "Numéro de série" %>
-<br />
-<%= form.text_field :serial %>
-<br />
-<%= form.label :os, "Système d'exploitation" %>
-<br />
-<%= form.text_field :os %>*
-<br />
-<%= form.label :licenseType, "Type de license" %>
-<br>
-<%= form.text_field :licenseType %>
-<br>
-<%= form.label :numLicense, "Nombre de license" %>
-<br>
-<%= form.text_field :numLicense %>
-<br>
-<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
+<fieldset>
+	<legend>Ajout d'une license.</legend>
+	<%= form.label :software, "Logiciel" %>
+	<br />
+	<%= form.text_field :software %>*
+	<br />
+	<%= form.label :version, "Version" %>
+	<br />
+	<%= form.text_field :version %>*
+	<br />
+	<%= form.label :language, "Langue" %>
+	<br />
+	<%= form.text_field :language %>
+	<br />
+	<%= form.label :serial, "Numéro de série" %>
+	<br />
+	<%= form.text_field :serial %>
+	<br />
+	<%= form.label :os, "Système d'exploitation" %>
+	<br />
+	<%= form.text_field :os %>*
+	<br />
+	<%= form.label :licenseType, "Type de license" %>
+	<br>
+	<%= form.text_field :licenseType %>
+	<br>
+	<%= form.label :numLicense, "Nombre de license" %>
+	<br>
+	<%= form.text_field :numLicense %>
+	<br>
+	<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
+</fieldset>

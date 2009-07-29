@@ -18,7 +18,6 @@ class ServersController < ApplicationController
       if server.save
           flash[:notice] = "Le serveur a été sauvegardé avec succès."
           wants.html { redirect_to servers_path}
-        end
       else
         flash[:notice] = "Le serveur saisi n'a pus être sauvegardé."
         wants.html {render new_server_path}

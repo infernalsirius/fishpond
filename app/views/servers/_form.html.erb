@@ -1,93 +1,96 @@
-<%= form.label :servName, "Nom du serveur" %>
-<br />
-<%= form.text_field :servName %>*
-<br />
-<%= form.label :maker, "Fabriquant" %>
-<br />
-<%= form.text_field :maker %>*
-<br>
-<%= form.label :model, "Modèle" %>
-<br />
-<%= form.text_field :model %>
-<br />
-<%= form.label :serial, "Numéro de série" %>
-<br />
-<%= form.text_field :serial %>*
-<br />
-<%= form.label :location, "Emplacement" %>
-<br>
-<%= form.text_field :location %>
-<br>
-<%= form.label :rack, "Numéro de cabinet" %>
-<br>
-<%= form.text_field :rack %>
-<br>
-<%= form.label :rackPosition, "Position dans cabinet" %>
-<br>
-<%= form.text_field :rackPosition %>
-<br>
-<%= form.label :os, "Système d'exploitation (OS)" %>
-<br>
-<%= form.text_field :os %>
-<br>
-<%= form.label :osVersion, "Version OS" %>
-<br>
-<%= form.text_field :osVersion %>
-<br>
-<%= form.label :osLang, "Langue" %>
-<br>
-<%= form.text_field :osLang %>
-<br>
-<%= form.label :usage, "Usage" %>
-<br>
-<%= form.text_field :usage %>
-<br>
-<%= form.label :relation, "Relation" %>
-<br>
-<%= form.text_field :relation %>
-<br>
-<%= form.label :raid, "Raid" %>
-<br>
-<%= form.text_field :raid %>
-<br>
-<%= form.label :numHd, "Nombre de disque" %>
-<br>
-<%= f.text_field :numHd %>
-<br>
-<%= form.label :configHd, "Configuration disque dur" %>
-<br>
-<%= form.text_field :configHd %>
-<br>
-<%= f.label :usrLocal, "Utilisateur" %>
-<br>
-<%= f.text_field :usrLocal %>
-<br>
-<%= f.label :passLocal, "Mot de passe" %>
-<br>
-<%= f.text_field :passLocal %>
-<br>
-<%= f.label :privIp, "Ip privée" %>
-<br>
-<%= f.text_field :privIp %>
-<br>
-<%= f.label :pubIp, "Ip publique" %>
-<br>
-<%= f.text_field :pubIp %>
-<br>
-<%= f.label :priUrl, "PriUrl" %>
-<br>
-<%= f.text_field :priUrl %>
-<br>
-<%= f.label :secUrl, "SecUrl" %>
-<br>
-<%= f.text_field :secUrl %>
-
-
-
-
-
-
-
-
-
+<!--Those fieldsets will all be collapsible. -->
+<fieldset>
+	<legend>Nom, fabriquant et modèle.</legend>
+	<%= form.label :servName, "Nom du serveur" %>
+	<br />
+	<%= form.text_field :servName %>*
+	<br />
+	<%= form.label :maker, "Fabriquant" %>
+	<br />
+	<%= form.text_field :maker %>*
+	<br>
+	<%= form.label :model, "Modèle" %>
+	<br />
+	<%= form.text_field :model %>
+</fieldset>
+<fieldset>
+	<legend>Emplacement, numéro et position dans cabinet.</legend>
+	<%= form.label :location, "Emplacement" %>
+	<br>
+	<%= form.text_field :location %>
+	<br>
+	<%= form.label :rack, "Numéro de cabinet" %>
+	<br>
+	<%= form.text_field :rack %>
+	<br>
+	<%= form.label :rackPosition, "Position dans cabinet" %>
+	<br>
+	<%= form.text_field :rackPosition %>			
+</fieldset>
+<fieldset>
+	<legend>Système d'exploitation, version et langue.</legend>
+		<%= form.label :os, "Système d'exploitation (OS)" %>
+		<br>
+		<%= form.text_field :os %>
+		<br>
+		<%= form.label :osVersion, "Version OS" %>
+		<br>
+		<%= form.text_field :osVersion %>
+		<br>
+		<%= form.label :osLang, "Langue" %>
+		<br>
+		<%= form.text_field :osLang %>
+</fieldset>
+<fieldset>
+	<legend>Usage et relation.</legend>
+		<%= form.label :usage, "Usage" %>
+		<br>
+		<%= form.text_field :usage %>
+		<br>
+		<%= form.label :relation, "Relation" %>
+		<br>
+		<%= form.text_field :relation %>	
+</fieldset>
+<fieldset>
+	<legend>Raid, nombre et configuration de disque.</legend>
+		<%= form.label :raid, "Raid" %>
+		<br>
+		<%= form.text_field :raid %>
+		<br>
+		<%= form.label :numHd, "Nombre de disque" %>
+		<br>
+		<%= form.text_field :numHd %>
+		<br>
+		<%= form.label :configHd, "Configuration disque dur" %>
+		<br>
+		<%= form.text_field :configHd %>
+</fieldset>
+<fieldset>
+	<legend>Utilisateur et mot de passe.</legend>
+	<%= form.label :usrLocal, "Utilisateur" %>
+	<br>
+	<%= form.text_field :usrLocal %>
+	<br>
+	<%= form.label :passLocal, "Mot de passe" %>
+	<br>
+	<%= form.text_field :passLocal %>
+</fieldset>
+<fieldset>
+	<legend>Ip et Url.</legend>
+	<%= form.label :privIp, "Ip privée" %>
+	<br>
+	<%= form.text_field :privIp %>
+	<br>
+	<%= form.label :pubIp, "Ip publique" %>
+	<br>
+	<%= form.text_field :pubIp %>
+	<br>
+	<%= form.label :priUrl, "PriUrl" %>
+	<br>
+	<%= form.text_field :priUrl %>
+	<br>
+	<%= form.label :secUrl, "SecUrl" %>
+	<br>
+	<%= form.text_field :secUrl %>
+</fieldset>
 <%= form.submit "Soumettre", :disable_with => 'Soumission...' %>

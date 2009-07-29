@@ -18,7 +18,6 @@ class AccessoriesController < ApplicationController
       if accessory.save
           flash[:notice] = "Le  périphérique a été sauvegardé avec succès."
           wants.html { redirect_to accessories_path}
-        end
       else
         flash[:notice] = "Le périphérique saisi n'a pus être sauvegardé."
         wants.html {render new_accessory_path}

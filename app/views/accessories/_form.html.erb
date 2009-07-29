@@ -1,23 +1,24 @@
-<%= form.label :idNum, "Numéro d'inventaire" %>
-<br />
-<%= form.text_field :idNum %>*
-<br />
-<%= form.label :maker, "Fabriquant" %>
-<br />
-<%= form.text_field :maker %>*
-<br />
-<%= form.label :model, "Modèle" %>
-<br />
-<%= form.text_field :model %>
-<br>
-<%= form.label :serial, "Numéro de série" %>
-<br />
-<%= form.text_field :serial %>*
-<br />
-<%= form.label :diag, "Diagonale" %>
-<br />
-<%= form.text_field :diag %>
-<br />
-
-
-<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
+<fieldset>
+	<legend>Ajout d'accessoire.</legend>
+	<%= form.label :idNum, "Numéro d'inventaire" %>
+	<br />
+	<%= form.text_field :idNum %>*
+	<br />
+	<%= form.label :maker, "Fabriquant" %>
+	<br />
+	<%= form.text_field :maker %>*
+	<br />
+	<%= form.label :model, "Modèle" %>
+	<br />
+	<%= form.text_field :model %>
+	<br>
+	<%= form.label :serial, "Numéro de série" %>
+	<br />
+	<%= form.text_field :serial %>*
+	<br />
+	<%= form.label :diag, "Diagonale" %>
+	<br />
+	<%= form.text_field :diag %>
+	<br />
+	<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
+</fieldset>

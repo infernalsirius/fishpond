@@ -18,7 +18,6 @@ class LocationsController < ApplicationController
       if license.save
           flash[:notice] = "L'emplacement a été sauvegardé avec succès."
           wants.html { redirect_to location_path}
-        end
       else
         flash[:notice] = "L'emplacement saisi n'a pus être sauvegardé."
         wants.html {render new_location_path}
