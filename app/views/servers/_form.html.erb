@@ -18,34 +18,76 @@
 <br>
 <%= form.text_field :location %>
 <br>
-<%= f.label :rack, "Numéro de cabinet" %>
+<%= form.label :rack, "Numéro de cabinet" %>
 <br>
-<%= f.text_field :rack %>
+<%= form.text_field :rack %>
 <br>
-<%= f.label :rackPosition, "Position dans cabinet" %>
+<%= form.label :rackPosition, "Position dans cabinet" %>
 <br>
-<%= f.text_field :rackPosition %>
+<%= form.text_field :rackPosition %>
 <br>
 <%= form.label :os, "Système d'exploitation (OS)" %>
 <br>
 <%= form.text_field :os %>
 <br>
-<%= f.label :osVersion, "Version OS" %>
+<%= form.label :osVersion, "Version OS" %>
 <br>
-<%= f.text_field :osVersion %>
+<%= form.text_field :osVersion %>
 <br>
-<%= f.label :osLang, "Langue" %>
+<%= form.label :osLang, "Langue" %>
 <br>
-<%= f.text_field :osLang %>
+<%= form.text_field :osLang %>
 <br>
-<%= f.label :usage, "Usage" %>
+<%= form.label :usage, "Usage" %>
 <br>
-<%= f.text_field :usage %>
+<%= form.text_field :usage %>
 <br>
-<%= f.label :relation, "Relation" %>
+<%= form.label :relation, "Relation" %>
 <br>
-<%= f.text_field :relation %>
+<%= form.text_field :relation %>
 <br>
-<%= f.label :attribute, "Attribute" %>
+<%= form.label :raid, "Raid" %>
+<br>
+<%= form.text_field :raid %>
+<br>
+<%= form.label :numHd, "Nombre de disque" %>
+<br>
+<%= f.text_field :numHd %>
+<br>
+<%= form.label :configHd, "Configuration disque dur" %>
+<br>
+<%= form.text_field :configHd %>
+<br>
+<%= f.label :usrLocal, "Utilisateur" %>
+<br>
+<%= f.text_field :usrLocal %>
+<br>
+<%= f.label :passLocal, "Mot de passe" %>
+<br>
+<%= f.text_field :passLocal %>
+<br>
+<%= f.label :privIp, "Ip privée" %>
+<br>
+<%= f.text_field :privIp %>
+<br>
+<%= f.label :pubIp, "Ip publique" %>
+<br>
+<%= f.text_field :pubIp %>
+<br>
+<%= f.label :priUrl, "PriUrl" %>
+<br>
+<%= f.text_field :priUrl %>
+<br>
+<%= f.label :secUrl, "SecUrl" %>
+<br>
+<%= f.text_field :secUrl %>
+
+
+
+
+
+
+
+
 
 <%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
