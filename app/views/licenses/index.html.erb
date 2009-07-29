@@ -1,21 +1,26 @@
 <h1>Liste du Matériel</h1>
 <table>
-	<th>Numéro</th>
-	<th>Fabriquant</th>
-	<th>Modèle</th>
+	<th>Logiciel</th>
+	<th>Version</th>
+	<th>Langue</th>
 	<th>Numéro de série</th>
-	<th>Adresse MAC</th>
+	<th>Système d'exploitation</th>
+	<th>Type de license</th>
+	<th>Nombre de licenses</th>
+	<th>Installées</th>
 	
-	<% @allhardware.each do |h| -%>
-	<tr>
-		<td><%= h.idNum %></td>
-		<td><%= h.maker %></td>
-		<td><%= h.model %></td>
-		<td><%= h.serial %></td>
-		<td><%= h.mac %></td>
-		<td><%= link_to "Éditer", edit_hardware_path(h.id) %></td>
-		<td><%= link_to "Effacer", hardware_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %></td>
-	</tr>
-	
+	<% @licenses.each do |h| -%>
+		<tr>
+			<td><%= h.software %></td>
+			<td><%= h.version %></td>
+			<td><%= h.language %></td>
+			<td><%= h.serial %></td>
+			<td><%= h.os %></td>
+			<td><%= h.licenseType %></td>
+			<td><%= h.numLicense %></td>
+			<td><%= h.numInstalled %></td>
+			<td><%= link_to "Éditer", edit_license_path(h.id) %></td>
+			<td><%= link_to "Effacer", license_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %></td>
+		</tr>
 	<% end -%>
 </table>

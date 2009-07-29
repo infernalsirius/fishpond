@@ -1,20 +1,16 @@
-<h1>Liste du Matériel</h1>
+<h1>Liste des emplacements</h1>
 <table>
-	<th>Numéro</th>
-	<th>Fabriquant</th>
-	<th>Modèle</th>
-	<th>Numéro de série</th>
-	<th>Adresse MAC</th>
+	<th>Bâtiment</th>
+	<th>Adresse</th>
+	<th>Étage</th>
 	
-	<% @allhardware.each do |h| -%>
+	<% @locations.each do |h| -%>
 	<tr>
-		<td><%= h.idNum %></td>
-		<td><%= h.maker %></td>
-		<td><%= h.model %></td>
-		<td><%= h.serial %></td>
-		<td><%= h.mac %></td>
-		<td><%= link_to "Éditer", edit_hardware_path(h.id) %></td>
-		<td><%= link_to "Effacer", hardware_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %></td>
+		<td><%= h.building %></td>
+		<td><%= h.num %></td>
+		<td><%= h.floor %></td>
+		<td><%= link_to "Éditer", edit_location_path(h.id) %></td>
+		<td><%= link_to "Effacer", location_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %></td>
 	</tr>
 	
 	<% end -%>

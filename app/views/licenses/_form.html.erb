@@ -1,22 +1,29 @@
-<%= form.label :idNum, "Numéro d'identification" %>
+<%= form.label :software, "Logiciel" %>
 <br />
-<%= form.text_field :idNum %>*
+<%= form.text_field :software %>*
 <br />
-<%= form.label :maker, "Fabriquant" %>
+<%= form.label :version, "Version" %>
 <br />
-<%= form.text_field :maker %>*
+<%= form.text_field :version %>*
 <br />
-<%= form.label :mac, "Adresse MAC" %>
+<%= form.label :language, "Langue" %>
 <br />
-<%= form.text_field :mac %>
-<br />
-<%= form.label :model, "Modèle" %>
-<br />
-<%= form.text_field :model %>
+<%= form.text_field :language %>
 <br />
 <%= form.label :serial, "Numéro de série" %>
 <br />
-<%= form.text_field :serial %>*
+<%= form.text_field :serial %>
 <br />
-
+<%= form.label :os, "Système d'exploitation" %>
+<br />
+<%= form.text_field :os %>*
+<br />
+<%= form.label :licenseType, "Type de license" %>
+<br>
+<%= form.text_field :licenseType %>
+<br>
+<%= form.label :numLicense, "Nombre de license" %>
+<br>
+<%= form.text_field :numLicense %>
+<br>
 <%= form.submit "Soumettre", :disable_with => 'Soumission...' %>

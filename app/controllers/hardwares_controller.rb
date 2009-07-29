@@ -1,6 +1,6 @@
 class HardwaresController < ApplicationController
   def index
-    @allhardware = Hardware.find(:all)
+    @hardwares = Hardware.find(:all)
     
     respond_to do |wants|
       wants.html

@@ -1,15 +1,11 @@
-<%= form.label :idNum, "Numéro d'identification" %>
+<%= form.label :servName, "Nom du serveur" %>
 <br />
-<%= form.text_field :idNum %>*
+<%= form.text_field :servName %>*
 <br />
 <%= form.label :maker, "Fabriquant" %>
 <br />
 <%= form.text_field :maker %>*
-<br />
-<%= form.label :mac, "Adresse MAC" %>
-<br />
-<%= form.text_field :mac %>
-<br />
+<br>
 <%= form.label :model, "Modèle" %>
 <br />
 <%= form.text_field :model %>
@@ -18,5 +14,38 @@
 <br />
 <%= form.text_field :serial %>*
 <br />
+<%= form.label :location, "Emplacement" %>
+<br>
+<%= form.text_field :location %>
+<br>
+<%= f.label :rack, "Numéro de cabinet" %>
+<br>
+<%= f.text_field :rack %>
+<br>
+<%= f.label :rackPosition, "Position dans cabinet" %>
+<br>
+<%= f.text_field :rackPosition %>
+<br>
+<%= form.label :os, "Système d'exploitation (OS)" %>
+<br>
+<%= form.text_field :os %>
+<br>
+<%= f.label :osVersion, "Version OS" %>
+<br>
+<%= f.text_field :osVersion %>
+<br>
+<%= f.label :osLang, "Langue" %>
+<br>
+<%= f.text_field :osLang %>
+<br>
+<%= f.label :usage, "Usage" %>
+<br>
+<%= f.text_field :usage %>
+<br>
+<%= f.label :relation, "Relation" %>
+<br>
+<%= f.text_field :relation %>
+<br>
+<%= f.label :attribute, "Attribute" %>
 
 <%= form.submit "Soumettre", :disable_with => 'Soumission...' %>

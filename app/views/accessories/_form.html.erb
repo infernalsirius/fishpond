@@ -1,4 +1,4 @@
-<%= form.label :idNum, "Numéro d'identification" %>
+<%= form.label :idNum, "Numéro d'inventaire" %>
 <br />
 <%= form.text_field :idNum %>*
 <br />
@@ -6,17 +6,18 @@
 <br />
 <%= form.text_field :maker %>*
 <br />
-<%= form.label :diag, "Diagonale" %>
-<br />
-<%= form.text_field :mac %>
-<br />
 <%= form.label :model, "Modèle" %>
 <br />
 <%= form.text_field :model %>
-<br />
+<br>
 <%= form.label :serial, "Numéro de série" %>
 <br />
 <%= form.text_field :serial %>*
 <br />
+<%= form.label :diag, "Diagonale" %>
+<br />
+<%= form.text_field :diag %>
+<br />
+
 
 <%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
