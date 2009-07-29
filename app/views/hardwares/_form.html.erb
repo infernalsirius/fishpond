@@ -20,5 +20,9 @@
 	<br />
 	<%= form.text_field :serial %>*
 	<br />
+	<%= form.label :location_id, "Emplacement" %>
+	<br>
+	<%= form.collection_select :location_id, @locations, :id, :location, :prompt => "Sélectionner un emplacement" %>
+	<br>
 	<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
 </fieldset>

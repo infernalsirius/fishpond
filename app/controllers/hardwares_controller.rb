@@ -17,6 +17,7 @@ class HardwaresController < ApplicationController
   
   def new
     @hardware = Hardware.new
+    @locations = Location.find(:all)
   end
   
   def edit
