@@ -1,4 +1,5 @@
 class LicensesController < ApplicationController
+  acts_as_streamlined
   def index
     @licenses = License.find(:all)
     
