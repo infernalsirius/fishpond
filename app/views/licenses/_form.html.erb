@@ -28,6 +28,9 @@
 	<br>
 	<%= form.text_field :numLicense %>
 	<br>
+	<%= form.label :hardware_id, "Installé sur:" %>
+	<br>
 	<%= form.collection_select :hardware_id, @hardwares, :id, :idNum, :prompt => "Sélectionnez"  %>
+	<br>
 	<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
 </fieldset>
