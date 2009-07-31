@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20090728224109) do
     t.string   "serial"
     t.string   "user"
     t.string   "os"
-    t.string   "licenceType"
+    t.string   "licenseType"
     t.integer  "numLicense"
     t.integer  "numInstalled"
     t.datetime "created_at"
