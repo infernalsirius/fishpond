@@ -1,5 +1,6 @@
 class HardwaresController < ApplicationController
   layout 'dark'
+  
   def index
     @hardwares = Hardware.paginate(:per_page => 10, :page => params[:page])
     
