@@ -1,96 +1,130 @@
-<!--Those fieldsets will all be collapsible. -->
-<fieldset>
-	<legend>Nom, fabriquant et modèle.</legend>
-	<%= form.label :servName, "Nom du serveur" %>
-	<br />
-	<%= form.text_field :servName %>*
-	<br />
-	<%= form.label :maker, "Fabriquant" %>
-	<br />
-	<%= form.text_field :maker %>*
-	<br>
-	<%= form.label :model, "Modèle" %>
-	<br />
-	<%= form.text_field :model %>
-</fieldset>
-<fieldset>
-	<legend>Emplacement, numéro et position dans cabinet.</legend>
-	<%= form.label :location, "Emplacement" %>
-	<br>
-	<%= form.text_field :location %>
-	<br>
-	<%= form.label :rack, "Numéro de cabinet" %>
-	<br>
-	<%= form.text_field :rack %>
-	<br>
-	<%= form.label :rackPosition, "Position dans cabinet" %>
-	<br>
-	<%= form.text_field :rackPosition %>			
-</fieldset>
-<fieldset>
-	<legend>Système d'exploitation, version et langue.</legend>
-		<%= form.label :os, "Système d'exploitation (OS)" %>
-		<br>
-		<%= form.text_field :os %>
-		<br>
-		<%= form.label :osVersion, "Version OS" %>
-		<br>
-		<%= form.text_field :osVersion %>
-		<br>
-		<%= form.label :osLang, "Langue" %>
-		<br>
-		<%= form.text_field :osLang %>
-</fieldset>
-<fieldset>
-	<legend>Usage et relation.</legend>
-		<%= form.label :usage, "Usage" %>
-		<br>
-		<%= form.text_field :usage %>
-		<br>
-		<%= form.label :relation, "Relation" %>
-		<br>
-		<%= form.text_field :relation %>	
-</fieldset>
-<fieldset>
-	<legend>Raid, nombre et configuration de disque.</legend>
-		<%= form.label :raid, "Raid" %>
-		<br>
-		<%= form.text_field :raid %>
-		<br>
-		<%= form.label :numHd, "Nombre de disque" %>
-		<br>
-		<%= form.text_field :numHd %>
-		<br>
-		<%= form.label :configHd, "Configuration disque dur" %>
-		<br>
-		<%= form.text_field :configHd %>
-</fieldset>
-<fieldset>
-	<legend>Utilisateur et mot de passe.</legend>
-	<%= form.label :usrLocal, "Utilisateur" %>
-	<br>
-	<%= form.text_field :usrLocal %>
-	<br>
-	<%= form.label :passLocal, "Mot de passe" %>
-	<br>
-	<%= form.text_field :passLocal %>
-</fieldset>
-<fieldset>
-	<legend>Ip et Url.</legend>
-	<%= form.label :privIp, "Ip privée" %>
-	<br>
-	<%= form.text_field :privIp %>
-	<br>
-	<%= form.label :pubIp, "Ip publique" %>
-	<br>
-	<%= form.text_field :pubIp %>
-	<br>
-	<%= form.label :priUrl, "PriUrl" %>
-	<br>
-	<%= form.text_field :priUrl %>
-	<br>
-	<%= form.label :secUrl, "SecUrl" %>
-	<br>
-	<%= form.text_field :secUrl %>
-</fieldset>
-<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
+
+  <div class="group">
+    <%= f.label :usage, "Usage", :class => :label %>
+    <%= f.text_field :usage, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :privIp, "Privip", :class => :label %>
+    <%= f.text_field :privIp, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :pubIp, "Pubip", :class => :label %>
+    <%= f.text_field :pubIp, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :servName, "Servname", :class => :label %>
+    <%= f.text_field :servName, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :priUrl, "Priurl", :class => :label %>
+    <%= f.text_field :priUrl, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :secUrl, "Securl", :class => :label %>
+    <%= f.text_field :secUrl, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :usrLocal, "Usrlocal", :class => :label %>
+    <%= f.text_field :usrLocal, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :passLocal, "Passlocal", :class => :label %>
+    <%= f.text_field :passLocal, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :maker, "Maker", :class => :label %>
+    <%= f.text_field :maker, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :model, "Model", :class => :label %>
+    <%= f.text_field :model, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :raid, "Raid", :class => :label %>
+    <%= f.text_field :raid, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :configHd, "Confighd", :class => :label %>
+    <%= f.text_field :configHd, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :os, "Os", :class => :label %>
+    <%= f.text_field :os, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :osVersion, "Osversion", :class => :label %>
+    <%= f.text_field :osVersion, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :osLang, "Oslang", :class => :label %>
+    <%= f.text_field :osLang, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :location, "Location", :class => :label %>
+    <%= f.text_field :location, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :rack, "Rack", :class => :label %>
+    <%= f.text_field :rack, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :relation, "Relation", :class => :label %>
+    <%= f.text_field :relation, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :numHd, "Numhd", :class => :label %>
+    <%= f.text_field :numHd, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :rackPosition, "Rackposition", :class => :label %>
+    <%= f.text_field :rackPosition, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :location_id, "Location_id", :class => :label %>
+    <%= f.text_field :location_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform">
+  <input type="submit" class="button" value="Save &rarr;" /> or <%= link_to 'Cancel', servers_path %>
+</div>

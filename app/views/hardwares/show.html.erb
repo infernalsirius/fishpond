@@ -1,9 +1,9 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first"><%= link_to 'List', hardwares_path  %></li>
-      <li><%= link_to 'New', new_hardware_path %></li>
-      <li class="active"><%= link_to 'Show', hardware_path %></li>
+      <li class="first"><%= link_to 'Liste', hardwares_path  %></li>
+      <li><%= link_to 'Nouveau', new_hardware_path %></li>
+      <li class="active"><%= link_to 'Voir', hardware_path %></li>
     </ul>
     <div class="clear"></div>
   </div>          
@@ -11,35 +11,35 @@
     <div class="inner">
       
         <p>
-          <b>Idnum:</b>
+          <b>Numéro d'indentification:</b>
           <%= @hardware.idNum %>
         </p>
 
         <p>
-          <b>Maker:</b>
+          <b>Fabriquant:</b>
           <%= @hardware.maker %>
         </p>
 
         <p>
-          <b>Mac:</b>
+          <b>Adresse mac:</b>
           <%= @hardware.mac %>
         </p>
 
         <p>
-          <b>Model:</b>
+          <b>Modèle:</b>
           <%= @hardware.model %>
         </p>
 
         <p>
-          <b>Serial:</b>
+          <b>Numéro de série:</b>
           <%= @hardware.serial %>
         </p>
 
         <p>
-          <b>Location_id:</b>
+          <b>Emplacement:</b>
           <%= @hardware.location_id %>
         </p>
-      <%= link_to 'Edit', edit_hardware_path(@hardware) %>
+      <%= link_to 'Éditer', edit_hardware_path(@hardware) %>
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@ class HardwaresController < ApplicationController
   end
   
   def show
-    @harware = Hardware.find(params[:id])
+    @hardware = Hardware.find(params[:id])
     
     respond_to do |wants|
       wants.html

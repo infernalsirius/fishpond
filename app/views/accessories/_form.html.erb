@@ -1,24 +1,46 @@
-<fieldset>
-	<legend>Ajout d'accessoire.</legend>
-	<%= form.label :idNum, "Numéro d'inventaire" %>
-	<br />
-	<%= form.text_field :idNum %>*
-	<br />
-	<%= form.label :maker, "Fabriquant" %>
-	<br />
-	<%= form.text_field :maker %>*
-	<br />
-	<%= form.label :model, "Modèle" %>
-	<br />
-	<%= form.text_field :model %>
-	<br>
-	<%= form.label :serial, "Numéro de série" %>
-	<br />
-	<%= form.text_field :serial %>*
-	<br />
-	<%= form.label :diag, "Diagonale" %>
-	<br />
-	<%= form.text_field :diag %>
-	<br />
-	<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>
-</fieldset>
+
+  <div class="group">
+    <%= f.label :idNum, "Idnum", :class => :label %>
+    <%= f.text_field :idNum, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :diag, "Diag", :class => :label %>
+    <%= f.text_field :diag, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :serial, "Serial", :class => :label %>
+    <%= f.text_field :serial, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :maker, "Maker", :class => :label %>
+    <%= f.text_field :maker, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :model, "Model", :class => :label %>
+    <%= f.text_field :model, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :server_id, "Server_id", :class => :label %>
+    <%= f.text_field :server_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :harware_id, "Harware_id", :class => :label %>
+    <%= f.text_field :harware_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform">
+  <input type="submit" class="button" value="Save &rarr;" /> or <%= link_to 'Cancel', accessories_path %>
+</div>

@@ -12,13 +12,13 @@
       <div id="user-navigation">
         <ul>
           <li><a href="#">Profile</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="/logout">Logout</a></li>
+          <li><a href="#">Paramètres</a></li>
+          <li><a href="/logout">Déconnection</a></li>
         </ul>
         <div class="clear"></div>
       </div>      
       <div id="main-navigation">
-        <ul> <li class="<%= controller.controller_path == 'hardwares' ? 'active' : '' %>"><a href="<%= hardwares_path %>">Hardwares</a></li></ul>
+        <ul> <li class="<%= controller.controller_path == 'hardwares' ? 'active' : '' %>"><a href="<%= hardwares_path %>">Matériel</a></li> <li class="<%= controller.controller_path == 'accessories' ? 'active' : '' %>"><a href="<%= accessories_path %>">Accessoires</a></li> <li class="<%= controller.controller_path == 'licenses' ? 'active' : '' %>"><a href="<%= licenses_path %>">Licenses</a></li> <li class="<%= controller.controller_path == 'locations' ? 'active' : '' %>"><a href="<%= locations_path %>">Emplacements</a></li> <li class="<%= controller.controller_path == 'servers' ? 'active' : '' %>"><a href="<%= servers_path %>">Serveurs</a></li> <li class="<%= controller.controller_path == 'users' ? 'active' : '' %>"><a href="<%= users_path %>">Utilisateurs</a></li></ul>
         <div class="clear"></div>
       </div>
     </div>    
@@ -34,7 +34,7 @@
         <%= yield %>
         <div id="footer">
           <div class="block">
-            <p>Copyright &copy; 2009 Your Site.</p>
+            <p>Copyright &copy; 2009 fishpond.</p>
           </div>      
         </div>
       </div>

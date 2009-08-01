@@ -21,14 +21,14 @@
         </tr>
         <% @hardwares.each do |h| -%>
         <tr>
+					<td><%= h.id %></td>
 					<td><%= h.idNum %></td>
 					<td><%= h.maker %></td>
 					<td><%= h.model %></td>
 					<td><%= h.serial %></td>
 					<td><%= h.mac %></td>
-				</tr>
           <td class="last">
-            <%= link_to 'Voir', hardware_path(hardware) %> | 
+            <%= link_to 'Voir', hardware_path(h) %> | 
 						<%= link_to "Éditer", edit_hardware_path(h.id) %> |
 						<%= link_to "Effacer", hardware_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %>
           </td>

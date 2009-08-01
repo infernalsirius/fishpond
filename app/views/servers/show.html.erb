@@ -1,6 +1,122 @@
-<h1>Voir un serveur</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'List', servers_path  %></li>
+      <li><%= link_to 'New', new_server_path %></li>
+      <li class="active"><%= link_to 'Show', server_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b>Usage:</b>
+          <%= @server.usage %>
+        </p>
 
-<%= @server.servName %><br />
-<%= @server.maker %><br />
-<%= @server.model %><br />
-<%= @server.serial %><br />
+        <p>
+          <b>Privip:</b>
+          <%= @server.privIp %>
+        </p>
+
+        <p>
+          <b>Pubip:</b>
+          <%= @server.pubIp %>
+        </p>
+
+        <p>
+          <b>Servname:</b>
+          <%= @server.servName %>
+        </p>
+
+        <p>
+          <b>Priurl:</b>
+          <%= @server.priUrl %>
+        </p>
+
+        <p>
+          <b>Securl:</b>
+          <%= @server.secUrl %>
+        </p>
+
+        <p>
+          <b>Usrlocal:</b>
+          <%= @server.usrLocal %>
+        </p>
+
+        <p>
+          <b>Passlocal:</b>
+          <%= @server.passLocal %>
+        </p>
+
+        <p>
+          <b>Maker:</b>
+          <%= @server.maker %>
+        </p>
+
+        <p>
+          <b>Model:</b>
+          <%= @server.model %>
+        </p>
+
+        <p>
+          <b>Raid:</b>
+          <%= @server.raid %>
+        </p>
+
+        <p>
+          <b>Confighd:</b>
+          <%= @server.configHd %>
+        </p>
+
+        <p>
+          <b>Os:</b>
+          <%= @server.os %>
+        </p>
+
+        <p>
+          <b>Osversion:</b>
+          <%= @server.osVersion %>
+        </p>
+
+        <p>
+          <b>Oslang:</b>
+          <%= @server.osLang %>
+        </p>
+
+        <p>
+          <b>Location:</b>
+          <%= @server.location %>
+        </p>
+
+        <p>
+          <b>Rack:</b>
+          <%= @server.rack %>
+        </p>
+
+        <p>
+          <b>Relation:</b>
+          <%= @server.relation %>
+        </p>
+
+        <p>
+          <b>Numhd:</b>
+          <%= @server.numHd %>
+        </p>
+
+        <p>
+          <b>Rackposition:</b>
+          <%= @server.rackPosition %>
+        </p>
+
+        <p>
+          <b>Location_id:</b>
+          <%= @server.location_id %>
+        </p>
+      <%= link_to 'Edit', edit_server_path(@server) %>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
