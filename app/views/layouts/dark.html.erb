@@ -11,9 +11,14 @@
       <h1><a href="/">Fishpond 0.1 - Hardware & License Manager</a></h1>
       <div id="user-navigation">
         <ul>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Paramètres</a></li>
-          <li><a href="/logout">Déconnection</a></li>
+					<% if !current_user %>
+					  <li><%= link_to "Enregistrement", new_account_path %></li>
+					  <li><%= link_to "Connection", new_user_session_path %></li>
+					<% else %>
+					  <li><%= link_to "Profil", account_path(@account) %></li>
+						<li><a href="#">Paramètres</a></li>
+					  <li><%= link_to "Déconnection", user_session_path, :method => :delete, :confirm => "Voulez-vous vraiment déconnecter?" %></li>
+					<% end %>
         </ul>
         <div class="clear"></div>
       </div>      

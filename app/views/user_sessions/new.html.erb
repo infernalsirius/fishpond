@@ -1,55 +1,48 @@
-<h1>Authentification</h1>
-<h2>Fishpond ver. 0.1</h2>
-
-<% form_for @user_session, :url => user_session_path do |f| %>
-  <%= f.error_messages %>
-  <%= f.label :login %><br />
-  <%= f.text_field :login %><br />
-  <br />
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
-  <br />
-  <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
-  <br />
-  <%= f.submit "Login" %>
-<% end %>
-
-<h1><%= options[:app_name] %></h1>
 <div class="block" id="block-login">
   <h2>Login Box</h2>        
   <div class="content login">
     <div class="flash">
-      <%% flash.each do |type, message| -%>
+      <% flash.each do |type, message| -%>
       <div class="message <%%= type %>">
         <p><%%=  message %></p>
       </div>
-      <%% end -%>
+      <% end -%>
     </div>
-    <%% form_tag({:action => :create}, :class => 'form login') do -%>
+    <% form_for @user_session, :url => user_session_path, :class => 'form login' do |f| -%>
       <div class="group">
         <div class="left">
-          <label class="label right">Login</label>
+          <%= f.label :login, :class => 'label' %>
         </div>
         <div class="right">
-          <%%= text_field_tag :login, @login, :class => 'text_field' %>
+          <%= f.text_field :login, :class => "text_field" %>
         </div>              
         <div class="clear"></div>
       </div>
       <div class="group">
         <div class="left">
-          <label class="label right">Password</label>
+          <%= f.label :password, :class => 'label' %>
         </div>
         <div class="right">
-          <%%= password_field_tag :password, nil, :class => 'text_field' %>
+          <%= f.text_field :password, :class => "text_field" %>
+        </div>              
+        <div class="clear"></div>
+      </div>
+			<div class="group">
+        <div class="left">
+          <%= f.label :remember_me, :class => "label" %>
+        </div>
+        <div class="right">
+          <%= f.check_box :remember_me %>
         </div>              
         <div class="clear"></div>
       </div>
       <div class="group navform">
         <div class="right">
-          <input type="submit" class="button" value="Sign in" />
+          <input type="submit" class="button" value="Valider" />
         </div>
         <div class="clear"></div>
       </div>            
-    <%% end -%>
+    <% end -%>
   </div>
 </div>
+
