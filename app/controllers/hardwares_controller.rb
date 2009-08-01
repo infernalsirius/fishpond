@@ -1,6 +1,7 @@
 class HardwaresController < ApplicationController
+  layout 'dark'
   def index
-    @hardwares = Hardware.find(:all)
+    @hardwares = Hardware.paginate(:per_page => 10, :page => params[:page])
     
     respond_to do |wants|
       wants.html

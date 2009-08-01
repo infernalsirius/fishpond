@@ -9,7 +9,7 @@ class LicensesController < ApplicationController
   end
   
   def new
-    @license = License.new
+    @license = License.New
     @hardwares = Hardware.find(:all)
   end
   
