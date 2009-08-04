@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :require_user
+  #before_filter :require_user
   layout 'dark'
  
   def index

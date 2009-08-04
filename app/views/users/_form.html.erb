@@ -8,7 +8,6 @@
       </div>
       <%% end -%>
     </div>
-    <% form_for @user, :html => { :class => 'form' } do |f| -%>
       <div class="group">
         <div class="left">
          <%= f.label :login, "Login", :class => "label" %>
@@ -38,7 +37,7 @@
       </div>
       <div class="group">
         <div class="left">
-          <%= f.label :password, f.object.new_record? ? nil : "Changer le mot de passe", "Mot de passe", :class => "label" %>
+          <%= f.label :password, "Mot de passe",:class => "label" %>
         </div>
         <div class="right">
           <%%= f.password_field :password, :class => 'text_field' %>
@@ -57,6 +56,5 @@
       <div class="group navform">
         <input type="submit" class="button" value="Sauvegarder" />
       </div>
-    <%% end -%>
   </div>
 </div>
