@@ -6,55 +6,55 @@
   </div>
 
   <div class="group">
-    <%= f.label :privIp, "Privip", :class => :label %>
+    <%= f.label :privIp, "Ip privée", :class => :label %>
     <%= f.text_field :privIp, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :pubIp, "Pubip", :class => :label %>
+    <%= f.label :pubIp, "Ip publique", :class => :label %>
     <%= f.text_field :pubIp, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :servName, "Servname", :class => :label %>
+    <%= f.label :servName, "Nom", :class => :label %>
     <%= f.text_field :servName, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :priUrl, "Priurl", :class => :label %>
+    <%= f.label :priUrl, "URL primaire", :class => :label %>
     <%= f.text_field :priUrl, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :secUrl, "Securl", :class => :label %>
+    <%= f.label :secUrl, "URL secondaire", :class => :label %>
     <%= f.text_field :secUrl, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :usrLocal, "Usrlocal", :class => :label %>
+    <%= f.label :usrLocal, "Utilisateur local", :class => :label %>
     <%= f.text_field :usrLocal, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :passLocal, "Passlocal", :class => :label %>
+    <%= f.label :passLocal, "Mot de passe local", :class => :label %>
     <%= f.text_field :passLocal, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :maker, "Maker", :class => :label %>
+    <%= f.label :maker, "Fabriquant", :class => :label %>
     <%= f.text_field :maker, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :model, "Model", :class => :label %>
+    <%= f.label :model, "Modèle", :class => :label %>
     <%= f.text_field :model, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
@@ -65,39 +65,51 @@
     <span class="description">Ex: a simple text</span>
   </div>
 
+	<div class="group">
+    <%= f.label :numHd, "Nombre de disques", :class => :label %>
+    <%= f.text_field :numHd, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
   <div class="group">
-    <%= f.label :configHd, "Confighd", :class => :label %>
+    <%= f.label :configHd, "Configuration des disques", :class => :label %>
     <%= f.text_field :configHd, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :os, "Os", :class => :label %>
+    <%= f.label :os, "Système d'exploitation", :class => :label %>
     <%= f.text_field :os, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :osVersion, "Osversion", :class => :label %>
+    <%= f.label :osVersion, "Version", :class => :label %>
     <%= f.text_field :osVersion, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :osLang, "Oslang", :class => :label %>
+    <%= f.label :osLang, "Langue", :class => :label %>
     <%= f.text_field :osLang, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :location, "Location", :class => :label %>
+    <%= f.label :location, "Emplacement", :class => :label %>
     <%= f.text_field :location, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :rack, "Rack", :class => :label %>
+    <%= f.label :rack, "Cabinet", :class => :label %>
     <%= f.text_field :rack, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+	
+	<div class="group">
+    <%= f.label :rackPosition, "Position dans cabinet", :class => :label %>
+    <%= f.text_field :rackPosition, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
@@ -108,23 +120,11 @@
   </div>
 
   <div class="group">
-    <%= f.label :numHd, "Numhd", :class => :label %>
-    <%= f.text_field :numHd, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :rackPosition, "Rackposition", :class => :label %>
-    <%= f.text_field :rackPosition, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
     <%= f.label :location_id, "Location_id", :class => :label %>
     <%= f.text_field :location_id, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
         
 <div class="group navform">
-  <input type="submit" class="button" value="Save &rarr;" /> or <%= link_to 'Cancel', servers_path %>
+  <input type="submit" class="button" value="Sauvegarder &rarr;" /> or <%= link_to 'Annuler', servers_path %>
 </div>

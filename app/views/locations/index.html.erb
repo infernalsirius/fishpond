@@ -12,8 +12,9 @@
       <table class="table">
         <tr>             
           <th class="first">ID</th>
-          <th>Building</th>
-          <th>Created at</th>
+          <th>Bâtiment</th>
+          <th>Addresse</th>
+					<th>Étage</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @locations.each do |location| -%>
@@ -24,9 +25,12 @@
           <td>
             <%= link_to location.building, location_path(location) %>
           </td>
-          <td>
-            <%= location.created_at %>
-          </td>
+					<td>
+						<%= location.num %>
+					</td>
+					<td>
+						<%= location.floor %>
+					</td>
           <td class="last">
             <%= link_to 'show', location_path(location) %> |
             <%= link_to 'edit', edit_location_path(location) %> |

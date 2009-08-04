@@ -1,4 +1,5 @@
 class LicensesController < ApplicationController
+  before_filter :require_user
   layout 'dark'
   
   def index
@@ -10,7 +11,7 @@ class LicensesController < ApplicationController
   end
   
   def new
-    @license = License.New
+    @license = License.new
     @hardwares = Hardware.find(:all)
   end
   
@@ -18,7 +19,7 @@ class LicensesController < ApplicationController
     @license = License.new(params[:license])
     
     respond_to do |wants|
-      if license.save
+      if @license.save
           flash[:notice] = "La license a étée sauvegardée avec succès."
           wants.html { redirect_to licenses_path}
       else

@@ -9,7 +9,7 @@
   <div class="content">            
     <h2 class="title">Nouvel Accessoire</h2>
     <div class="inner">
-      <% form_for :accessory, :html => { :class => :form } do |f| -%>
+      <% form_for :accessory, :html => { :method => 'put', :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>

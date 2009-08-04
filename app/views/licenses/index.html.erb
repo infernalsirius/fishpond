@@ -1,19 +1,26 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first active"><%= link_to 'List', licenses_path %></li>
-      <li><%= link_to 'New', new_license_path %></li>
+      <li class="first active"><%= link_to 'Liste', licenses_path %></li>
+      <li><%= link_to 'Nouveau', new_license_path %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">          
-    <h2 class="title">All Licenses</h2>
+    <h2 class="title">Index des licenses</h2>
     <div class="inner">
       <table class="table">
         <tr>             
           <th class="first">ID</th>
-          <th>Software</th>
-          <th>Created at</th>
+          <th>Logiciel</th>
+          <th>Version</th>
+					<th>Langue</th>
+					<th>Numéro de série</th>	
+					<th>Type</th>
+					<th>Système d'exploitation</th>
+					<th>Utilisateur</th>
+					<th>Nombre de licenses</th>
+					<th>Nombre installées</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @licenses.each do |license| -%>
@@ -24,13 +31,34 @@
           <td>
             <%= link_to license.software, license_path(license) %>
           </td>
-          <td>
-            <%= license.created_at %>
-          </td>
+					<td>
+						<%= license.version %>
+					</td>
+					<td>
+						<%= license.language %>
+					</td>
+					<td>
+						<%= license.serial %>
+					</td>
+					<td>
+						<%= license.type %>
+					</td>
+					<td>
+						<%= license.os %>
+					</td>
+					<td>
+						<%= license.user %>
+					</td>
+					<td>
+						<%= license.numLicense %>
+					</td>
+					<td>
+						<%= license.numInstalled %>
+					</td>
           <td class="last">
-            <%= link_to 'show', license_path(license) %> |
-            <%= link_to 'edit', edit_license_path(license) %> |
-            <%= link_to 'destroy', license_path(license), :method => :delete, :confirm => 'Are you sure?' %>
+            <%= link_to 'Voir', license_path(license) %> |
+            <%= link_to 'Édition', edit_license_path(license) %> |
+            <%= link_to 'Détruire', license_path(license), :method => :delete, :confirm => 'Êtes-vous sûr?' %>
           </td>
         </tr>          
         <% end -%>

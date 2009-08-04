@@ -1,19 +1,22 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first active"><%= link_to 'List', accessories_path %></li>
-      <li><%= link_to 'New', new_accessory_path %></li>
+      <li class="first active"><%= link_to 'Liste', accessories_path %></li>
+      <li><%= link_to 'Nouveau', new_accessory_path %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">          
-    <h2 class="title">All Accessories</h2>
+    <h2 class="title">Tout les accessoires</h2>
     <div class="inner">
       <table class="table">
         <tr>             
           <th class="first">ID</th>
-          <th>Idnum</th>
-          <th>Created at</th>
+          <th>Numéro d'identification</th>
+          <th>Diagonale</th>
+					<th>Numéro de série</th>
+					<th>Fabriquant</th>
+					<th>Modèle</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @accessories.each do |accessory| -%>
@@ -21,16 +24,25 @@
           <td>
             <%= accessory.id %>
           </td>
-          <td>
-            <%= link_to accessory.idNum, accessory_path(accessory) %>
-          </td>
-          <td>
-            <%= accessory.created_at %>
-          </td>
+					<td>
+						<%= accessory.idNum %>
+					</td>
+					<td>
+						<%= accessory.diag %>
+					</td>
+					<td>
+						<%= accessory.serial %>
+					</td>
+					<td>
+						<%= accessory.maker %>
+					</td>
+					<td>
+						<%= accessory.model %>
+					</td>
           <td class="last">
-            <%= link_to 'show', accessory_path(accessory) %> |
-            <%= link_to 'edit', edit_accessory_path(accessory) %> |
-            <%= link_to 'destroy', accessory_path(accessory), :method => :delete, :confirm => 'Are you sure?' %>
+            <%= link_to 'Voir', accessory_path(accessory) %> |
+            <%= link_to 'Édition', edit_accessory_path(accessory) %> |
+            <%= link_to 'Détruire', accessory_path(accessory), :method => :delete, :confirm => 'Êtes-vous sûr?' %>
           </td>
         </tr>          
         <% end -%>

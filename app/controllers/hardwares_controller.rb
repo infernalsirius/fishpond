@@ -1,4 +1,5 @@
 class HardwaresController < ApplicationController
+  before_filter :require_user
   layout 'dark'
   
   def index
