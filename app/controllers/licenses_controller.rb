@@ -20,13 +20,17 @@ class LicensesController < ApplicationController
     
     respond_to do |wants|
       if @license.save
-          flash[:notice] = "La license a étée sauvegardée avec succès."
+          flash[:notice] = "La license a été sauvegardée avec succès."
           wants.html { redirect_to licenses_path}
       else
         flash[:notice] = "La license saisie n'a pus être sauvegardée."
         wants.html {render new_license_path}
       end
     end
+  end
+  
+  def show
+    @license = License.find(params[:id])
   end
   
   def edit
