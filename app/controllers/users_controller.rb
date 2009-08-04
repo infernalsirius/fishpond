@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-    before_filter :require_user, :only => [:index, :show, :update, :edit]
-    before_filter :require_no_user, :only => [:new, :create]
     layout 'dark'
     
     def index
