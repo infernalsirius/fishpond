@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_filter :require_user
   def index
     @locations = Location.find(:all)
     

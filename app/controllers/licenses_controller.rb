@@ -1,5 +1,5 @@
 class LicensesController < ApplicationController
-  
+  before_filter :require_user
   def index
     @licenses = License.find(:all)
     

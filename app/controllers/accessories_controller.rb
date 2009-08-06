@@ -1,4 +1,5 @@
 class AccessoriesController < ApplicationController
+  before_filter :require_user
   def index
     @accessories = Accessory.find(:all)
     
