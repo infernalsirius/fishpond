@@ -9,21 +9,21 @@
   <div id="container">
     <div id="header">
       <h1><a href="/">Fishpond 0.1 - Hardware & License Manager</a></h1>
-		<br />
-		<h3>
-			<a href="http://infernalsirius.lighthouseapp.com/projects/32738-network-hardware-manager/overview">
-				Pour créer un ticket ou pour toutes suggestions
-				<a/>
-		</h3>
       <div id="user-navigation">
         <ul>
 					<% if !current_user %>
 					  <li><%= link_to "Enregistrement", new_account_path %></li>
 					  <li><%= link_to "Connection", new_user_session_path %></li>
+						<li><a href="http://infernalsirius.lighthouseapp.com/projects/32738-network-hardware-manager/overview">
+							Ticket ou suggestions
+							<a/></li>
 					<% else %>
 					  <li><%= link_to "Profil", account_path(@account) %></li>
 						<li><a href="#">Paramètres</a></li>
 					  <li><%= link_to "Déconnection", user_session_path, :method => :delete, :confirm => "Voulez-vous vraiment déconnecter?" %></li>
+					  <li><a href="http://infernalsirius.lighthouseapp.com/projects/32738-network-hardware-manager/overview">
+						Ticket ou suggestions
+						<a/></li>
 					<% end %>
         </ul>
         <div class="clear"></div>
