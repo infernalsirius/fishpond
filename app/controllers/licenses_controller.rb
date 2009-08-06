@@ -1,7 +1,9 @@
 class LicensesController < ApplicationController
   before_filter :require_user
+  layout 'dark'
+  
   def index
-    @licenses = License.find(:all)
+    @licenses = License.paginate(:per_page => 10, :page => params[:page])
     
     respond_to do |wants|
       wants.html
@@ -17,14 +19,18 @@ class LicensesController < ApplicationController
     @license = License.new(params[:license])
     
     respond_to do |wants|
-      if license.save
-          flash[:notice] = "La license a étée sauvegardée avec succès."
+      if @license.save
+          flash[:notice] = "La license a été sauvegardée avec succès."
           wants.html { redirect_to licenses_path}
       else
         flash[:notice] = "La license saisie n'a pus être sauvegardée."
         wants.html {render new_license_path}
       end
     end
+  end
+  
+  def show
+    @license = License.find(params[:id])
   end
   
   def edit

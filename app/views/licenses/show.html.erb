@@ -1,0 +1,72 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'List', licenses_path  %></li>
+      <li><%= link_to 'New', new_license_path %></li>
+      <li class="active"><%= link_to 'Show', license_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b>Logiciel:</b>
+          <%= @license.software %>
+        </p>
+
+        <p>
+          <b>Version:</b>
+          <%= @license.version %>
+        </p>
+
+        <p>
+          <b>Langue:</b>
+          <%= @license.language %>
+        </p>
+
+        <p>
+          <b>Numéro de série:</b>
+          <%= @license.serial %>
+        </p>
+
+        <p>
+          <b>Utilisateur:</b>
+          <%= @license.user %>
+        </p>
+
+        <p>
+          <b>Système d'exploitation:</b>
+          <%= @license.os %>
+        </p>
+
+        <p>
+          <b>Type de license:</b>
+          <%= @license.licenseType %>
+        </p>
+
+        <p>
+          <b>Nombre de licenses:</b>
+          <%= @license.numLicense %>
+        </p>
+
+        <p>
+          <b>Nombre de licenses installées:</b>
+          <%= @license.numInstalled %>
+        </p>
+
+        <p>
+          <b>Installé sur:</b>
+          <%= @license.hardware_id %>
+        </p>
+
+        <p>
+          <b>Server_id:</b>
+          <%= @license.server_id %>
+        </p>
+      <%= link_to 'Edit', edit_license_path(@license) %>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

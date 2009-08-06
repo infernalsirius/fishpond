@@ -1,16 +1,22 @@
-<fieldset>
-	<legend>Ajout d'emplacement</legend>
-	<%= form.label :building, "Bâtiment" %>
-	<br />
-	<%= form.text_field :building %>*
-	<br />
-	<%= form.label :num, "Adresse" %>
-	<br />
-	<%= form.text_field :num %>*
-	<br />
-	<%= form.label :floor, "Étage" %>
-	<br />
-	<%= form.text_field :floor %>
 
-	<%= form.submit "Soumettre", :disable_with => 'Soumission...' %>	
-</fieldset>
+  <div class="group">
+    <%= f.label :building, "Bâtiment", :class => :label %>
+    <%= f.text_field :building, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :num, "Numéro", :class => :label %>
+    <%= f.text_field :num, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :floor, "Étage", :class => :label %>
+    <%= f.text_field :floor, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform">
+  <input type="submit" class="button" value="Sasuvegarder &rarr;" /> or <%= link_to 'Annuler', locations_path %>
+</div>

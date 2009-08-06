@@ -1,6 +1,9 @@
 class HardwaresController < ApplicationController
+  #before_filter :require_user
+  layout 'dark'
+  
   def index
-    @hardwares = Hardware.find(:all)
+    @hardwares = Hardware.paginate(:per_page => 10, :page => params[:page])
     
     respond_to do |wants|
       wants.html
@@ -8,7 +11,7 @@ class HardwaresController < ApplicationController
   end
   
   def show
-    @harware = Hardware.find(params[:id])
+    @hardware = Hardware.find(params[:id])
     
     respond_to do |wants|
       wants.html

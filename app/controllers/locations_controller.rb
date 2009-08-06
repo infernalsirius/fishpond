@@ -1,7 +1,9 @@
 class LocationsController < ApplicationController
   before_filter :require_user
+  layout 'dark'
+  
   def index
-    @locations = Location.find(:all)
+    @locations = Location.paginate(:per_page => 10, :page => params[:page])
     
     respond_to do |wants|
       wants.html
@@ -16,9 +18,9 @@ class LocationsController < ApplicationController
     @location = Location.new(params[:location])
     
     respond_to do |wants|
-      if license.save
+      if @location.save
           flash[:notice] = "L'emplacement a été sauvegardé avec succès."
-          wants.html { redirect_to location_path}
+          wants.html { redirect_to locations_path}
       else
         flash[:notice] = "L'emplacement saisi n'a pus être sauvegardé."
         wants.html {render new_location_path}

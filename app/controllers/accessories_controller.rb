@@ -1,7 +1,9 @@
 class AccessoriesController < ApplicationController
-  before_filter :require_user
+    before_filter :require_user
+    layout 'dark'
+
   def index
-    @accessories = Accessory.find(:all)
+    @accessories = Accessory.paginate(:per_page => 10, :page => params[:page])
     
     respond_to do |wants|
       wants.html
@@ -16,7 +18,7 @@ class AccessoriesController < ApplicationController
     @accessory = Accessory.new(params[:accessory])
     
     respond_to do |wants|
-      if accessory.save
+      if @accessory.save
           flash[:notice] = "Le  périphérique a été sauvegardé avec succès."
           wants.html { redirect_to accessories_path}
       else

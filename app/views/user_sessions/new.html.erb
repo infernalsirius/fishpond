@@ -1,15 +1,47 @@
-<h1>Authentification</h1>
-<h2>Fishpond ver. 0.1</h2>
- 
-<% form_for @user_session, :url => user_session_path do |f| %>
-  <%= f.error_messages %>
-  <%= f.label :login %><br />
-  <%= f.text_field :login %><br />
-  <br />
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
-  <br />
-  <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
-  <br />
-  <%= f.submit "Login" %>
-<% end %>
+<div class="block" id="block-login">
+  <h2>Login Box</h2>        
+  <div class="content login">
+    <div class="flash">
+      <% flash.each do |type, message| -%>
+      <div class="message <%%= type %>">
+        <p><%=  message %></p>
+      </div>
+      <% end -%>
+    </div>
+    <% form_for @user_session, :url => user_session_path, :html => {:class => 'form login'} do |f| -%>
+      <div class="group">
+        <div class="left">
+          <%= f.label :login,"Login", :class => :label %>
+        </div>
+        <div class="right">
+          <%= f.text_field :login, :class => :text_field %>
+        </div>              
+        <div class="clear"></div>
+      </div>
+      <div class="group">
+        <div class="left">
+          <%= f.label :password,"Mot de passe", :class => :label %>
+        </div>
+        <div class="right">
+          <%= f.text_field :password, :class => :text_field %>
+        </div>              
+        <div class="clear"></div>
+      </div>
+			<div class="group">
+        <div class="left">
+          <%= f.label :remember_me,"Rappelle toi de moi", :class => :label %>
+        </div>
+        <div class="right">
+          <%= f.check_box :remember_me %>
+        </div>              
+        <div class="clear"></div>
+      </div>
+      <div class="group navform">
+        <div class="right">
+        	<%= f.submit "Soumettre", :disable_with => 'Soumettre...' %>
+        </div>
+        <div class="clear"></div>
+      </div>            
+    <% end -%>
+  </div>
+</div>

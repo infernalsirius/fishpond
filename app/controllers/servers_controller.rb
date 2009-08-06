@@ -1,7 +1,9 @@
 class ServersController < ApplicationController
   before_filter :require_user
+  layout 'dark'
+  
   def index
-    @servers = Server.find(:all)
+    @servers = Server.paginate(:per_page => 10, :page => params[:page])
     
     respond_to do |wants|
       wants.html
@@ -16,7 +18,7 @@ class ServersController < ApplicationController
     @server = Server.new(params[:server])
     
     respond_to do |wants|
-      if server.save
+      if @server.save
           flash[:notice] = "Le serveur a été sauvegardé avec succès."
           wants.html { redirect_to servers_path}
       else
@@ -29,7 +31,7 @@ class ServersController < ApplicationController
   def show
     @server = Server.find(params[:id])
   end
-  
+    
   def edit
     @server = Server.find(params[:id])
   end
