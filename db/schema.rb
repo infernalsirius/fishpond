@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(:version => 20090728224109) do
     t.string   "model"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "server_id"
-    t.integer  "harware_id"
   end
 
   add_index "accessories", ["maker"], :name => "index_accessories_on_maker"
@@ -34,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20090728224109) do
     t.string   "serial"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "location_id"
   end
 
   add_index "hardwares", ["maker"], :name => "index_hardwares_on_maker"
@@ -52,8 +49,6 @@ ActiveRecord::Schema.define(:version => 20090728224109) do
     t.integer  "numInstalled"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "hardware_id"
-    t.integer  "server_id"
   end
 
   add_index "licenses", ["os"], :name => "index_licenses_on_os"
@@ -88,7 +83,6 @@ ActiveRecord::Schema.define(:version => 20090728224109) do
     t.string  "relation"
     t.integer "numHd"
     t.integer "rackPosition"
-    t.integer "location_id"
   end
 
   add_index "servers", ["servName"], :name => "index_servers_on_servName"
