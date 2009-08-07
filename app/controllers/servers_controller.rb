@@ -12,6 +12,7 @@ class ServersController < ApplicationController
   
   def new
     @server = Server.new
+    @locations = Location.find(:all)
   end
   
   def create

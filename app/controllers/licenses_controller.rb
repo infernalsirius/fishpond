@@ -13,6 +13,7 @@ class LicensesController < ApplicationController
   def new
     @license = License.new
     @hardwares = Hardware.find(:all)
+    @servers = Server.find(:all)
   end
   
   def create

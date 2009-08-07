@@ -7,7 +7,7 @@
     <div class="clear"></div>
   </div>          
   <div class="content">          
-    <h2 class="title">Matériel</h2>
+    <h2 class="title">Index du matériel</h2>
     <div class="inner">
       <table class="table">
         <tr>             
@@ -16,7 +16,6 @@
 					<th>Fabriquant</th>
 					<th>Modèle</th>
 					<th>Numéro de série</th>
-					<th>Adresse MAC</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @hardwares.each do |h| -%>
@@ -26,7 +25,6 @@
 					<td><%= h.maker %></td>
 					<td><%= h.model %></td>
 					<td><%= h.serial %></td>
-					<td><%= h.mac %></td>
           <td class="last">
             <%= link_to 'Voir', hardware_path(h) %> | 
 						<%= link_to "Éditer", edit_hardware_path(h.id) %> |

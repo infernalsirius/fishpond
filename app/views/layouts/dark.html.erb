@@ -15,21 +15,22 @@
 					  <li><%= link_to "Enregistrement", new_account_path %></li>
 					  <li><%= link_to "Connection", new_user_session_path %></li>
 						<li><a href="http://infernalsirius.lighthouseapp.com/projects/32738-network-hardware-manager/overview">
-							Ticket ou suggestions
+							Ticket / Suggestions
 							<a/></li>
 					<% else %>
 					  <li><%= link_to "Profil", account_path(@account) %></li>
 						<li><a href="#">Paramètres</a></li>
 					  <li><%= link_to "Déconnection", user_session_path, :method => :delete, :confirm => "Voulez-vous vraiment déconnecter?" %></li>
 					  <li><a href="http://infernalsirius.lighthouseapp.com/projects/32738-network-hardware-manager/overview">
-						Ticket ou suggestions
+						Ticket / Suggestions
 						<a/></li>
 					<% end %>
         </ul>
         <div class="clear"></div>
       </div>      
       <div id="main-navigation">
-        <ul> <li class="<%= controller.controller_path == 'hardwares' ? 'active' : '' %>"><a href="<%= hardwares_path %>">Matériel</a></li> <li class="<%= controller.controller_path == 'accessories' ? 'active' : '' %>"><a href="<%= accessories_path %>">Accessoires</a></li> <li class="<%= controller.controller_path == 'licenses' ? 'active' : '' %>"><a href="<%= licenses_path %>">Licenses</a></li> <li class="<%= controller.controller_path == 'locations' ? 'active' : '' %>"><a href="<%= locations_path %>">Emplacements</a></li> <li class="<%= controller.controller_path == 'servers' ? 'active' : '' %>"><a href="<%= servers_path %>">Serveurs</a></li> <li class="<%= controller.controller_path == 'users' ? 'active' : '' %>"><a href="<%= users_path %>">Utilisateurs</a></li></ul>
+        <ul>
+					<li class="<%= controller.controller_path == 'hardwares' ? 'active' : '' %>"><a href="<%= hardwares_path %>">Matériel</a></li> <li class="<%= controller.controller_path == 'accessories' ? 'active' : '' %>"><a href="<%= accessories_path %>">Périphériques</a></li> <li class="<%= controller.controller_path == 'licenses' ? 'active' : '' %>"><a href="<%= licenses_path %>">Licenses</a></li> <li class="<%= controller.controller_path == 'locations' ? 'active' : '' %>"><a href="<%= locations_path %>">Emplacements</a></li> <li class="<%= controller.controller_path == 'servers' ? 'active' : '' %>"><a href="<%= servers_path %>">Serveurs</a></li><li><a href="#">Consommables</a></li><li class="<%= controller.controller_path == 'users' ? 'active' : '' %>"><a href="<%= users_path %>">Utilisateurs</a></li></ul>
         <div class="clear"></div>
       </div>
     </div>    

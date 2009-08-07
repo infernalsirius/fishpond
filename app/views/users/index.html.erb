@@ -1,13 +1,13 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first active"><%= link_to 'List', users_path %></li>
-      <li><%= link_to 'New', new_user_path %></li>
+      <li class="first active"><%= link_to 'Liste', users_path %></li>
+      <li><%= link_to 'Nouveau', new_user_path %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">          
-    <h2 class="title">All Users</h2>
+    <h2 class="title">Index des utilisateurs</h2>
     <div class="inner">
       <table class="table">
         <tr>             
@@ -28,9 +28,9 @@
             <%= user.created_at %>
           </td>
           <td class="last">
-            <%= link_to 'show', user_path(user) %> |
-            <%= link_to 'edit', edit_user_path(user) %> |
-            <%= link_to 'destroy', user_path(user), :method => :delete, :confirm => 'Are you sure?' %>
+            <%= link_to 'Voir', user_path(user) %> |
+            <%= link_to 'Édition', edit_user_path(user) %> |
+            <%= link_to 'Détruire', user_path(user), :method => :delete, :confirm => 'Êtes-vous sûr?' %>
           </td>
         </tr>          
         <% end -%>
