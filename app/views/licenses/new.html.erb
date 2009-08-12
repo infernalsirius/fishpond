@@ -6,8 +6,8 @@
     </ul>
     <div class="clear"></div>
   </div> 
-	<%= error_messages_for :license %>         
-  <div class="content">            
+  <div class="content">
+		<%= error_messages_for :license %>                 
     <h2 class="title">Nouvelle license</h2>
     <div class="inner">
       <% form_for :license, :url => licenses_path, :html => { :class => :form } do |f| -%>
