@@ -18,6 +18,8 @@ class LicensesController < ApplicationController
   
   def create
     @license = License.new(params[:license])
+    @hardwares = Hardware.find(:all)
+    @servers = Server.find(:all)
     
     respond_to do |wants|
       if @license.save
@@ -25,7 +27,7 @@ class LicensesController < ApplicationController
           wants.html { redirect_to licenses_path}
       else
         flash[:notice] = "La license saisie n'a pus être sauvegardée."
-        wants.html {render new_license_path}
+        wants.html {render new_license_path, :layout => 'dark'}
       end
     end
   end

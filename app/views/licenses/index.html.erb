@@ -14,13 +14,9 @@
           <th class="first">ID</th>
           <th>Logiciel</th>
           <th>Version</th>
-					<th>Langue</th>
-					<th>Numéro de série</th>	
 					<th>Type</th>
 					<th>Système d'exploitation</th>
-					<th>Utilisateur</th>
 					<th>Nombre de licenses</th>
-					<th>Nombre installées</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @licenses.each do |license| -%>
@@ -35,25 +31,13 @@
 						<%= license.version %>
 					</td>
 					<td>
-						<%= license.language %>
-					</td>
-					<td>
-						<%= license.serial %>
-					</td>
-					<td>
 						<%= license.type %>
 					</td>
 					<td>
 						<%= license.os %>
 					</td>
 					<td>
-						<%= license.user %>
-					</td>
-					<td>
 						<%= license.numLicense %>
-					</td>
-					<td>
-						<%= license.numInstalled %>
 					</td>
           <td class="last">
             <%= link_to 'Voir', license_path(license) %> |

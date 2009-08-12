@@ -14,54 +14,44 @@
           <b>Logiciel:</b>
           <%= @license.software %>
         </p>
-
         <p>
           <b>Version:</b>
           <%= @license.version %>
         </p>
-
+				<p>
+          <b>Type de license:</b>
+          <%= @license.licenseType %>
+        </p>
         <p>
           <b>Langue:</b>
           <%= @license.language %>
         </p>
-
+				<p>
+          <b>Système d'exploitation:</b>
+          <%= @license.os %>
+        </p>
         <p>
           <b>Numéro de série:</b>
           <%= @license.serial %>
         </p>
-
         <p>
           <b>Utilisateur:</b>
           <%= @license.user %>
         </p>
-
-        <p>
-          <b>Système d'exploitation:</b>
-          <%= @license.os %>
-        </p>
-
-        <p>
-          <b>Type de license:</b>
-          <%= @license.licenseType %>
-        </p>
-
         <p>
           <b>Nombre de licenses:</b>
           <%= @license.numLicense %>
         </p>
-
         <p>
           <b>Nombre de licenses installées:</b>
           <%= @license.numInstalled %>
         </p>
-
         <p>
-          <b>Installé sur:</b>
+          <b>Installé sur poste:</b>
           <%= @license.hardware_id %>
         </p>
-
         <p>
-          <b>Server_id:</b>
+          <b>Installé sur serveur:</b>
           <%= @license.server_id %>
         </p>
       <%= link_to 'Edit', edit_license_path(@license) %>
