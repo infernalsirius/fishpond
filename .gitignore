@@ -7,3 +7,5 @@ config/initializers/site_keys.rb
 .sitemanager.dat
 *.sqlite3
 *.db
+config/deploy.rb
+config/database.yml
