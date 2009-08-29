@@ -37,4 +37,13 @@ class UsersController < ApplicationController
         render :action => :edit
       end
     end
+    
+    def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+
+      respond_to do |wants|
+        wants.html { redirect_to users_path }
+      end      
+    end
 end
