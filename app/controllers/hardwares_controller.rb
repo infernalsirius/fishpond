@@ -26,6 +26,7 @@ class HardwaresController < ApplicationController
   def edit
     @hardware = Hardware.find(params[:id])
     @servers = Server.find(:all)
+    @locations = Location.find(:all)
   end
   
   def create
