@@ -41,6 +41,18 @@
         </p>
       <%= link_to 'Éditer', edit_hardware_path(@hardware) %>
     </div>
+		<div class="inner">
+			<table>
+				<th>Logiciel</th>
+				<th>Numéro de série</th>
+				<% @hardware.licenses.each do |lic| %>
+					<tr>
+						<td><%= lic.software %></td>
+						<td><%= lic.serial %></td>
+					</tr>
+				<% end -%>
+			</table>
+		</div>
   </div>
 </div>
 
