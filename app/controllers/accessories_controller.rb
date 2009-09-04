@@ -18,6 +18,8 @@ class AccessoriesController < ApplicationController
   
   def create
     @accessory = Accessory.new(params[:accessory])
+    @hardwares = Hardware.find(:all)
+    @servers = Server.find(:all)
     
     respond_to do |wants|
       if @accessory.save
@@ -25,7 +27,7 @@ class AccessoriesController < ApplicationController
           wants.html { redirect_to accessories_path}
       else
         flash[:notice] = "Le périphérique saisi n'a pus être sauvegardé."
-        wants.html {render new_accessory_path}
+        wants.html {render new_accessory_path, :layout => 'dark'}
       end
     end
   end

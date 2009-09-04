@@ -31,6 +31,7 @@ class HardwaresController < ApplicationController
   
   def create
     @hardware = Hardware.new(params[:hardware])
+    @locations = Location.find(:all)
     
     respond_to do |wants|
       if @hardware.save
@@ -38,7 +39,7 @@ class HardwaresController < ApplicationController
         wants.html { redirect_to hardwares_path }
       else
         flash[:notice] = "Le matériel n'a pas été sauvegardé"
-        wants.html { render new_hardware_path }
+        wants.html { render new_hardware_path, :layout => 'dark' }
       end
     end
   end

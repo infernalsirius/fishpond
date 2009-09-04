@@ -6,9 +6,9 @@
     </ul>
     <div class="clear"></div>
   </div> 
-  <div class="content">
-		<%= error_messages_for :license %>                 
+  <div class="content">               
     <h2 class="title">Nouvelle license</h2>
+   	<%= error_messages_for :license %>
     <div class="inner">
       <% form_for :license, :url => licenses_path, :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>

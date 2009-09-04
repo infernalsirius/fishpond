@@ -23,7 +23,7 @@ class LocationsController < ApplicationController
           wants.html { redirect_to locations_path}
       else
         flash[:notice] = "L'emplacement saisi n'a pus être sauvegardé."
-        wants.html {render new_location_path}
+        wants.html {render new_location_path, :layout => 'dark'}
       end
     end
   end

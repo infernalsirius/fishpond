@@ -34,6 +34,10 @@ class LicensesController < ApplicationController
   
   def show
     @license = License.find(params[:id])
+    
+    respond_to do |wants|
+      wants.html
+    end
   end
   
   def edit

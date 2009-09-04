@@ -17,14 +17,15 @@ class ServersController < ApplicationController
   
   def create
     @server = Server.new(params[:server])
-    
+    @locations = Location.find(:all)
+
     respond_to do |wants|
       if @server.save
           flash[:notice] = "Le serveur a été sauvegardé avec succès."
           wants.html { redirect_to servers_path}
       else
         flash[:notice] = "Le serveur saisi n'a pus être sauvegardé."
-        wants.html {render new_server_path}
+        wants.html {render new_server_path, :layout => 'dark'}
       end
     end
   end
