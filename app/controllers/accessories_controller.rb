@@ -38,6 +38,8 @@ class AccessoriesController < ApplicationController
   
   def edit
     @accessory = Accessory.find(params[:id])
+    @hardwares = Hardware.find(:all)
+    @servers = Server.find(:all)
   end
   
   def update

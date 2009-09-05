@@ -42,6 +42,8 @@ class LicensesController < ApplicationController
   
   def edit
     @license = License.find(params[:id])
+    @hardwares = Hardware.find(:all)
+    @servers = Server.find(:all)
   end
   
   def update

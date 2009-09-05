@@ -13,9 +13,9 @@
         <tr>             
           <th class="first">ID</th>
           <th>Numéro d'identification</th>
-          <th>Diagonale</th>
 					<th>Fabriquant</th>
 					<th>Modèle</th>
+					<th>Diagonale</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @accessories.each do |accessory| -%>
@@ -27,13 +27,13 @@
 						<%= accessory.idNum %>
 					</td>
 					<td>
-						<%= accessory.diag %>
-					</td>
-					<td>
 						<%= accessory.maker %>
 					</td>
 					<td>
 						<%= accessory.model %>
+					</td>
+					<td>
+						<%= accessory.diag %>
 					</td>
           <td class="last">
             <%= link_to 'Voir', accessory_path(accessory) %> |
