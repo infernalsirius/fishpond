@@ -18,7 +18,7 @@
 							Ticket / Suggestions
 							<a/></li>
 					<% else %>
-					  <li><%= link_to "Profil", account_path(@account) %></li>
+					  <li><%= link_to "Profil", profile_user_path(current_user) %></li>
 						<li><a href="#">Paramètres</a></li>
 					  <li><%= link_to "Déconnection", user_session_path, :method => :delete, :confirm => "Voulez-vous vraiment déconnecter?" %></li>
 					  <li><a href="http://infernalsirius.lighthouseapp.com/projects/32738-network-hardware-manager/overview">
@@ -46,7 +46,8 @@
         <%= yield %>
         <div id="footer">
           <div class="block">
-            <p>Copyright &copy; 2009 fishpond.</p>
+            <p>Copyright &copy; 2009 Patrick Meunier en collaboration avec 
+							<a href="http://www.edison.ca">Edison Communication.</a></p>
           </div>      
         </div>
       </div>

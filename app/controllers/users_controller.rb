@@ -26,7 +26,7 @@ class UsersController < ApplicationController
           flash[:notice] = "Compte enregistré!"
             wants.html { redirect_back_or_default new_user_session_path }
         else
-          wants.html { render new_user_path }
+          wants.html { render new_user_path, :layout => "dark" }
         end
       end
     end
@@ -41,10 +41,6 @@ class UsersController < ApplicationController
 
     def edit
       @user = @current_user
-      
-      respond_to do |wants|
-        wants.html
-      end
     end
 
     def update
@@ -67,5 +63,13 @@ class UsersController < ApplicationController
       respond_to do |wants|
         wants.html { redirect_to users_path }
       end      
+    end
+    
+    def profile
+      @user = current_user
+      
+      respond_to do |wants|
+        wants.html { render :action => "show" }
+      end
     end
 end
