@@ -21,12 +21,20 @@ class HardwaresController < ApplicationController
   def new
     @hardware = Hardware.new
     @locations = Location.find(:all)
+    
+    respond_to do |wants|
+      wants.html
+    end
   end
   
   def edit
     @hardware = Hardware.find(params[:id])
     @servers = Server.find(:all)
     @locations = Location.find(:all)
+    
+    respond_to do |wants|
+      wants.html
+    end
   end
   
   def create

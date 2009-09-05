@@ -4,37 +4,59 @@ class UsersController < ApplicationController
     
     def index
       @users = User.paginate(:per_page => 10, :page => params[:page])
+      
+      respond_to do |wants|
+        wants.html
+      end
     end
     
     def new
       @user = User.new
+      
+      respond_to do |wants|
+        wants.html
+      end
     end
 
     def create
       @user = User.new(params[:user])
-      if @user.save
-        flash[:notice] = "Compte enregistré!"
-        redirect_back_or_default new_user_session_path
-      else
-        render :action => :new
+      
+      respond_to do |wants|
+        if @user.save
+          flash[:notice] = "Compte enregistré!"
+            wants.html { redirect_back_or_default new_user_session_path }
+        else
+          wants.html { render new_user_path }
+        end
       end
     end
 
     def show
-      @user = @current_user
+      @user = User.find(params[:id])
+      
+      respond_to do |wants|
+        wants.html
+      end
     end
 
     def edit
       @user = @current_user
+      
+      respond_to do |wants|
+        wants.html
+      end
     end
 
     def update
       @user = @current_user # makes our views "cleaner" and more consistent
-      if @user.update_attributes(params[:user])
-        flash[:notice] = "Compte mis à jour!"
-        redirect_to account_url
-      else
-        render :action => :edit
+      
+      respond_to do |wants|
+        if @user.update_attributes(params[:user])
+          flash[:notice] = "Compte mis à jour!"
+          wants.html { redirect_to account_path }
+        else
+          wants.html { render edit_user_path(:id) }
+        end
       end
     end
     
