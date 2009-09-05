@@ -18,7 +18,7 @@
           <th class="last">&nbsp;</th>
         </tr>
         <% @locations.each do |location| -%>
-        <tr>
+        <tr class='<%= cycle("even", "odd") %>'>
           <td>
             <%= location.id %>
           </td>

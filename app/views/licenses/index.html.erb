@@ -20,7 +20,7 @@
           <th class="last">&nbsp;</th>
         </tr>
         <% @licenses.each do |license| -%>
-        <tr>
+        <tr class='<%= cycle("even", "odd") %>'>
           <td>
             <%= license.id %>
           </td>

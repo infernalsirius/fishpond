@@ -17,7 +17,7 @@
           <th class="last">&nbsp;</th>
         </tr>
         <% @servers.each do |server| -%>
-        <tr>
+        <tr class='<%= cycle("even", "odd") %>'>
           <td><%= server.id %></td>
 					<td><%= server.servName %></td>
 					<td><%= server.privIp %></td>

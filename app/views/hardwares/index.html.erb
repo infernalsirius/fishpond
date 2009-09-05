@@ -19,7 +19,7 @@
           <th class="last">&nbsp;</th>
         </tr>
         <% @hardwares.each do |h| -%>
-        <tr>
+        <tr class='<%= cycle("even", "odd") %>'>
 					<td><%= h.id %></td>
 					<td><%= h.idNum %></td>
 					<td><%= h.maker %></td>

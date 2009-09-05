@@ -8,7 +8,6 @@
   </div>          
   <div class="content">            
     <h2 class="title">Enregistrement</h2>
-		<%= error_messages_for :user %>
     <div class="inner">
       <% form_for :user, :url => users_path, :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
