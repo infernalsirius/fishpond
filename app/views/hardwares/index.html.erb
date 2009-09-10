@@ -21,7 +21,7 @@
         <% @hardwares.each do |h| -%>
         <tr class='<%= cycle("even", "odd") %>'>
 					<td><%= h.id %></td>
-					<td><%= h.idNum %></td>
+					<td><%= link_to h.idNum, hardware_path(h) %></td>
 					<td><%= h.maker %></td>
 					<td><%= h.model %></td>
 					<td><%= h.serial %></td>
