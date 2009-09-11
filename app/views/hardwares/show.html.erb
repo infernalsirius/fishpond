@@ -47,7 +47,7 @@
 				<th>Numéro de série</th>
 				<% @hardware.licenses.each do |lic| %>
 					<tr class='<%= cycle("even", "odd") %>'>
-						<td><%= lic.software %></td>
+						<td><%= link_to lic.software, license_path(lic) %></td>
 						<td><%= lic.serial %></td>
 					</tr>
 				<% end -%>
