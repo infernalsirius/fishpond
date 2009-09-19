@@ -1,10 +1,10 @@
 <div class="block">
-  <h3>Simple Block</h3>
+  <h3>Ajout de données pour les listes déroulantes</h3>
   <div class="content">
-    <% form_for @maker, :html => {:class => :form}do |f| -%>
-      <%= f.label :Name, "Frabriquant" %>
-			<%= f.text_field :name %>
-			<%= f.submit "Soumettre", :disable_with => 'Soumis...' %>
+    <% remote_form_for :maker, :html => {:class => :form} do |f| -%>
+      <%= f.label :Name, "Fabriquant", :class => "label" %>
+			<%= f.text_field :name, :class => "text_field" %>
+			<%= f.submit "Soumettre"%>
     <% end -%>
   </div>
 </div>

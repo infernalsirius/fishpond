@@ -1,6 +1,6 @@
 class HardwaresController < ApplicationController
   before_filter :require_user
-  layout 'dark'
+  layout 'dark', :except => [:add_maker]
   
   def index
     @hardwares = Hardware.paginate(:per_page => 10, :page => params[:page])
@@ -72,6 +72,15 @@ class HardwaresController < ApplicationController
     
     respond_to do |wants|
       wants.html { redirect_to hardwares_path }
+    end
+  end
+  
+  # ajax method
+  def add_maker
+    @maker = Maker.new(params[:maker])
+    
+    respond_to do |wants|
+      wants.js
     end
   end
   
