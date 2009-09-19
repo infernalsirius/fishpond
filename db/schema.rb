@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090806172947) do
+ActiveRecord::Schema.define(:version => 20090806172953) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20090806172947) do
 
   add_index "accessories", ["maker"], :name => "index_accessories_on_maker"
   add_index "accessories", ["model"], :name => "index_accessories_on_model"
+
+  create_table "criticals", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "hardwares", :force => true do |t|
     t.integer  "idNum"
@@ -63,6 +75,24 @@ ActiveRecord::Schema.define(:version => 20090806172947) do
     t.string   "building"
     t.integer  "num"
     t.integer  "floor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "makers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "operating_systems", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "postes", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

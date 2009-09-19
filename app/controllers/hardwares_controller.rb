@@ -20,6 +20,7 @@ class HardwaresController < ApplicationController
   
   def new
     @hardware = Hardware.new
+    @maker = Maker.new
     @locations = Location.find(:all)
     
     respond_to do |wants|
