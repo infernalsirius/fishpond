@@ -27,6 +27,11 @@
     <span class="description">Alphanumérique</span>
   </div>
 
+	<div class="group">
+		<%= f.label :department, "Département", :class => :label%>
+		<%= f.collection_select :department_id, @departments, :id, :name, :prompt => "tada!" %>
+	</div>
+
   <div class="group">
     <%= f.label :location_id, "Emplacement", :class => :label %>
     <%= f.collection_select :location_id, @locations, :id, :building, :prompt => "tada"%>

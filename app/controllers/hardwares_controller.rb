@@ -21,6 +21,8 @@ class HardwaresController < ApplicationController
   def new
     @hardware = Hardware.new
     @maker = Maker.new
+    @departments = Department.find(:all)
+    @makers = Maker.find(:all)
     @locations = Location.find(:all)
     
     respond_to do |wants|
@@ -40,6 +42,9 @@ class HardwaresController < ApplicationController
   
   def create
     @hardware = Hardware.new(params[:hardware])
+    @maker = Maker.new
+    @departments = Department.find(:all)
+    @makers = Maker.find(:all)
     @locations = Location.find(:all)
     
     respond_to do |wants|
@@ -80,7 +85,7 @@ class HardwaresController < ApplicationController
     @maker = Maker.new(params[:maker])
     
     respond_to do |wants|
-      wants.js
+      wants.js 
     end
   end
   

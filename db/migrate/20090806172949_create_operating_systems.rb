@@ -2,7 +2,6 @@ class CreateOperatingSystems < ActiveRecord::Migration
   def self.up
     create_table :operating_systems do |t|
       t.string :name
-
       t.timestamps
     end
   end
