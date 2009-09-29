@@ -1,6 +1,6 @@
 class CreateHardwares < ActiveRecord::Migration
   def self.up
-    create_table :hardwares, :force => true do |t|
+    create_table :hardwares do |t|
       t.integer :idNum
       t.string :maker, :mac, :model, :serial
       t.timestamps
