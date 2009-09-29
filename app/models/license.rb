@@ -1,6 +1,6 @@
 class License < ActiveRecord::Base
   belongs_to :hardware
-  has_many :servers
+  belongs_to :server
   
   validates_uniqueness_of :serial, :on => :create, :message => "a déjà été enregistrer"
   validates_presence_of :serial, :software, :version, :language, :user, 
