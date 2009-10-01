@@ -6,7 +6,7 @@ end
   Maker.find_or_create_by_name(maker)
 end
 
-["Ordinare", "Imprimante", "Portable", "Serveur", "Terminal"].each do |poste|
+["Ordinaire", "Imprimante", "Portable", "Serveur", "Terminal"].each do |poste|
   Poste.find_or_create_by_name(poste)
 end
 
