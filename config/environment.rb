@@ -21,7 +21,6 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "authlogic", :sources => "http://gems.github.com"
   config.gem "searchlogic", :sources => "http://gems.github.com"
-  config.gem "mysql"
   config.gem "thin"
   config.gem "newrelic_rpm"
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'

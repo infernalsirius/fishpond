@@ -10,7 +10,7 @@ end
   Poste.find_or_create_by_name(poste)
 end
 
-["Administration", "Production", "Rédaction", "Salle Serveurs", "Tirage", "Vente/Publicité"].each do |dept|
+["Administration", "Production", "Rédaction", "Informatique", "Tirage", "Vente/Publicité"].each do |dept|
   Department.find_or_create_by_name(dept)
 end
 

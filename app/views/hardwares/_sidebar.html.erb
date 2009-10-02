@@ -1,13 +1,13 @@
 <div class="block">
   <h3>Ajout de données pour les listes déroulantes</h3>
   <div class="content">
-    <% remote_form_for :maker, :html => {:class => :form} do |f| -%>
+    <% remote_form_for @maker, :url => new_maker_path, :html => {:method => :get} do |f| %>
 			<div class="group">
 				<%= f.label :Name, "Fabriquant", :class => "label" %>
 				<%= f.text_field :name, :class => "text_field" %>
 			</div>
 			<div class="group navform">
-			  <%= f.submit "Soumettre", :class => :button %> or <%= link_to 'Annuler', makers_path %>
+			  <%= f.submit "Soumettre", :class => :button %>
 			</div>
     <% end -%>
   </div>

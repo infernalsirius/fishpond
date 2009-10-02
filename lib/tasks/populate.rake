@@ -17,11 +17,11 @@ namespace :db do
       License.populate 2..10 do |l|
         l.software = Populator.words(1..3).titleize
         l.serial = 234254..234560982
-        l.type = Populator.words(1).titleize
+        l.licenseType = Populator.words(1).titleize
         l.version = 1..10
         l.user = "Le Soleil"
         l.language = ["Français", "Anglais"]
-        l.os = ['OS X', 'Windows','Debian','Centos', 'Sun', 'Mac OS']
+        l.os = ['OS X', 'Windows','Linux', 'Sun', 'Mac OS']
       end
       
       Accessory.populate 3 do |a|

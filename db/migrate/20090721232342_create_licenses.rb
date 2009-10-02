@@ -1,7 +1,7 @@
 class CreateLicenses < ActiveRecord::Migration
   def self.up
     create_table :licenses, :force => true do |t|
-      t.string :software, :version, :language, :serial, :user, :os, :type
+      t.string :software, :version, :language, :serial, :user, :os, :licenseType
       t.integer :numLicense, :numInstalled
       t.timestamps
     end
