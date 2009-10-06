@@ -3,33 +3,28 @@
     <%= f.text_field :idNum, :class => 'text_field' %>
     <span class="description">Alphanumérique</span>
   </div>
-
   <div class="group">
     <%= f.label :maker, "Fabriquant", :class => :label %>
     <%= f.text_field :maker, :class => 'text_field' %>
   </div>
-
-  <div class="group">
-    <%= f.label :mac, "Adresse mac", :class => :label %>
-    <%= f.text_field :mac, :class => 'text_field' %>
-    <span class="description">Sous cette forme: "11:dd:1d:dd"</span>
-  </div>
-
   <div class="group">
     <%= f.label :model, "Modèle", :class => :label %>
     <%= f.text_field :model, :class => 'text_field' %>
     <span class="description">Alphanumérique</span>
   </div>
-
   <div class="group">
     <%= f.label :serial, "Numéro de série", :class => :label %>
     <%= f.text_field :serial, :class => 'text_field' %>
     <span class="description">Alphanumérique</span>
   </div>
-
   <div class="group">
     <%= f.label :location_id, "Emplacement", :class => :label %>
     <%= f.collection_select :location_id, @locations, :id, :building, :prompt => true%>
+  </div>
+	<div class="group">
+    <%= f.label :mac, "Adresse mac", :class => :label %>
+    <%= f.text_field :mac, :class => 'text_field' %>
+    <span class="description">Sous cette forme: "11:dd:1d:dd"</span>
   </div>
         
 <div class="group navform">
