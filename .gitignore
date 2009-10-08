@@ -9,3 +9,6 @@ config/initializers/site_keys.rb
 *.db
 config/deploy.rb
 config/database.yml
+config/deploy
+config/deploy/production.rb
+config/deploy/staging.rb

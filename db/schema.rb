@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090806172947) do
+ActiveRecord::Schema.define(:version => 20091007232845) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
@@ -26,15 +26,38 @@ ActiveRecord::Schema.define(:version => 20090806172947) do
   add_index "accessories", ["maker"], :name => "index_accessories_on_maker"
   add_index "accessories", ["model"], :name => "index_accessories_on_model"
 
+  create_table "criticals", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "hardwares", :force => true do |t|
     t.integer  "idNum"
     t.string   "maker"
-    t.string   "mac"
+    t.string   "mac1"
     t.string   "model"
     t.string   "serial"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.integer  "os"
+    t.integer  "poste_id"
+    t.integer  "critical_id"
+    t.integer  "department_id"
+    t.integer  "maker_id"
+    t.integer  "operating_system_id"
+    t.string   "fonction"
+    t.integer  "ram"
+    t.integer  "disk1"
+    t.integer  "disk2"
+    t.string   "mac2"
   end
 
   add_index "hardwares", ["maker"], :name => "index_hardwares_on_maker"
@@ -63,6 +86,24 @@ ActiveRecord::Schema.define(:version => 20090806172947) do
     t.string   "building"
     t.integer  "num"
     t.integer  "floor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "makers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "operating_systems", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "postes", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
