@@ -4,8 +4,9 @@
   <span class="description">Alphanumérique</span>
 </div>
 <div class="group">
-   <%= f.label :maker, "Fabriquant", :class => :label %>
-   <%= f.text_field :maker, :class => 'text_field' %>
+  <%= f.label :maker, "Fabriquant", :class => :label %>
+	<%= f.collection_select :maker_id, @makers, :id, :name, :prompt =>  true%>
+	<%= link_to "Ajouter", new_maker_path %>
 </div>
 <div class="group">
   <%= f.label :model, "Modèle", :class => :label %>
