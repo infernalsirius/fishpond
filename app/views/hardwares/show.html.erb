@@ -22,9 +22,14 @@
 
         <p>
           <b>Adresse mac:</b>
-          <%= @hardware.mac %>
+          <%= @hardware.mac1 %>
         </p>
-
+				<% if @hardware.mac2 %>
+					<p>
+						<b>Adresse mac 2:</b>
+	          <%= @hardware.mac2 %>
+					</p>
+				<% end -%>
         <p>
           <b>Modèle:</b>
           <%= @hardware.model %>
