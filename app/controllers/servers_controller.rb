@@ -13,6 +13,8 @@ class ServersController < ApplicationController
   def new
     @server = Server.new
     @locations = Location.find(:all)
+    @makers = Maker.find(:all)
+    @os = OperatingSystem.find(:all)
   end
   
   def create
@@ -36,6 +38,9 @@ class ServersController < ApplicationController
     
   def edit
     @server = Server.find(params[:id])
+    @makers = Maker.find(:all)
+    @os = OperatingSystem.find(:all)
+    @locations = Location.find(:all)
   end
   
   def update

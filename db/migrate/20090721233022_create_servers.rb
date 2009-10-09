@@ -2,9 +2,10 @@ class CreateServers < ActiveRecord::Migration
   def self.up
     create_table :servers, :force => true do |t|
       t.string :usage, :privIp, :pubIp, :servName, :priUrl, :secUrl, 
-                :usrLocal, :passLocal, :maker, :model, :raid, :configHd,
-                :os, :osVersion, :osLang, :location, :rack, :relation
-      t.integer :numHd, :rackPosition
+                :usrLocal, :passLocal, :raid, :configHd, :osVersion, :osLang, 
+                :location, :rack, :relation
+      t.integer :numHd, :rackPosition, :model_id, :maker_id, :operating_system_id, 
+                :department_id, :location_id
     end
     add_index :servers, :servName
   end
