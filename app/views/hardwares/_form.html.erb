@@ -1,41 +1,56 @@
-  <div class="group">
-    <%= f.label :idNum, "Identifiant", :class => :label %>
-    <%= f.text_field :idNum, :class => 'text_field' %>
-    <span class="description">Alphanumérique</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :maker, "Fabriquant", :class => :label %>
-    <%= f.collection_select :maker_id, @makers, :id, :name, :prompt =>  true %>
-  </div>
-
-  <div class="group">
-    <%= f.label :mac, "Adresse mac", :class => :label %>
-    <%= f.text_field :mac, :class => 'text_field' %>
-    <span class="description">Sous cette forme: "11:dd:1d:dd"</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :model, "Modèle", :class => :label %>
-    <%= f.text_field :model, :class => 'text_field' %>
-    <span class="description">Alphanumérique</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :serial, "Numéro de série", :class => :label %>
-    <%= f.text_field :serial, :class => 'text_field' %>
-    <span class="description">Alphanumérique</span>
-  </div>
-
-	<div class="group">
-		<%= f.label :department, "Département", :class => :label%>
-		<%= f.collection_select :department_id, @departments, :id, :name, :prompt => "tada!" %>
-	</div>
-
-  <div class="group">
-    <%= f.label :location_id, "Emplacement", :class => :label %>
-    <%= f.collection_select :location_id, @locations, :id, :building, :prompt => "tada"%>
-  </div>
+<div class="group">
+  <%= f.label :fonction, "Fonction", :class => :label %>
+  <%= f.text_field :fonction, :class => 'text_field' %>
+  <span class="description">Alphanumérique</span>
+</div>
+<div class="group">
+   <%= f.label :maker, "Fabriquant", :class => :label %>
+   <%= f.text_field :maker, :class => 'text_field' %>
+</div>
+<div class="group">
+  <%= f.label :model, "Modèle", :class => :label %>
+  <%= f.text_field :model, :class => 'text_field' %>
+  <span class="description">Alphanumérique</span>
+</div>
+<div class="group">
+  <%= f.label :ram, "Mémoire vive", :class => :label %>
+  <%= f.text_field :ram, :class => 'text_field' %>
+  <span class="description">Numérique</span>
+</div>
+<div class="group">
+  <%= f.label :disk1, "Disque 1", :class => :label %>
+  <%= f.text_field :disk1, :class => 'text_field' %>
+  <span class="description">Numérique</span>
+</div>
+<div class="group">
+  <%= f.label :disk2, "Disque 2", :class => :label %>
+  <%= f.text_field :disk2, :class => 'text_field' %>
+  <span class="description">Numérique</span>
+</div>
+<div class="group">
+   <%= f.label :idNum, "Numéro d'inventaire (nom réseau)", :class => :label %>
+  <%= f.text_field :idNum, :class => 'text_field' %>
+  <span class="description">Numérique</span>
+</div>
+<div class="group">
+  <%= f.label :serial, "Numéro de série", :class => :label %>
+  <%= f.text_field :serial, :class => 'text_field' %>
+  <span class="description">Alphanumérique</span>
+</div>
+<div class="group">
+  <%= f.label :mac1, "Adresse mac 1", :class => :label %>
+  <%= f.text_field :mac1, :class => 'text_field' %>
+  <span class="description">Sous cette forme: "11:dd:1d:dd"</span>
+</div>
+<div class="group">
+  <%= f.label :mac2, "Adresse mac 2", :class => :label %>
+  <%= f.text_field :mac2, :class => 'text_field' %>
+  <span class="description">Sous cette forme: "11:dd:1d:dd"</span>
+</div>
+<div class="group">
+  <%= f.label :location_id, "Emplacement", :class => :label %>
+  <%= f.collection_select :location_id, @locations, :id, :building, :prompt => true%>
+</div>
         
 <div class="group navform">
   <input type="submit" class="button" value="Sauvegarder &rarr;" /> or <%= link_to 'Annuler', hardwares_path %>

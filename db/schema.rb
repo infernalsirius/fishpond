@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090806172954) do
+ActiveRecord::Schema.define(:version => 20091007232845) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20090806172954) do
   create_table "hardwares", :force => true do |t|
     t.integer  "idNum"
     t.string   "maker"
-    t.string   "mac"
+    t.string   "mac1"
     t.string   "model"
     t.string   "serial"
     t.datetime "created_at"
@@ -53,6 +53,11 @@ ActiveRecord::Schema.define(:version => 20090806172954) do
     t.integer  "department_id"
     t.integer  "maker_id"
     t.integer  "operating_system_id"
+    t.string   "fonction"
+    t.integer  "ram"
+    t.integer  "disk1"
+    t.integer  "disk2"
+    t.string   "mac2"
   end
 
   add_index "hardwares", ["maker"], :name => "index_hardwares_on_maker"
