@@ -3,7 +3,7 @@ class CreateHardwares < ActiveRecord::Migration
     create_table :hardwares do |t|
       t.integer :idNum, :maker_id, :poste_id, :critical_id, :department_id, 
                 :operating_system_id, :model_number_id, :location_id, :ram,
-                :disk1, :disk2,
+                :disk1, :disk2
       t.string :mac1, :mac2, :serial, :fonction
       t.timestamps
     end
