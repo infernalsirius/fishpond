@@ -25,6 +25,7 @@ class HardwaresController < ApplicationController
     @departments = Department.find(:all)
     @makers = Maker.find(:all)
     @locations = Location.find(:all)
+    @modelnums = ModelNumber.find(:all)
     
     respond_to do |wants|
       wants.html

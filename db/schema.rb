@@ -9,21 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091007232845) do
+ActiveRecord::Schema.define(:version => 20090806172954) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
     t.string   "diag"
     t.string   "serial"
-    t.string   "maker"
     t.string   "model"
+    t.integer  "maker_id"
+    t.integer  "server_id"
+    t.integer  "hardware_id"
+    t.integer  "modelNumber_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "server_id"
-    t.integer  "harware_id"
   end
 
-  add_index "accessories", ["maker"], :name => "index_accessories_on_maker"
   add_index "accessories", ["model"], :name => "index_accessories_on_model"
 
   create_table "criticals", :force => true do |t|
@@ -32,36 +32,37 @@ ActiveRecord::Schema.define(:version => 20091007232845) do
     t.datetime "updated_at"
   end
 
+  add_index "criticals", ["name"], :name => "index_criticals_on_name"
+
   create_table "departments", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "departments", ["name"], :name => "index_departments_on_name"
+
   create_table "hardwares", :force => true do |t|
     t.integer  "idNum"
-    t.string   "maker"
-    t.string   "mac1"
-    t.string   "model"
-    t.string   "serial"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "location_id"
-    t.integer  "os"
+    t.integer  "maker_id"
     t.integer  "poste_id"
     t.integer  "critical_id"
     t.integer  "department_id"
-    t.integer  "maker_id"
     t.integer  "operating_system_id"
-    t.string   "fonction"
+    t.integer  "model_number_id"
+    t.integer  "location_id"
     t.integer  "ram"
     t.integer  "disk1"
     t.integer  "disk2"
+    t.string   "mac1"
     t.string   "mac2"
+    t.string   "serial"
+    t.string   "fonction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "hardwares", ["maker"], :name => "index_hardwares_on_maker"
-  add_index "hardwares", ["model"], :name => "index_hardwares_on_model"
+  add_index "hardwares", ["idNum"], :name => "index_hardwares_on_idNum"
 
   create_table "licenses", :force => true do |t|
     t.string   "software"
@@ -69,17 +70,16 @@ ActiveRecord::Schema.define(:version => 20091007232845) do
     t.string   "language"
     t.string   "serial"
     t.string   "user"
-    t.string   "os"
     t.string   "licenseType"
     t.integer  "numLicense"
     t.integer  "numInstalled"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "operating_system_id"
     t.integer  "hardware_id"
     t.integer  "server_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "licenses", ["os"], :name => "index_licenses_on_os"
   add_index "licenses", ["software"], :name => "index_licenses_on_software"
 
   create_table "locations", :force => true do |t|
@@ -96,17 +96,29 @@ ActiveRecord::Schema.define(:version => 20091007232845) do
     t.datetime "updated_at"
   end
 
+  add_index "makers", ["name"], :name => "index_makers_on_name"
+
+  create_table "model_numbers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "operating_systems", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "operating_systems", ["name"], :name => "index_operating_systems_on_name"
+
   create_table "postes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "postes", ["name"], :name => "index_postes_on_name"
 
   create_table "servers", :force => true do |t|
     t.string  "usage"
@@ -117,11 +129,8 @@ ActiveRecord::Schema.define(:version => 20091007232845) do
     t.string  "secUrl"
     t.string  "usrLocal"
     t.string  "passLocal"
-    t.string  "maker"
-    t.string  "model"
     t.string  "raid"
     t.string  "configHd"
-    t.string  "os"
     t.string  "osVersion"
     t.string  "osLang"
     t.string  "location"
@@ -129,6 +138,10 @@ ActiveRecord::Schema.define(:version => 20091007232845) do
     t.string  "relation"
     t.integer "numHd"
     t.integer "rackPosition"
+    t.integer "model_number_id"
+    t.integer "maker_id"
+    t.integer "operating_system_id"
+    t.integer "department_id"
     t.integer "location_id"
   end
 

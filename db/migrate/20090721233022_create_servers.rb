@@ -4,7 +4,7 @@ class CreateServers < ActiveRecord::Migration
       t.string :usage, :privIp, :pubIp, :servName, :priUrl, :secUrl, 
                 :usrLocal, :passLocal, :raid, :configHd, :osVersion, :osLang, 
                 :location, :rack, :relation
-      t.integer :numHd, :rackPosition, :model_id, :maker_id, :operating_system_id, 
+      t.integer :numHd, :rackPosition, :model_number_id, :maker_id, :operating_system_id, 
                 :department_id, :location_id
     end
     add_index :servers, :servName

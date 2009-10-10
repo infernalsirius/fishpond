@@ -54,8 +54,8 @@
   </div>
 
   <div class="group">
-    <%= f.label :model, "Modèle", :class => :label %>
-    <%= f.text_field :model, :class => 'text_field' %>
+    <%= f.label :model_number_id, "Modèle", :class => :label %>
+    <%= f.collection_select :model_number_id, @modelnums, :id, :name %>
     <span class="description">Ex: a simple text</span>
   </div>
 
@@ -78,8 +78,8 @@
   </div>
 
   <div class="group">
-    <%= f.label :os, "Système d'exploitation", :class => :label %>
-    <%= f.collection_select :os, @os, :id, :name %>
+    <%= f.label :operating_system_id, "Système d'exploitation", :class => :label %>
+    <%= f.collection_select :operating_system_id, @os, :id, :name %>
     <span class="description">Ex: a simple text</span>
   </div>
 

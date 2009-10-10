@@ -15,6 +15,7 @@ class ServersController < ApplicationController
     @locations = Location.find(:all)
     @makers = Maker.find(:all)
     @os = OperatingSystem.find(:all)
+    @modelnums = ModelNumber.find(:all)
   end
   
   def create
