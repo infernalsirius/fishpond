@@ -14,6 +14,8 @@ class AccessoriesController < ApplicationController
     @accessory = Accessory.new
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
+    @modelnums = ModelNumber.find(:all)
+    @makers = Maker.find(:all)
   end
   
   def create

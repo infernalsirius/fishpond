@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20090806172954) do
     t.integer  "maker_id"
     t.integer  "server_id"
     t.integer  "hardware_id"
-    t.integer  "modelNumber_id"
+    t.integer  "model_number_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

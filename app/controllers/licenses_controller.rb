@@ -14,6 +14,7 @@ class LicensesController < ApplicationController
     @license = License.new
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
+    @os = OperatingSystem.find(:all)
   end
   
   def create

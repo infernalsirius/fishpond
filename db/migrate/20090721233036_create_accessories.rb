@@ -2,7 +2,7 @@ class CreateAccessories < ActiveRecord::Migration
   def self.up
     create_table :accessories, :force => true do |t|
       t.string :idNum, :diag, :serial, :model
-      t.integer :maker_id, :server_id, :hardware_id, :modelNumber_id
+      t.integer :maker_id, :server_id, :hardware_id, :model_number_id
       t.timestamps
     end
     add_index :accessories, :model
