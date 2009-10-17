@@ -10,7 +10,7 @@ namespace :db do
     #Automatiquely populates 150 hardwares entry.
     Hardware.populate 150 do |h|
       h.maker_id = 1..10
-      h.model = Populator.words(1).titleize
+      h.model_id = Populator.words(1).titleize
       h.idNum = 43000..44000.step(10)
       h.serial = 1435972..32097831290
       
@@ -30,6 +30,7 @@ namespace :db do
         a.maker_id = 1..10
         a.model = Populator.words(2).titleize
       end
+      
     end
      
   end  
