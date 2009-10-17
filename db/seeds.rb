@@ -1,8 +1,8 @@
-['OS X', 'Windows','Debian','Centos', 'Sun', 'Mac OS', 'Autre'].each do |os|
+['Mac OS X', 'Windows','Debian','Centos', 'Sun'].each do |os|
   OperatingSystem.find_or_create_by_name(os)
 end
 
-['Apple', 'HP', "IBM", "Dell", "Toshiba", "Cisco", "Epson", "Xerox", "Acer", "LG"].each do |maker|
+['Apple', 'HP', "IBM", "Dell", "Toshiba", "Cisco", "Xerox", "Acer", "LG"].each do |maker|
   Maker.find_or_create_by_name(maker)
 end
 
