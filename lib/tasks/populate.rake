@@ -9,7 +9,7 @@ namespace :db do
     
     #Automatiquely populates 150 hardwares entry.
     Hardware.populate 150 do |h|
-      h.maker = ['Apple', 'HP', "IBM", "Dell", "Toshiba", "Cisco", "Epson", "Xerox", "Acer", "LG"]
+      h.maker_id = 1..10
       h.model = Populator.words(1).titleize
       h.idNum = 43000..44000.step(10)
       h.serial = 1435972..32097831290
@@ -27,7 +27,7 @@ namespace :db do
       Accessory.populate 3 do |a|
         a.idNum = 45000..47000.step(10)
         a.serial = 234254..234560982
-        a.maker = ['Apple', 'HP', "IBM", "Dell", "Toshiba", "Cisco", "Epson", "Xerox", "Acer", "LG"]
+        a.maker_id = 1..10
         a.model = Populator.words(2).titleize
       end
     end
