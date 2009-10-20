@@ -21,6 +21,7 @@ class LicensesController < ApplicationController
     @license = License.new(params[:license])
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
+    @os = OperatingSystem.find(:all)
     
     respond_to do |wants|
       if @license.save
