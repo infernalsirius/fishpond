@@ -27,12 +27,12 @@
 
         <p>
           <b>Fabriquant:</b>
-          <%= @accessory.maker %>
+          <%= @accessory.maker_id %>
         </p>
 
         <p>
           <b>Modèle:</b>
-          <%= @accessory.model %>
+          <%= @accessory.model_number_id %>
         </p>
 
         <p>
@@ -42,7 +42,7 @@
 
         <p>
           <b>Harware_id:</b>
-          <%= @accessory.harware_id %>
+          <%= @accessory.hardware_id %>
         </p>
       <%= link_to 'Édition', edit_accessory_path(@accessory) %>
     </div>

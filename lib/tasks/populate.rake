@@ -10,7 +10,7 @@ namespace :db do
     #Automatiquely populates 150 hardwares entry.
     Hardware.populate 150 do |h|
       h.maker_id = 1..10
-      h.model_id = Populator.words(1).titleize
+      h.model_number_id = Populator.words(1).titleize
       h.idNum = 43000..44000.step(10)
       h.serial = 1435972..32097831290
       
@@ -21,7 +21,7 @@ namespace :db do
         l.version = 1..10
         l.user = "Le Soleil"
         l.language = ["Français", "Anglais"]
-        l.os = ['OS X', 'Windows','Linux', 'Sun', 'Mac OS']
+        l.operating_system_id = ['OS X', 'Windows','Linux', 'Sun', 'Mac OS']
       end
       
       Accessory.populate 3 do |a|
