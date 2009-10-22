@@ -8,6 +8,6 @@ class Hardware < ActiveRecord::Base
   validates_uniqueness_of :serial, :on => :create, :message => "doit être unique"
   validates_uniqueness_of :idNum, :on => :create, :message => "doit être unique"
   validates_uniqueness_of :mac, :on => :create, :message => "doit être unique"
-  validates_presence_of :idNum, :serial, :maker, :department, :on => :create, :message => "obligatoire"
+  validates_presence_of :idNum, :serial, :maker, :on => :create, :message => "obligatoire"
   
 end
