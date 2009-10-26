@@ -13,6 +13,8 @@ class LicensesController < ApplicationController
   def new
     @languages = {"Français" => :french, "Anglais" => :english}
     @license = License.new
+    @search = License.search(params[:search])
+    @licenses = @search.all
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
     @os = OperatingSystem.find(:all)
