@@ -11,6 +11,7 @@ class LicensesController < ApplicationController
   end
   
   def new
+    @languages = {"Français" => :french, "Anglais" => :english}
     @license = License.new
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
