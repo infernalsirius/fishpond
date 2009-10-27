@@ -32,20 +32,11 @@ class HardwaresController < ApplicationController
     end
   end
   
-  def edit
-    @hardware = Hardware.find(params[:id])
-    @servers = Server.find(:all)
-    @locations = Location.find(:all)
-    
-    respond_to do |wants|
-      wants.html
-    end
-  end
-  
   def create
     @hardware = Hardware.new(params[:hardware])
     @departments = Department.find(:all)
     @locations = Location.find(:all)
+    @makers = Maker.find(:all)
     
     respond_to do |wants|
       if @hardware.save
@@ -55,6 +46,16 @@ class HardwaresController < ApplicationController
         flash[:notice] = "Le matériel n'a pas été sauvegardé"
         wants.html { render new_hardware_path, :layout => 'dark' }
       end
+    end
+  end
+  
+  def edit
+    @hardware = Hardware.find(params[:id])
+    @servers = Server.find(:all)
+    @locations = Location.find(:all)
+    
+    respond_to do |wants|
+      wants.html
     end
   end
   
