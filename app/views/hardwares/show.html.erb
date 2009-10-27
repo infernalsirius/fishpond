@@ -19,11 +19,12 @@
           <b>Fabriquant:</b>
           <%= @hardware.maker %>
         </p>
-
+				<% if @hardware.mac1 %>
         <p>
           <b>Adresse mac:</b>
           <%= @hardware.mac1 %>
         </p>
+				<% end -%>
 				<% if @hardware.mac2 %>
 					<p>
 						<b>Adresse mac 2:</b>
