@@ -1,5 +1,6 @@
 class LicensesController < ApplicationController
   before_filter :require_user
+  auto_complete_for :license, :licenseType
   layout 'dark'
   
   def index
@@ -18,6 +19,8 @@ class LicensesController < ApplicationController
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
     @os = OperatingSystem.find(:all)
+    
+    @licenses = License.find(:all)
   end
   
   def create
