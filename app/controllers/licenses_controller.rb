@@ -23,6 +23,16 @@ class LicensesController < ApplicationController
     @licenses = License.find(:all)
   end
   
+  def duplication
+    @license = License.find(param[:license])
+    @dup_license = @license.clone
+    
+    respond_to do |wants|
+      wants.html { new_license_pathr }
+    end
+    
+  end
+  
   def create
     @license = License.new(params[:license])
     @hardwares = Hardware.find(:all)
@@ -75,4 +85,6 @@ class LicensesController < ApplicationController
       wants.html { redirect_to licenses_path }
     end
   end
+  
+  
 end

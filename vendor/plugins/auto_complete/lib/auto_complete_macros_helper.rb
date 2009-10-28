@@ -116,7 +116,7 @@ module AutoCompleteMacrosHelper
       content_tag('style', <<-EOT, :type => Mime::CSS)
         div.auto_complete {
           width: 350px;
-          background: #fff;
+          background: white;
         }
         div.auto_complete ul {
           border:1px solid #888;
@@ -130,7 +130,7 @@ module AutoCompleteMacrosHelper
           padding:3px;
         }
         div.auto_complete ul li.selected {
-          background-color: #ffb;
+          background-color: #white;
         }
         div.auto_complete ul strong.highlight {
           color: #800; 

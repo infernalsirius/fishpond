@@ -11,9 +11,10 @@
 
   <div class="group">
     <%= f.label :licenseType, "Type de license", :class => :label %>
-    <%= f.text_field_with_auto_complete :licenseType %>
+
+    <%= text_field_with_auto_complete :license, :licenseType, {:class => "text_field"},:method => :get %>
+																				
     <span class="description">Standard, pro, corporate, premium, etc.</span>
-		<div id="textajax"></div>
   </div>
 
   <div class="group">
@@ -50,5 +51,3 @@
 <div class="group navform">
   <input type="submit" class="button" value="Sauvegarder &rarr;" /> or <%= link_to 'Annuler', licenses_path %>
 </div>
-
-<%= observe_field :licenseType, :update => "testajax" %>
