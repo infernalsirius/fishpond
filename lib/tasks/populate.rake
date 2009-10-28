@@ -11,7 +11,7 @@ namespace :db do
     Hardware.populate 150 do |h|
       h.maker_id = 1..10
       h.model_number_id = Populator.words(1).titleize
-      h.idNum = 43000..44000.step(10)
+      h.idNum = 43000..44000
       h.serial = 1435972..32097831290
       
       License.populate 2..10 do |l|
