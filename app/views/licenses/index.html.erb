@@ -41,6 +41,7 @@
 					</td>
           <td class="last">
             <%= link_to 'Voir', license_path(license) %> |
+						<%= link_to "Dupliquer", clonage_license_path(license) %> |
             <%= link_to 'Édition', edit_license_path(license) %> |
             <%= link_to 'Détruire', license_path(license), :method => :delete, :confirm => 'Êtes-vous sûr?' %>
           </td>

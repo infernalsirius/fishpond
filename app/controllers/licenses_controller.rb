@@ -19,18 +19,30 @@ class LicensesController < ApplicationController
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
     @os = OperatingSystem.find(:all)
-    
     @licenses = License.find(:all)
   end
   
-  def duplication
-    @license = License.find(param[:license])
-    @dup_license = @license.clone
+  def clonage
+    @license = License.find(params[:id])
+    @search = License.search(params[:search])
+    @clone_license = @license.clone
+    @hardwares = Hardware.find(:all)
+    @servers = Server.find(:all)
+    @languages = {"Français" => :french, "Anglais" => :english}
+    @os = OperatingSystem.find(:all)
+  end
+  
+  def create_clone
+    @license = License.new(params[:license])
+    @hardwares = Hardware.find(:all)
+    @servers = Server.find(:all)
+    @os = OperatingSystem.find(:all)
     
     respond_to do |wants|
-      wants.html { new_license_pathr }
+      if @license.save
+        flash[:notice] = "La license a été dupliquée avec succès."
+        wants.html {  }
     end
-    
   end
   
   def create
@@ -62,6 +74,8 @@ class LicensesController < ApplicationController
     @license = License.find(params[:id])
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
+    @languages = {"Français" => :french, "Anglais" => :english}
+    @os = OperatingSystem.find(:all)
   end
   
   def update

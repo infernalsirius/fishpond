@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
   map.resources :licenses, 
-                  :membre => { :duplication => :get}, 
+                  :member => { :clonage => :get}, 
                   :collection => {:auto_complete_for_license_licenseType => :get }
   map.resources :makers
   map.resources :users, :member => { :profile => :get}
