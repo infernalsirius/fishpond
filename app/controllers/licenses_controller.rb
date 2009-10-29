@@ -23,26 +23,24 @@ class LicensesController < ApplicationController
   end
   
   def clonage
-    @license = License.find(params[:id])
-    @search = License.search(params[:search])
-    @clone_license = @license.clone
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
-    @languages = {"Français" => :french, "Anglais" => :english}
-    @os = OperatingSystem.find(:all)
-  end
-  
-  def create_clone
     @license = License.new(params[:license])
-    @hardwares = Hardware.find(:all)
-    @servers = Server.find(:all)
+    @clone_license = @license.clone
+    @languages = {"Français" => :french, "Anglais" => :english}
     @os = OperatingSystem.find(:all)
     
     respond_to do |wants|
-      if @license.save
-        flash[:notice] = "La license a été dupliquée avec succès."
-        wants.html {  }
+      if @clone_license.save
+          flash[:notice] = "La license a été dupliquée avec succès."  
+         wants.html { licenses_path }
+      else
+        flash[:notice] = "La license dupliquée n'a pus être sauvegardée."
+        wants.html {render new_license_path, :layout => 'dark'}
+      end
+       
     end
+    
   end
   
   def create
@@ -57,7 +55,7 @@ class LicensesController < ApplicationController
           wants.html { redirect_to licenses_path}
       else
         flash[:notice] = "La license saisie n'a pus être sauvegardée."
-        wants.html {render new_license_path, :layout => 'dark'}
+        wants.html {redirect_to licenses_path}
       end
     end
   end

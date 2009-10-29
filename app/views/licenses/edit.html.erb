@@ -12,6 +12,9 @@
     <div class="inner">
       <% form_for @license, :url => license_path(@license), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
+				<div class="group navform">
+				<%= link_to "Dupliquer", clonage_license_path(@license) %>
+				</div>
       <% end -%>
     </div>
   </div>
