@@ -2,6 +2,7 @@ class Hardware < ActiveRecord::Base
   belongs_to :maker
   belongs_to :department
   belongs_to :location
+  belongs_to :model_number
   has_many :licenses
   has_many :accessories
   
