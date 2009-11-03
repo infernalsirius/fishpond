@@ -4,9 +4,11 @@ class CreateModelNumbers < ActiveRecord::Migration
       t.string :name
       t.timestamps
     end
+    add_index :model_numbers, :name
   end
 
   def self.down
+    remove_index :model_numbers, :name
     drop_table :model_numbers
   end
 end
