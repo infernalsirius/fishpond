@@ -3,16 +3,12 @@ class ModelNumbersController < ApplicationController
   auto_complete_for :model_number, :name
   layout "dark"
   
-  def method_name
-    @modelNumbers = ModelNumber.paginate(:per_page => 10, :page => params[:page])
-  end
-  
   def new
     @modelNumber = ModelNumber.new
   end
   
   def create
-    @modelNumber = ModelNumber.new(params[:modelNumber])
+    @modelNumber = ModelNumber.new(params[:model_number])
     
     respond_to do |wants|
       if @modelNumber.save!
