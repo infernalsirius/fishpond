@@ -1,12 +1,11 @@
   <div class="group">
     <%= f.label :software, "Logiciel", :class => :label %>
-    <%= f.text_field :software, :class => 'text_field', :size => 100 %>
+    <%= text_field_with_auto_complete :license, :software, {:class => 'text_field'}, :method => :get %>
   </div>
 
   <div class="group">
     <%= f.label :version, "Version", :class => :label %>
     <%= f.text_field :version, :class => 'text_field', :size => 5 %>
-    <span class="description">Chiffre uniquement</span>
   </div>
 
   <div class="group">
@@ -19,33 +18,32 @@
 
   <div class="group">
     <%= f.label :language, "Langue", :class => :label %>
-    <%= f.select :language, @languages %>
+    <%= f.select :language, @languages, :prompt => "Sélectionnez" %>
   </div>
 	
   <div class="group">
     <%= f.label :operating_system_id, "Système d'exploitation", :class => :label %>
-    <%= f.collection_select :operating_system_id, @os, :id, :name %>
+    <%= f.collection_select :operating_system_id, @os, :id, :name, :prompt => "Sélectionnez" %>
   </div>
 
   <div class="group">
     <%= f.label :serial, "Numéro de série", :class => :label %>
     <%= f.text_field :serial, :class => 'text_field', :size => 100 %>
-    <span class="description">Chiffres et lettres acceptés</span>
   </div>
 	<div class="group">
   	<%= f.label :user, "Utilisateur", :class => :label %>
   	<%= f.text_field :user, :class => 'text_field' %>
-  	<span class="description">Ex: a simple text</span>
+  	<span class="description">N'est pas obligatoire.</span>
   </div>
 
   <div class="group">
     <%= f.label :hardware_id, "Installé sur poste", :class => :label %>
-    <%= f.collection_select :hardware_id, @hardwares, :id, :idNum, :prompt => true %>
+    <%= f.collection_select :hardware_id, @hardwares, :id, :idNum, :prompt => "Sélectionnez" %>
   </div>
 
   <div class="group">
     <%= f.label :server_id, "Installé sur serveur", :class => :label %>
-    <%= f.collection_select :server_id, @servers, :id, :servName, :prompt => true %>
+    <%= f.collection_select :server_id, @servers, :id, :servName, :prompt => "Sélectionnez"%>
   </div>
         
 <div class="group navform">

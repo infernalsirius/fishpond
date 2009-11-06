@@ -1,6 +1,7 @@
 class LicensesController < ApplicationController
   before_filter :require_user
   auto_complete_for :license, :licenseType
+  auto_complete_for :license, :software
   layout 'dark'
   
   def index
@@ -12,7 +13,7 @@ class LicensesController < ApplicationController
   end
   
   def new
-    @languages = {"Français" => :french, "Anglais" => :english}
+    @languages = {"Anglais" => :anglais, "Français" => :francais}
     @license = License.new
     @search = License.search(params[:search])
     @licenses = @search.all

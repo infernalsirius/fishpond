@@ -16,7 +16,6 @@
           <th>Version</th>
 					<th>Type</th>
 					<th>Système d'exploitation</th>
-					<th>Nombre de licenses</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @licenses.each do |license| -%>
@@ -34,10 +33,7 @@
 						<%= license.licenseType %>
 					</td>
 					<td>
-						<%= license.operating_system_id %>
-					</td>
-					<td>
-						<%= license.numLicense %>
+						<%= license.operating_system.name %>
 					</td>
           <td class="last">
             <%= link_to 'Voir', license_path(license) %> |
