@@ -10,7 +10,7 @@
 </div>
 <div class="group">
   <%= f.label :model_number_id, "Modèle", :class => :label %>
-  <%= f.collection_select :model_number_id,@modelnums, :id, :name, :prompt => true %>
+  <%= f.collection_select :model_number_id, @modelnums, :id, :name, :prompt => true %>
   <%= link_to "Ajouter", new_model_number_path %>
 </div>
 <div class="group">
