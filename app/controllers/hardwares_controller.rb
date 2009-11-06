@@ -79,15 +79,5 @@ class HardwaresController < ApplicationController
     respond_to do |wants|
       wants.html { redirect_to hardwares_path }
     end
-  end
-  
-  # ajax method
-  def add_maker
-    @maker = Maker.new(params[:maker])
-    
-    respond_to do |wants|
-      wants.js 
-    end
-  end
-  
+  end  
 end
