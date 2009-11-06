@@ -22,7 +22,7 @@
         <tr class='<%= cycle("even", "odd") %>'>
 					<td><%= h.id %></td>
 					<td><%= link_to h.idNum, hardware_path(h) %></td>
-					<td><%= h.maker %></td>
+					<td><%= h.maker.name %></td>
 					<td></td>
 					<td><%= h.serial %></td>
           <td class="last">
