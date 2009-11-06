@@ -4,7 +4,6 @@ class HardwaresController < ApplicationController
   
   def index
     @hardwares = Hardware.paginate(:per_page => 10, :page => params[:page])
-    @maker = Maker.new
         
     respond_to do |wants|
       wants.html
@@ -37,6 +36,7 @@ class HardwaresController < ApplicationController
     @departments = Department.find(:all)
     @locations = Location.find(:all)
     @makers = Maker.find(:all)
+    @modelnums = ModelNumber.find(:all)
     
     respond_to do |wants|
       if @hardware.save

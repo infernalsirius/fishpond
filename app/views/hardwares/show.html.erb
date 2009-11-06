@@ -33,7 +33,7 @@
 				<% end -%>
         <p>
           <b>Modèle:</b>
-          <%= @hardware.model_number_id %>
+          <%= @hardware.model_number.name %>
         </p>
 
         <p>
@@ -43,7 +43,7 @@
 
         <p>
           <b>Emplacement:</b>
-          <%= @hardware.location_id %>
+          
         </p>
       <%= link_to 'Éditer', edit_hardware_path(@hardware) %>
     </div>
