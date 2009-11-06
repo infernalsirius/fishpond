@@ -21,12 +21,12 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "authlogic", :sources => "http://gems.github.com"
   config.gem "searchlogic", :sources => "http://gems.github.com"
-  #config.gem "thin"
-  #config.gem "newrelic_rpm"
+  config.gem "thin"
+  config.gem "newrelic_rpm"
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem "josevalim-rails-footnotes",  :lib => "rails-footnotes", :source => "http://gems.github.com"
-  #config.gem "populator"
-  #config.gem "faker"
+  config.gem "populator"
+  config.gem "faker"
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
