@@ -1,6 +1,7 @@
 class LicensesController < ApplicationController
   before_filter :require_user
   auto_complete_for :license, :software
+  auto_complete_for :license, :licenseType
   layout 'dark'
   
   def index
@@ -18,8 +19,6 @@ class LicensesController < ApplicationController
     @servers = Server.find(:all)
     @os = OperatingSystem.find(:all)
     @licenses = License.find(:all)
-    
-   # <%= text_field_with_auto_complete :license, :licenseType, {:class => "text_field"},:method => :get %>
   end
   
   def clonage
