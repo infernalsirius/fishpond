@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091106042920) do
+ActiveRecord::Schema.define(:version => 20091106042922) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
@@ -112,6 +112,17 @@ ActiveRecord::Schema.define(:version => 20091106042920) do
 
   add_index "operating_systems", ["name"], :name => "index_operating_systems_on_name"
 
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions_user_groups", :id => false, :force => true do |t|
+    t.integer "permission_id"
+    t.integer "user_group_id"
+  end
+
   create_table "postes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -156,6 +167,17 @@ ActiveRecord::Schema.define(:version => 20091106042920) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "user_groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_groups_users", :id => false, :force => true do |t|
+    t.integer "user_group_id"
+    t.integer "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.datetime "created_at"
