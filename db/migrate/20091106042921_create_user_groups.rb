@@ -10,6 +10,11 @@ class CreateUserGroups < ActiveRecord::Migration
       t.integer :user_group_id
       t.integer :user_id
     end
+    
+    # This will create the 'Administrator' user group and 
+    # associate it to the user.
+    Lockdown::System.make_user_administrator(User.find(1))
+    
   end
 
   def self.down

@@ -30,7 +30,8 @@ Lockdown::System.configure do
   #      options[:default_who_did_it] = User::SystemId
   #
   # Set timeout to 1 hour:
-  #       options[:session_timeout] = (60 * 60)
+          options[:session_timeout] = (60 * 60)
+          options[:session_timeout_method] = :clear_authlogic_session 
   #
   # Call method when timeout occurs (method must be callable by controller):
   #       options[:session_timeout_method] = :clear_session_values
@@ -115,6 +116,12 @@ Lockdown::System.configure do
   #
   # Define the built-in user groups here:
 
+    # Available to the whole world
+     set_public_access :login, :register_account
+     #
+     # Must be logged_in to access these:
+     set_protected_access :my_account
+
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -127,5 +134,24 @@ Lockdown::System.configure do
   #
   # 
   # Define your user groups here:
+  
+  
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # Public Access
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+    set_permission(:login).with_controller(:user_sessions)
+
+    set_permission(:register_account).
+      with_controller(:users).
+      only_methods(:new, :create).
+      #and_controller(:password_resets)
+
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Protected Access
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    set_permission(:my_account).
+      with_controller(:users).
+      only_methods(:show, :edit, :update)
 end 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091106042922) do
+ActiveRecord::Schema.define(:version => 20091106042921) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
@@ -112,17 +112,6 @@ ActiveRecord::Schema.define(:version => 20091106042922) do
 
   add_index "operating_systems", ["name"], :name => "index_operating_systems_on_name"
 
-  create_table "permissions", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "permissions_user_groups", :id => false, :force => true do |t|
-    t.integer "permission_id"
-    t.integer "user_group_id"
-  end
-
   create_table "postes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -193,7 +182,6 @@ ActiveRecord::Schema.define(:version => 20091106042922) do
     t.string   "last_login_ip"
     t.string   "current_login_ip"
     t.string   "name"
-    t.string   "email"
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"

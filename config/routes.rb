@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.resources :model_numbers,:collection => {:auto_complete_for_model_number_name => :get}
+
   map.resources :licenses, 
                   :member => { :clonage => :get}, 
                   :collection => {:auto_complete_for_license_licenseType => :get,

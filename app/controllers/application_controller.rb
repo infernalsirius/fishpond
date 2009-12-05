@@ -4,8 +4,15 @@ class ApplicationController < ActionController::Base
   include Oink::MemoryUsageLogger
   include Memorylogic
   
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, 
+                :current_user, 
+                :logged_in?,            # Lockdown helper
+                :current_user_is_admin? # Lockdown helper
+                
   filter_parameter_logging :password, :password_confirmation
+  
+  protect_from_forgery
+  
   
     private
       def current_user_session
@@ -23,15 +30,6 @@ class ApplicationController < ActionController::Base
           store_location
           flash[:notice] = "Vous devez être connecté pour accéder à cette page."
           redirect_to new_user_session_path
-          return false
-        end
-      end
-
-      def require_no_user
-        if current_user
-          store_location
-          flash[:notice] = "Vous devez être déconnecté pour accéder à cette page."
-          redirect_to account_url
           return false
         end
       end
