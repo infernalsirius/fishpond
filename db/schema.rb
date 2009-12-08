@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091106042921) do
+ActiveRecord::Schema.define(:version => 20091106042923) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20091106042921) do
   add_index "departments", ["name"], :name => "index_departments_on_name"
 
   create_table "hardwares", :force => true do |t|
-    t.integer  "idNum"
     t.integer  "maker_id"
     t.integer  "poste_id"
     t.integer  "critical_id"
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20091106042921) do
     t.string   "mac2"
     t.string   "serial"
     t.string   "fonction"
+    t.string   "idNum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(:version => 20091106042921) do
     t.datetime "updated_at"
   end
 
+  add_index "model_numbers", ["name"], :name => "index_model_numbers_on_name"
+
   create_table "operating_systems", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -111,6 +113,17 @@ ActiveRecord::Schema.define(:version => 20091106042921) do
   end
 
   add_index "operating_systems", ["name"], :name => "index_operating_systems_on_name"
+
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions_user_groups", :id => false, :force => true do |t|
+    t.integer "permission_id"
+    t.integer "user_group_id"
+  end
 
   create_table "postes", :force => true do |t|
     t.string   "name"
@@ -171,21 +184,26 @@ ActiveRecord::Schema.define(:version => 20091106042921) do
   create_table "users", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "login",                            :null => false
-    t.string   "crypted_password",                 :null => false
-    t.string   "password_salt",                    :null => false
-    t.string   "persistence_token",                :null => false
-    t.integer  "login_count",       :default => 0, :null => false
+    t.string   "login",                               :null => false
+    t.string   "crypted_password",                    :null => false
+    t.string   "password_salt",                       :null => false
+    t.string   "persistence_token",                   :null => false
+    t.integer  "login_count",        :default => 0,   :null => false
     t.datetime "last_request_at"
     t.datetime "last_login_at"
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
     t.string   "name"
+    t.string   "email"
+    t.string   "perishable_token",   :default => "0", :null => false
+    t.integer  "failed_login_count", :default => 0,   :null => false
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"
   add_index "users", ["login"], :name => "index_users_on_login"
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
 
 end

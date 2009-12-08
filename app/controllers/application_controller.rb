@@ -3,16 +3,15 @@
 class ApplicationController < ActionController::Base
   include Oink::MemoryUsageLogger
   include Memorylogic
-  
+
   helper_method :current_user_session, 
                 :current_user, 
                 :logged_in?,            # Lockdown helper
                 :current_user_is_admin? # Lockdown helper
                 
   filter_parameter_logging :password, :password_confirmation
-  
+
   protect_from_forgery
-  
   
     private
       def current_user_session
@@ -41,5 +40,12 @@ class ApplicationController < ActionController::Base
       def redirect_back_or_default(default)
         redirect_to(session[:return_to] || default)
         session[:return_to] = nil
+      end
+      
+    protected
+
+      def clear_authlogic_session
+        sess = current_user_session
+        sess.destroy if sess
       end
 end

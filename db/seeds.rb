@@ -17,3 +17,14 @@ end
 ["Minutes", "1-2 heures", "3-6 heures", "6-12 heures", "24 heures", "N/A"].each do |crit|
   Critical.find_or_create_by_name(crit)
 end
+
+ #base user
+ user = User.create! :login => 'admin', 
+                     :name => "administrator", 
+                     :email => "support@lesoleil.com",
+                     :password => "secret",
+                     :password_confirmation => "secret"
+           
+# This will create the 'Administrator' user group and 
+# associate it to the user.
+Lockdown::System.make_user_administrator(User.find(1))

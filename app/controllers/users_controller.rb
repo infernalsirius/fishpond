@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       respond_to do |wants|
         if @user.save
           flash[:notice] = "Compte enregistré!"
-          add_lockdown_session_values # Lockdown helper?
+          add_lockdown_session_values # Lockdown helper
           
             wants.html { redirect_back_or_default new_user_session_path }
         else

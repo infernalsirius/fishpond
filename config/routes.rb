@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
                                   :auto_complete_for_license_software => :get}
   map.resources :users, :member => { :profile => :get}
   map.resource :account, :controller => "users"
+  map.login "/login", :controller => "user_sessions", :action => "new"
+  map.logout "/logout", :controller => "user_sessions", :action => "destroy"
   map.resources :accessories, :servers, :locations, :makers, :hardwares
   map.resource :user_session
   map.root :controller => "user_sessions", :action => "new"

@@ -3,7 +3,8 @@ class CreatePermissions < ActiveRecord::Migration
     create_table :permissions do |t|
       t.string :name
 
-      t.timestamps
+      t.timestamps                      
+                          
     end
 
 		create_table :permissions_user_groups, :id => false do |t|
