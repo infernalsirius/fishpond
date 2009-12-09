@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20091106042920) do
   add_index "departments", ["name"], :name => "index_departments_on_name"
 
   create_table "hardwares", :force => true do |t|
-    t.integer  "idNum"
     t.integer  "maker_id"
     t.integer  "poste_id"
     t.integer  "critical_id"
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20091106042920) do
     t.string   "mac2"
     t.string   "serial"
     t.string   "fonction"
+    t.string   "idNum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -103,6 +103,8 @@ ActiveRecord::Schema.define(:version => 20091106042920) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "model_numbers", ["name"], :name => "index_model_numbers_on_name"
 
   create_table "operating_systems", :force => true do |t|
     t.string   "name"

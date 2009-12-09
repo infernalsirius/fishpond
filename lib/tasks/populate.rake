@@ -7,6 +7,31 @@ namespace :db do
     #Delete all entry in those tables in the development database
     [Hardware, Maker, License, Accessory, Server, Location].each(&:delete_all)
     
+    #########
+    # For relationship data
+    #######################################################
+    
+    Maker.populate 15 do |m|
+      m.name = Faker::Company.name
+    end
+    
+    @os = ['Mac OS X', 'Windows','Debian','Centos', 'Sun']
+
+    OperatingSystem.populate 5 do |op|
+        op.name = @os
+    end
+    
+    ModelNumber.populate 50 do |mn|
+      mn.name = Populator.words(1).titleize
+    end
+    
+    Critical.populate 9 do |c|
+      c.name = 1..9
+    end
+    #########
+    # For model data
+    #######################################################
+    
     License.populate 40 do |l|
       l.software = Populator.words(1..3).titleize
       l.serial = 234254..234560982
@@ -14,27 +39,33 @@ namespace :db do
       l.version = 1..10
       l.user = "Le Soleil"
       l.language = ["Français", "Anglais"]
-      l.operating_system_id = ['OS X', 'Windows','Linux', 'Sun', 'Mac OS']
+      l.operating_system_id = 1..5
     end
     
     Accessory.populate 3 do |a|
       a.idNum = 45000..47000.step(10)
       a.serial = 234254..234560982
-      a.maker_id = 1..10
-      a.model = Populator.words(2).titleize
+      a.maker_id = 1..15
+      a.model_number_id = 1..50
     end
-    #Automatiquely populates 150 hardwares entry.
+    
     Hardware.populate 150 do |h|
       h.maker_id = 1..10
-      h.model_number_id = Populator.words(1).titleize
+      h.model_number_id = 1..50
       h.idNum = 43000..44000.step(10)
       h.serial = 1435972..32097831290
+      h.poste_id = 1..5
+      
+    end
+    
+    def randIP
+      rand(255).to_s + "." + rand(255).to_s + "." + rand(255).to_s + "." + rand(255).to_s
     end
     
     Server.populate 100 do |s|
       s.usage = Populator.words(2).titleize
-      s.privIp = rand(255).to_s + "." + rand(255).to_s + "." + rand(255).to_s + "." + rand(255).to_s
-      s.pubIp = rand(255).to_s + "." + rand(255).to_s + "." + rand(255).to_s + "." + rand(255).to_s
+      s.privIp = randIP
+      s.pubIp = randIP
       s.servName = Faker::Internet.domain_name
       s.priUrl = Faker::Internet.domain_word
       s.secUrl = Faker::Internet.domain_word
