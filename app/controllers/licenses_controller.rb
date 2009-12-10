@@ -5,7 +5,9 @@ class LicensesController < ApplicationController
   layout 'dark'
   
   def index
-    @licenses = License.paginate(:per_page => 10, :page => params[:page])
+    #@licenses = License.paginate(:per_page => 15, :page => params[:page])
+    @search = License.search(params[:search])
+    @licenses = @search.all.paginate(:per_page => 15, :page => params[:page])
     
     respond_to do |wants|
       wants.html

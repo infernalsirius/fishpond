@@ -1,7 +1,17 @@
 <div class="block">
-  <h3>Simple Block</h3>
+  <h3>Recherche</h3>
   <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <% form_for @search do |f| -%>
+      <ol class="formlist">
+      	<li>
+					<%= f.label :software_like, "Logiciel" %>
+					<%= f.text_field :software_like %>
+				</li>
+				<li>
+					<%= f.submit "Recherche", :disable_with => 'Recherche...' %>
+				</li>
+      </ol>
+    <% end -%>
   </div>
 </div>
 <div class="block">
