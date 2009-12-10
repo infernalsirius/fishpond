@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: NewRelic::Agent::MethodTracer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">NewRelic::Agent::MethodTracer</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/vendor/plugins/newrelic_rpm/lib/new_relic/agent/method_tracer_rb.html">
+                vendor/plugins/newrelic_rpm/lib/new_relic/agent/method_tracer.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+These are the class methods added to support installing custom metric
+tracers and executing for individual metrics. This module is included in
+class Module.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000438">add_method_tracer</a>&nbsp;&nbsp;
+      <a href="#M000439">remove_method_tracer</a>&nbsp;&nbsp;
+      <a href="#M000435">trace_method_execution</a>&nbsp;&nbsp;
+      <a href="#M000436">trace_method_execution_no_scope</a>&nbsp;&nbsp;
+      <a href="#M000437">trace_method_execution_with_scope</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000438" class="method-detail">
+        <a name="M000438"></a>
+
+        <div class="method-heading">
+          <a href="#M000438" class="method-signature">
+          <span class="method-name">add_method_tracer</span><span class="method-args">(method_name, metric_name_code, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a method tracer to the specified method. metric_name_code is ruby code
+that determines the name of the metric to be collected during tracing. As
+such, the code should be provided in &#8216;single quote&#8217; strings
+rather than &quot;double quote&quot; strings, so that #{} evaluation
+happens at traced method execution time.
+</p>
+<p>
+Example: tracing a method :foo, where the metric name is the first argument
+converted to a string
+</p>
+<pre>
+    add_method_tracer :foo, '#{args.first.to_s}'
+</pre>
+<p>
+Statically defined metric names can be specified as regular strings. The
+option +:push_scope+ specifies whether this method tracer should keep track
+of the caller so it will show up in controller breakdown pie charts.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000438-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000438-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/agent/method_tracer.rb, line 97</span>
+ 97:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_method_tracer</span> (<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">metric_name_code</span>, <span class="ruby-identifier">options</span> = {})
+ 98:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+ 99:         <span class="ruby-identifier">options</span> = {<span class="ruby-identifier">:push_scope</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>} 
+100:       <span class="ruby-keyword kw">end</span>
+101:       <span class="ruby-comment cmt"># options[:push_scope] true if we are noting the scope of this for</span>
+102:       <span class="ruby-comment cmt"># stats collection as well as the transaction tracing</span>
+103:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:push_scope</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:push_scope</span>].<span class="ruby-identifier">nil?</span>
+104:       <span class="ruby-comment cmt"># options[:metric] true if you are tracking stats for a metric, otherwise</span>
+105:       <span class="ruby-comment cmt"># it's just for transaction tracing.</span>
+106:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:metric</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:metric</span>].<span class="ruby-identifier">nil?</span>
+107:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:deduct_call_time_from_parent</span>] = <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:deduct_call_time_from_parent</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-identifier">:metric</span>]
+108:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:deduct_call_time_from_parent</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:deduct_call_time_from_parent</span>].<span class="ruby-identifier">nil?</span>
+109:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:code_header</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;&quot;</span>
+110:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:code_footer</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;&quot;</span>
+111:       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:scoped_metric_only</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
+112:       
+113:       <span class="ruby-identifier">klass</span> = (<span class="ruby-keyword kw">self</span> <span class="ruby-operator">===</span> <span class="ruby-constant">Module</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;self&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;self.class&quot;</span>
+114:       
+115:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">method_name</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">private_method_defined?</span>(<span class="ruby-identifier">method_name</span>)
+116:         <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">log</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-node">&quot;Did not trace #{self}##{method_name} because that method does not exist&quot;</span>)
+117:         <span class="ruby-keyword kw">return</span>
+118:       <span class="ruby-keyword kw">end</span>
+119:       
+120:       <span class="ruby-identifier">traced_method_name</span> = <span class="ruby-identifier">_traced_method_name</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">metric_name_code</span>)
+121:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">method_defined?</span> <span class="ruby-identifier">traced_method_name</span>
+122:         <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">log</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-node">&quot;Attempt to trace a method twice with the same metric: Method = #{method_name}, Metric Name = #{metric_name_code}&quot;</span>)
+123:         <span class="ruby-keyword kw">return</span>
+124:       <span class="ruby-keyword kw">end</span>
+125:       
+126:       <span class="ruby-identifier">fail</span> <span class="ruby-value str">&quot;Can't add a tracer where push_scope is false and metric is false&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:push_scope</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-identifier">:metric</span>]
+127:       
+128:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:push_scope</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>
+129:         <span class="ruby-identifier">code</span> = <span class="ruby-value str">&quot;def \#{_traced_method_name(method_name, metric_name_code)}(*args, &amp;block)\n\#{options[:code_header]}\n\nt0 = Time.now.to_f\nstats = NewRelic::Agent.instance.stats_engine.get_stats_no_scope \&quot;\#{metric_name_code}\&quot;\n\nbegin\n\#{_untraced_method_name(method_name, metric_name_code)}(*args, &amp;block)\nensure\nduration = Time.now.to_f - t0\nstats.trace_call(duration, duration)     # for some reason this is 3 usec faster than Time - Time\n\#{options[:code_footer]}\nend\nend\n&quot;</span>
+130:       <span class="ruby-keyword kw">else</span>
+131:         <span class="ruby-identifier">code</span> = <span class="ruby-value str">&quot;def \#{_traced_method_name(method_name, metric_name_code)}(*args, &amp;block)\n\#{options[:code_header]}\nresult = \#{klass}.trace_method_execution_with_scope(\&quot;\#{metric_name_code}\&quot;, \#{options[:metric]}, \#{options[:deduct_call_time_from_parent]}, \#{options[:scoped_metric_only]}) do\n\#{_untraced_method_name(method_name, metric_name_code)}(*args, &amp;block)\nend\n\#{options[:code_footer]}\nresult\nend\n&quot;</span>
+132:       <span class="ruby-keyword kw">end</span>
+133:       
+134:       <span class="ruby-identifier">class_eval</span> <span class="ruby-identifier">code</span>, <span class="ruby-keyword kw">__FILE__</span>, <span class="ruby-keyword kw">__LINE__</span>
+135:       
+136:       <span class="ruby-identifier">alias_method</span> <span class="ruby-identifier">_untraced_method_name</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">metric_name_code</span>), <span class="ruby-identifier">method_name</span>
+137:       <span class="ruby-identifier">alias_method</span> <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">_traced_method_name</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">metric_name_code</span>)
+138:       
+139:       <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">log</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;Traced method: class = #{self}, method = #{method_name}, &quot;</span><span class="ruby-operator">+</span>
+140:         <span class="ruby-node">&quot;metric = '#{metric_name_code}', options: #{options.inspect}, &quot;</span>)
+141:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000439" class="method-detail">
+        <a name="M000439"></a>
+
+        <div class="method-heading">
+          <a href="#M000439" class="method-signature">
+          <span class="method-name">remove_method_tracer</span><span class="method-args">(method_name, metric_name_code)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Not recommended for production use, because tracers must be removed in
+reverse-order from when they were added, or else other tracers that were
+added to the same method may get removed as well.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000439-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000439-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/agent/method_tracer.rb, line 172</span>
+172:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove_method_tracer</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">metric_name_code</span>)
+173:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">agent_enabled?</span>
+174:       
+175:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">method_defined?</span> <span class="ruby-node">&quot;#{_traced_method_name(method_name, metric_name_code)}&quot;</span>
+176:         <span class="ruby-identifier">alias_method</span> <span class="ruby-identifier">method_name</span>, <span class="ruby-node">&quot;#{_untraced_method_name(method_name, metric_name_code)}&quot;</span>
+177:         <span class="ruby-identifier">undef_method</span> <span class="ruby-node">&quot;#{_traced_method_name(method_name, metric_name_code)}&quot;</span>
+178:       <span class="ruby-keyword kw">else</span>
+179:         <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No tracer for '#{metric_name_code}' on method '#{method_name}'&quot;</span>
+180:       <span class="ruby-keyword kw">end</span>
+181:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000435" class="method-detail">
+        <a name="M000435"></a>
+
+        <div class="method-heading">
+          <a href="#M000435" class="method-signature">
+          <span class="method-name">trace_method_execution</span><span class="method-args">(metric_name, push_scope, produce_metric, deduct_call_time_from_parent, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Deprecated: original method preserved for API backward compatibility, use
+one of the other +trace_method..+ calls.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000435-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000435-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/agent/method_tracer.rb, line 21</span>
+21:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trace_method_execution</span>(<span class="ruby-identifier">metric_name</span>, <span class="ruby-identifier">push_scope</span>, <span class="ruby-identifier">produce_metric</span>, <span class="ruby-identifier">deduct_call_time_from_parent</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) 
+22:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">push_scope</span>
+23:         <span class="ruby-identifier">trace_method_execution_with_scope</span>(<span class="ruby-identifier">metric_name</span>, <span class="ruby-identifier">produce_metric</span>, <span class="ruby-identifier">deduct_call_time_from_parent</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+24:       <span class="ruby-keyword kw">else</span>
+25:         <span class="ruby-identifier">trace_method_execution_no_scope</span>(<span class="ruby-identifier">metric_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+26:       <span class="ruby-keyword kw">end</span>
+27:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000436" class="method-detail">
+        <a name="M000436"></a>
+
+        <div class="method-heading">
+          <a href="#M000436" class="method-signature">
+          <span class="method-name">trace_method_execution_no_scope</span><span class="method-args">(metric_name) {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Trace a given block with stats assigned to the given metric_name. It does
+not provide scoped measurements, meaning whatever is being traced will not
+&#8216;blame the Controller&#8217;&#8212;that is to say appear in the
+breakdown chart. This is duplicated inline in <a
+href="MethodTracer.html#M000438">add_method_tracer</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000436-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000436-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/agent/method_tracer.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trace_method_execution_no_scope</span>(<span class="ruby-identifier">metric_name</span>)
+34:       <span class="ruby-identifier">t0</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+35:       <span class="ruby-identifier">stats</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Agent</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">stats_engine</span>.<span class="ruby-identifier">get_stats_no_scope</span> <span class="ruby-identifier">metric_name</span>
+36:       
+37:       <span class="ruby-keyword kw">begin</span>
+38:         <span class="ruby-keyword kw">yield</span>
+39:       <span class="ruby-keyword kw">ensure</span>
+40:         <span class="ruby-identifier">duration</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">t0</span>              <span class="ruby-comment cmt"># for some reason this is 3 usec faster than Time - Time</span>
+41:         <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">trace_call</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">duration</span>)
+42:       <span class="ruby-keyword kw">end</span>
+43:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000437" class="method-detail">
+        <a name="M000437"></a>
+
+        <div class="method-heading">
+          <a href="#M000437" class="method-signature">
+          <span class="method-name">trace_method_execution_with_scope</span><span class="method-args">(metric_name, produce_metric, deduct_call_time_from_parent, scoped_metric_only=false) {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Trace a given block with stats, like <a
+href="MethodTracer.html#M000436">trace_method_execution_no_scope</a> but
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000437-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000437-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/agent/method_tracer.rb, line 46</span>
+46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trace_method_execution_with_scope</span>(<span class="ruby-identifier">metric_name</span>, <span class="ruby-identifier">produce_metric</span>, <span class="ruby-identifier">deduct_call_time_from_parent</span>, <span class="ruby-identifier">scoped_metric_only</span>=<span class="ruby-keyword kw">false</span>)
+47:       <span class="ruby-identifier">t0</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+48:       <span class="ruby-identifier">stats</span> = <span class="ruby-keyword kw">nil</span>
+49:       
+50:       <span class="ruby-keyword kw">begin</span>
+51:         <span class="ruby-comment cmt"># Keep a reference to the scope we are pushing so we can do a sanity check making</span>
+52:         <span class="ruby-comment cmt"># sure when we pop we get the one we 'expected'</span>
+53:         <span class="ruby-identifier">expected_scope</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Agent</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">stats_engine</span>.<span class="ruby-identifier">push_scope</span>(<span class="ruby-identifier">metric_name</span>, <span class="ruby-identifier">t0</span>, <span class="ruby-identifier">deduct_call_time_from_parent</span>)
+54:         
+55:         <span class="ruby-identifier">stats</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Agent</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">stats_engine</span>.<span class="ruby-identifier">get_stats</span>(<span class="ruby-identifier">metric_name</span>, <span class="ruby-keyword kw">true</span>, <span class="ruby-identifier">scoped_metric_only</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">produce_metric</span>
+56:       <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+57:         <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Caught exception in trace_method_execution header. Metric name = #{metric_name}, exception = #{e}&quot;</span>)
+58:         <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>))
+59:       <span class="ruby-keyword kw">end</span>
+60:       
+61:       <span class="ruby-keyword kw">begin</span>
+62:         <span class="ruby-keyword kw">yield</span>
+63:       <span class="ruby-keyword kw">ensure</span>
+64:         <span class="ruby-identifier">t1</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+65:         <span class="ruby-identifier">duration</span> = <span class="ruby-identifier">t1</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">t0</span>
+66:         
+67:         <span class="ruby-keyword kw">begin</span>
+68:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">expected_scope</span>
+69:             <span class="ruby-identifier">scope</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Agent</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">stats_engine</span>.<span class="ruby-identifier">pop_scope</span> <span class="ruby-identifier">expected_scope</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">t1</span>
+70:             
+71:             <span class="ruby-identifier">exclusive</span> = <span class="ruby-identifier">duration</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">scope</span>.<span class="ruby-identifier">children_time</span>
+72:             <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">trace_call</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">exclusive</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">stats</span>
+73:           <span class="ruby-keyword kw">end</span>
+74:         <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+75:           <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Caught exception in trace_method_execution footer. Metric name = #{metric_name}, exception = #{e}&quot;</span>)
+76:           <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>))
+77:         <span class="ruby-keyword kw">end</span>
+78:       <span class="ruby-keyword kw">end</span>
+79:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

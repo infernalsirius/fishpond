@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: NewRelic::DeploymentsTest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">NewRelic::DeploymentsTest</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test_rb.html">
+                vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Test/Unit/TestCase.html">
+                Test::Unit::TestCase
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000742">err</a>&nbsp;&nbsp;
+      <a href="#M000743">info</a>&nbsp;&nbsp;
+      <a href="#M000744">just_exit</a>&nbsp;&nbsp;
+      <a href="#M000741">setup</a>&nbsp;&nbsp;
+      <a href="#M000745">teardown</a>&nbsp;&nbsp;
+      <a href="#M000747">test_bad_command</a>&nbsp;&nbsp;
+      <a href="#M000749">test_command_line_run</a>&nbsp;&nbsp;
+      <a href="#M000746">test_help</a>&nbsp;&nbsp;
+      <a href="#M000748">test_interactive</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000742" class="method-detail">
+        <a name="M000742"></a>
+
+        <div class="method-heading">
+          <a href="#M000742" class="method-signature">
+          <span class="method-name">err</span><span class="method-args">(message)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000742-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000742-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 10</span>
+10:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">err</span>(<span class="ruby-identifier">message</span>); <span class="ruby-ivar">@errors</span> = <span class="ruby-ivar">@errors</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@errors</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">message</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">message</span>; <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000743" class="method-detail">
+        <a name="M000743"></a>
+
+        <div class="method-heading">
+          <a href="#M000743" class="method-signature">
+          <span class="method-name">info</span><span class="method-args">(message)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000743-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000743-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 11</span>
+11:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>); <span class="ruby-ivar">@messages</span> = <span class="ruby-ivar">@messages</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@messages</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">message</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">message</span>; <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000744" class="method-detail">
+        <a name="M000744"></a>
+
+        <div class="method-heading">
+          <a href="#M000744" class="method-signature">
+          <span class="method-name">just_exit</span><span class="method-args">(status=0)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000744-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000744-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 12</span>
+12:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">just_exit</span>(<span class="ruby-identifier">status</span>=<span class="ruby-value">0</span>); <span class="ruby-ivar">@exit_status</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">status</span>; <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000741" class="method-detail">
+        <a name="M000741"></a>
+
+        <div class="method-heading">
+          <a href="#M000741" class="method-signature">
+          <span class="method-name">setup</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000741-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000741-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 7</span>
+ 7:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup</span>
+ 8:     <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Commands</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployments</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword kw">do</span>
+ 9:       <span class="ruby-identifier">attr_accessor</span> <span class="ruby-identifier">:messages</span>, <span class="ruby-identifier">:exit_status</span>, <span class="ruby-identifier">:errors</span>, <span class="ruby-identifier">:revision</span>
+10:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">err</span>(<span class="ruby-identifier">message</span>); <span class="ruby-ivar">@errors</span> = <span class="ruby-ivar">@errors</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@errors</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">message</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">message</span>; <span class="ruby-keyword kw">end</span>
+11:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>); <span class="ruby-ivar">@messages</span> = <span class="ruby-ivar">@messages</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@messages</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">message</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">message</span>; <span class="ruby-keyword kw">end</span>
+12:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">just_exit</span>(<span class="ruby-identifier">status</span>=<span class="ruby-value">0</span>); <span class="ruby-ivar">@exit_status</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">status</span>; <span class="ruby-keyword kw">end</span>
+13:     <span class="ruby-keyword kw">end</span>
+14:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000745" class="method-detail">
+        <a name="M000745"></a>
+
+        <div class="method-heading">
+          <a href="#M000745" class="method-signature">
+          <span class="method-name">teardown</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000745-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000745-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 15</span>
+15:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">teardown</span>
+16:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@deployment</span>
+17:     <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">errors</span>
+18:     <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">messages</span>
+19:     <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">exit_status</span>
+20:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000747" class="method-detail">
+        <a name="M000747"></a>
+
+        <div class="method-heading">
+          <a href="#M000747" class="method-signature">
+          <span class="method-name">test_bad_command</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000747-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000747-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 29</span>
+29:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_bad_command</span>
+30:     <span class="ruby-identifier">assert_raise</span> <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidOption</span> <span class="ruby-keyword kw">do</span>
+31:       <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Commands</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployments</span>.<span class="ruby-identifier">new</span> [<span class="ruby-value str">&quot;-foo&quot;</span>, <span class="ruby-value str">&quot;bar&quot;</span>]
+32:     <span class="ruby-keyword kw">end</span>
+33:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000749" class="method-detail">
+        <a name="M000749"></a>
+
+        <div class="method-heading">
+          <a href="#M000749" class="method-signature">
+          <span class="method-name">test_command_line_run</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000749-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000749-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 44</span>
+44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_command_line_run</span>
+45:     <span class="ruby-identifier">mock_the_connection</span>
+46:     <span class="ruby-comment cmt">#    @mock_response.expects(:body).returns(&quot;&lt;xml&gt;deployment&lt;/xml&gt;&quot;)</span>
+47:     <span class="ruby-ivar">@deployment</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Commands</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployments</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">%w[-a APP -r 3838 --user=Bill]</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;Some lengthy description&quot;</span>)
+48:     <span class="ruby-identifier">assert_nil</span> <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">exit_status</span>
+49:     <span class="ruby-identifier">assert_nil</span> <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">errors</span>
+50:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'3838'</span>, <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">revision</span>
+51:     <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">run</span>
+52:     
+53:     <span class="ruby-comment cmt"># This should pass because it's a bogus deployment</span>
+54:     <span class="ruby-comment cmt">#assert_equal 1, @deployment.exit_status</span>
+55:     <span class="ruby-comment cmt">#assert_match /Unable to upload/, @deployment.errors</span>
+56:     
+57:     <span class="ruby-ivar">@deployment</span> = <span class="ruby-keyword kw">nil</span>
+58:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000746" class="method-detail">
+        <a name="M000746"></a>
+
+        <div class="method-heading">
+          <a href="#M000746" class="method-signature">
+          <span class="method-name">test_help</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000746-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000746-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 21</span>
+21:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_help</span>
+22:     <span class="ruby-keyword kw">begin</span>
+23:       <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Commands</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployments</span>.<span class="ruby-identifier">new</span> <span class="ruby-value str">&quot;-h&quot;</span>
+24:       <span class="ruby-identifier">fail</span> <span class="ruby-value str">&quot;should have thrown&quot;</span>
+25:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Commands</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandFailure</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>
+26:       <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp re">/^Usage/</span>, <span class="ruby-identifier">c</span>.<span class="ruby-identifier">message</span>
+27:     <span class="ruby-keyword kw">end</span>
+28:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000748" class="method-detail">
+        <a name="M000748"></a>
+
+        <div class="method-heading">
+          <a href="#M000748" class="method-signature">
+          <span class="method-name">test_interactive</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000748-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000748-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/deployments_api_test.rb, line 34</span>
+34:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_interactive</span>
+35:     <span class="ruby-identifier">mock_the_connection</span>
+36:     <span class="ruby-ivar">@deployment</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Commands</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployments</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:appname</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'APP'</span>, <span class="ruby-identifier">:revision</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3838</span>, <span class="ruby-identifier">:user</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Bill'</span>, <span class="ruby-identifier">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;Some lengthy description&quot;</span>
+37:     <span class="ruby-identifier">assert_nil</span> <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">exit_status</span>
+38:     <span class="ruby-identifier">assert_nil</span> <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">errors</span>
+39:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'3838'</span>, <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">revision</span>
+40:     <span class="ruby-ivar">@deployment</span>.<span class="ruby-identifier">run</span>
+41:     <span class="ruby-ivar">@deployment</span> = <span class="ruby-keyword kw">nil</span>
+42:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

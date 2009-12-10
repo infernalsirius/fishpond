@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: CHANGELOG</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>CHANGELOG</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>vendor/plugins/newrelic_rpm/CHANGELOG
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Sep 03 18:46:25 -0400 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+v2.9.4
+</p>
+<pre>
+  * Clamp size of data sent to server
+  * Reset statistics for passenger when forking to avoid erroneous data
+  * Fix problem deserializing errors from the server
+  * Fix incompatibility with postgres introduced in 2.9.
+</pre>
+<p>
+v2.9.3.
+</p>
+<pre>
+  * Fix startup failure in Windows due to memory sampler
+  * Add JRuby environment information
+</pre>
+<p>
+v2.9.2.
+</p>
+<pre>
+  * change default apdex_t to 0.5 seconds
+  * fix bug in deployments introduced by multi_homed setting
+  * support overriding the log in the agent api
+  * fix JRuby problem using objectspace
+  * display custom parameters when looking at transactions in dev mode
+  * display count of sql statements on the list of transactions in dev mode
+  * fixes for merb--thanks to Carl Lerche
+</pre>
+<p>
+v2.9.1.
+</p>
+<pre>
+  * add newrelic_ignore_apdex method to controller classes to allow
+    you to omit some actions from apdex statistics
+  * Add hook for Passenger shutdown events to get more timely shutdown
+    notices; this will help in more accurate memory readings in
+    Passenger
+  * add newrelic_notice_error to Object class
+  * optional ability to verify SSL certificates, note that this has some
+    performance and reliability implications
+  * support multi-homed host with multiple apps running on duplicate
+    ports
+</pre>
+<p>
+v2.9.0.
+</p>
+<pre>
+  Noteworthy Enhancements
+  * give visibility to templates and partials in Rails 2.1 and later, in
+    dev mode and production
+  * change active record metrics to capture statistics in adapter log()
+    call, resulting in lower overhead and improved visibility into
+    different DB operations; only AR operations that are not hitting the
+    query cache will be measured to avoid overhead
+  * added mongrel_rpm to the gem, a standalone daemon listening for custom
+    metric values sent from local processes (experimental); do mongrel_rpm
+    --help
+  * add API for system monitoring daemons (refer to KB articles); changed
+    API for manual starting of the agent; refer to
+    NewRelic::Agent.manual_start for details
+  * do certificate verification on ssl connections to
+    collector.newrelic.com
+  * support instances appearing in more than one application by allowing a
+    semicolon separated list of names for the newrelic.yml app_name
+    setting.
+  * combined agent logfiles into a single logfile
+  * use rpm server time for transaction traces rather than agent time
+
+  Developer Mode (only) Enhancements
+  * show partial rendering in traces
+  * improved formatting of metric names in traces
+  * added number of queries to transactions in the transaction list
+  * added some sorting options for the transaction list
+  * added a page showing the list of active threads
+
+  Compatibility Enhancements
+  * ruby 1.9.1 compatibility
+  * support concurrency when determining busy times, for 2.2 compatibility
+  * in jruby, use Java used heap for memory sampling if the system memory
+    is not accessible from an unsupported platform
+  * jruby will no longer start the agent now when running the console or
+    rake tasks
+  * API support for RPM as a footnote add-in
+  * webrick support restored
+
+  Noteworthy bugfixes
+  * sample memory on linux by reading /proc/#{$$}/status file
+  * fixed ambiguous 'View' metrics showing up in controller breakdown
+  * removed Numeric extensions, including round_to, and to_ms
+  * using a different timeout mechanism when we post data to RPM
+  * remove usage of Rails::Info which had a side effect of enabling
+    ActiveRecord even when it wasn't an active framework
+  * moved CPU sampler off background thread and onto the harvest thread
+  * tests now run cleanly in any rails app using test:newrelic or
+    test:plugins
+
+  Agent improvements to support future RPM enhancements
+  * add instrumentation to capture metrics on response codes; not yet
+    working in rails 2.3.*
+  * added http referer to traced errors
+  * capture gem requirements from rails
+  * capture cpu utilization adjusted for processor count
+  * transaction sampling
+</pre>
+<p>
+v2.8.10.
+</p>
+<pre>
+  * fix thin support with rails 2.3.2 when using script/server
+  * fix incompatibility with rails 2.3.2 and script/server options
+    processing
+  * minor tweak to environment gathering for gem mode
+</pre>
+<p>
+v2.8.9
+</p>
+<pre>
+  * fix problem finding the newrelic controller in dev mode
+  * fix incompatibility with older versions of optparse
+  * fix potential jvm problem with jruby
+  * remove test:all task definition to avoid conflicts
+  * change error message about window sampler in windows not supported to a
+    warning message
+</pre>
+<p>
+v2.8.8
+</p>
+<pre>
+  * fix error with jruby on windows
+  * fix problem where webrick was being incorrectly detected causing some
+    problems with mongrel application assignments--had to disable webrick
+    for now
+</pre>
+<p>
+v2.8.7
+</p>
+<pre>
+  * fix for ssl connection hanging problems
+  * fix problem recognizing mongrel in rails 2.3.2
+  * fastcgi support in rails 2.3.2
+  * put back webrick support
+</pre>
+<p>
+v2.8.6
+</p>
+<pre>
+  * fix for capture_params when using file uploads in controller actions
+  * use pure ruby NS lookup for collector host to eliminate possibly
+    blocking applications
+</pre>
+<p>
+v2.8.5
+</p>
+<pre>
+  * fix reference to CommandError which was breaking some cap scripts
+  * fix incompatibility with Rails 2.0 in the server API
+  * fix problem with litespeed with Lite accounts
+  * fix problem when ActiveRecord is disabled
+  * moved merb instrumentation to Merb::Controller instead of
+    AbstractController to address incompatibility with MailController
+  * fix problem in devmode displaying sql with embedded urls
+</pre>
+<p>
+v2.8.4
+</p>
+<pre>
+  * fix bug in capistrano recipe causing cap commands to fail with error
+    about not finding Version class
+</pre>
+<p>
+v2.8.3
+</p>
+<pre>
+  * refactor unit tests so they will run in a generic rails environment
+  * require classes in advance to avoid autoloading.  this is to address
+    incompatibilities with desert as well as more flexibility in gem
+    initialization
+  * fixed newrelic_helper.rb 1.9 incompatibility
+</pre>
+<p>
+v2.8.2
+</p>
+<pre>
+  * fix Ruby 1.9 syntax compatibility errors
+  * update the class loading sanity check, will notify server of errors
+  * fix agent output on script and rake task execution
+</pre>
+<p>
+v2.8.1
+</p>
+<pre>
+  * Convert the deployment information upload script to an executable and
+    put in the bin directory.  When installed as a gem this command is
+    symlinked to /usr/bin.  Usage: newrelic_cmd deployments --help
+  * Fix issue invoking api when host is not set in newrelic.yml
+  * Fix deployments api so it will work from a gem
+  * Fix thin incompatibility in developer mode
+</pre>
+<p>
+v2.8.0
+</p>
+<pre>
+  * add beta of api in new_relic_api.rb
+  * instrumented dynamic finders in ActiveRecord
+  * preliminary support for capturing deployment information via capistrano
+  * change memory sampler for solaris to use /usr/bin/ps
+  * allow ERB in newrelic.yml file
+  * merged support for merb into this version
+  * fix incompatibility in the developer mode with the safe_erb plugin
+  * fix module namespace issue causing an error accessing
+    NewRelic::Instrumentation modules
+  * fix issue where the agent sometimes failed to start up if there was a
+    transient network problem
+  * fix IgnoreSilentlyException message
+</pre>
+<p>
+v2.7.4
+</p>
+<pre>
+  * fix error when trying to serialize some kinds of Enumerable objects
+  * added extra debug logging
+  * added app_name to app mapping
+</pre>
+<p>
+v2.7.3
+</p>
+<pre>
+  * fix compatibility issue with 1.8.5 causing error with Dir.glob
+</pre>
+<p>
+v2.7.2
+</p>
+<pre>
+  * fix problem with passenger edge not being a detected environment
+</pre>
+<p>
+v2.7.1
+</p>
+<pre>
+  * fix problem with skipped dispatcher instrumentation
+</pre>
+<p>
+v2.7.0
+</p>
+<pre>
+  * Repackage to support both plugin and Gem installation
+  * Support passenger/litespeed/jruby application naming
+  * Update method for calculating dispatcher queue time
+  * Show stack traces in RPM Transaction Traces
+  * Capture error source for TemplateErrors
+  * Clean up error stack traces.
+  * Support query plans from postgres
+  * Performance tuning
+  * bugfixes
+</pre>
+<p>
+v2.5.3
+</p>
+<pre>
+  * fix error in transaction tracing causing traces not to show up
+</pre>
+<p>
+v2.5.2
+</p>
+<pre>
+  * fixes for postgres explain plan support
+</pre>
+<p>
+v2.5.1
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.5.0
+</p>
+<pre>
+  * add agent support for rpm 1.1 features
+  * Fix regression error with thin support
+</pre>
+<p>
+v2.4.3
+</p>
+<pre>
+  * added 'newrelic_ignore' controller class method with :except and :only options for finer grained control
+    over the blocking of instrumentation in controllers.
+  * bugfixes
+</pre>
+<p>
+v2.4.2
+</p>
+<pre>
+  * error reporting in early access
+</pre>
+<p>
+v2.4.1
+</p>
+<pre>
+  * bugfix: initializing developer mode
+</pre>
+<p>
+v2.4.0
+</p>
+<pre>
+  * Beta support for LiteSpeed and Passenger
+</pre>
+<p>
+v2.3.7
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.3.6
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.3.5
+</p>
+<pre>
+  * bugfixes: pie chart data, rails 1.1 compability
+</pre>
+<p>
+v2.3.4
+</p>
+<pre>
+  * bugfix
+</pre>
+<p>
+v2.3.3
+</p>
+<pre>
+  * bugfix for non-mysql databases
+</pre>
+<p>
+v2.3.2
+</p>
+<pre>
+  * bugfixes
+  * Add enhancement for Transaction Traces early access feature
+</pre>
+<p>
+v2.3.1
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.3.0
+</p>
+<pre>
+  + Add support for Transaction Traces early access feature
+</pre>
+<p>
+v2.2.2
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.2.1
+</p>
+<pre>
+  + Add rails 2.1 support for Developer Mode
+  + Changes to memory sampler: Add support for JRuby and fix Solaris support.
+  * Stop catching exceptions and start catching StandardError; other exception cleanup
+  * Add protective exception catching to the stats engine
+  * Improved support for thin domain sockets
+  * Support JRuby environments
+</pre>
+<p>
+v2.1.6
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.1.5
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.1.4
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.1.3
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.1.2
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.1.1
+</p>
+<pre>
+  * bugfixes
+</pre>
+<p>
+v2.1.0
+</p>
+<pre>
+  * release for private beta
+</pre>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

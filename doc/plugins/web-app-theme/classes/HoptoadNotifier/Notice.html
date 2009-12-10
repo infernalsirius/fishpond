@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: HoptoadNotifier::Notice</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">HoptoadNotifier::Notice</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/vendor/plugins/hoptoad_notifier/lib/hoptoad_notifier/notice_rb.html">
+                vendor/plugins/hoptoad_notifier/lib/hoptoad_notifier/notice.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001013">[]</a>&nbsp;&nbsp;
+      <a href="#M001012">ignore?</a>&nbsp;&nbsp;
+      <a href="#M001010">new</a>&nbsp;&nbsp;
+      <a href="#M001011">to_xml</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parameters</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">params</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">component</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">controller</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">action</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The action (if any) that was called in this request
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">action</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">api_key</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The API key for the project to which this notice should be sent
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">api_key</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">args</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Arguments given in the initializer
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">backtrace</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">backtrace</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The backtrace from the given exception or hash.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">backtrace_filters</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">backtrace_filters</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+See Configuration#backtrace_filters
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">cgi_data</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">cgi_data</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+CGI variables such as HTTP_METHOD
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">component</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The component (if any) which was used in this request (usually the
+controller)
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">component</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">environment_filters</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">environment_name</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">environment_name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The name of the server environment (such as &quot;production&quot;)
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">error_class</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The name of the class of error (such as RuntimeError)
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">error_class</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">error_message</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">error_message</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The message from the exception, or a general description of the error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">exception</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The exception that caused this notice, if any
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">exception</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ignore</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ignore</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+See Configuration#ignore
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ignore_by_filters</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+See Configuration#ignore_by_filters
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ignore_by_filters</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">notifier_name</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">notifier_name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The name of the notifier library sending this notice, such as &quot;Hoptoad
+Notifier&quot;
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">notifier_url</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">notifier_url</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+A URL for more information about the notifier library sending this notice
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">notifier_version</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">notifier_version</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The version number of the notifier library sending this notice, such as
+&quot;2.1.3&quot;
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parameters</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+A hash of parameters from the query string or post body.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parameters</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">params_filters</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+See Configuration#params_filters
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">params_filters</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">project_root</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The path to the project that caused the error (usually RAILS_ROOT)
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">project_root</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">session_data</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">session_data</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+A hash of session data from the request
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">url</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The URL at which the error occurred (if any)
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">url</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M001010" class="method-detail">
+        <a name="M001010"></a>
+
+        <div class="method-heading">
+          <a href="#M001010" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001010-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/hoptoad_notifier/lib/hoptoad_notifier/notice.rb, line 66</span>
+66:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">args</span>)
+67:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">args</span>         = <span class="ruby-identifier">args</span>
+68:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">exception</span>    = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:exception</span>]
+69:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">api_key</span>      = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:api_key</span>]
+70:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">project_root</span> = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:project_root</span>]
+71:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">url</span>          = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:url</span>]
+72: 
+73:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">notifier_name</span>    = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:notifier_name</span>]
+74:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">notifier_version</span> = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:notifier_version</span>]
+75:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">notifier_url</span>     = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:notifier_url</span>]
+76: 
+77:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ignore</span>              = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:ignore</span>]              <span class="ruby-operator">||</span> []
+78:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">ignore_by_filters</span>   = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:ignore_by_filters</span>]   <span class="ruby-operator">||</span> []
+79:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backtrace_filters</span>   = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:backtrace_filters</span>]   <span class="ruby-operator">||</span> []
+80:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">params_filters</span>      = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:params_filters</span>]      <span class="ruby-operator">||</span> []
+81:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parameters</span>          = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:parameters</span>]          <span class="ruby-operator">||</span> {}
+82:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">component</span>           = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:component</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:controller</span>]
+83:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">action</span>              = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:action</span>]
+84: 
+85:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">environment_name</span> = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:environment_name</span>]
+86:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">cgi_data</span>         = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:cgi_data</span>]
+87:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backtrace</span>        = <span class="ruby-constant">Backtrace</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">exception_attribute</span>(<span class="ruby-identifier">:backtrace</span>, <span class="ruby-identifier">caller</span>))
+88:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">error_class</span>      = <span class="ruby-identifier">exception_attribute</span>(<span class="ruby-identifier">:error_class</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">exception</span><span class="ruby-operator">|</span> <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span> }
+89:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">error_message</span>    = <span class="ruby-identifier">exception_attribute</span>(<span class="ruby-identifier">:error_message</span>, <span class="ruby-value str">'Notification'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">exception</span><span class="ruby-operator">|</span>
+90:         <span class="ruby-node">&quot;#{exception.class.name}: #{exception.message}&quot;</span>
+91:       <span class="ruby-keyword kw">end</span>
+92: 
+93:       <span class="ruby-identifier">find_session_data</span>
+94:       <span class="ruby-identifier">clean_params</span>
+95:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001013" class="method-detail">
+        <a name="M001013"></a>
+
+        <div class="method-heading">
+          <a href="#M001013" class="method-signature">
+          <span class="method-name">[]</span><span class="method-args">(method)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows properties to be accessed using a hash-like syntax
+</p>
+<p>
+@example
+</p>
+<pre>
+  notice[:error_message]
+</pre>
+<p>
+@param [<a href="../String.html">String</a>] method The given key for an
+attribute @return The attribute value, or self if given +:request+
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001013-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/hoptoad_notifier/lib/hoptoad_notifier/notice.rb, line 166</span>
+166:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">method</span>)
+167:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">method</span>
+168:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:request</span>
+169:         <span class="ruby-keyword kw">self</span>
+170:       <span class="ruby-keyword kw">else</span>
+171:         <span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>)
+172:       <span class="ruby-keyword kw">end</span>
+173:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001012" class="method-detail">
+        <a name="M001012"></a>
+
+        <div class="method-heading">
+          <a href="#M001012" class="method-signature">
+          <span class="method-name">ignore?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines if this notice should be ignored
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001012-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/hoptoad_notifier/lib/hoptoad_notifier/notice.rb, line 155</span>
+155:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ignore?</span>
+156:       <span class="ruby-identifier">ignored_class_names</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">error_class</span>) <span class="ruby-operator">||</span>
+157:         <span class="ruby-identifier">ignore_by_filters</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword kw">self</span>) }
+158:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001011" class="method-detail">
+        <a name="M001011"></a>
+
+        <div class="method-heading">
+          <a href="#M001011" class="method-signature">
+          <span class="method-name">to_xml</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Converts the given notice to XML
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001011-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/hoptoad_notifier/lib/hoptoad_notifier/notice.rb, line 98</span>
+ 98:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_xml</span>
+ 99:       <span class="ruby-identifier">builder</span> = <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">XmlMarkup</span>.<span class="ruby-identifier">new</span>
+100:       <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">instruct!</span>
+101:       <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">notice</span>(<span class="ruby-identifier">:version</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">HoptoadNotifier</span><span class="ruby-operator">::</span><span class="ruby-constant">API_VERSION</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">notice</span><span class="ruby-operator">|</span>
+102:         <span class="ruby-identifier">notice</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">&quot;api-key&quot;</span>, <span class="ruby-identifier">api_key</span>)
+103:         <span class="ruby-identifier">notice</span>.<span class="ruby-identifier">notifier</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">notifier</span><span class="ruby-operator">|</span>
+104:           <span class="ruby-identifier">notifier</span>.<span class="ruby-identifier">name</span>(<span class="ruby-identifier">notifier_name</span>)
+105:           <span class="ruby-identifier">notifier</span>.<span class="ruby-identifier">version</span>(<span class="ruby-identifier">notifier_version</span>)
+106:           <span class="ruby-identifier">notifier</span>.<span class="ruby-identifier">url</span>(<span class="ruby-identifier">notifier_url</span>)
+107:         <span class="ruby-keyword kw">end</span>
+108:         <span class="ruby-identifier">notice</span>.<span class="ruby-identifier">error</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span>
+109:           <span class="ruby-identifier">error</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">'class'</span>, <span class="ruby-identifier">error_class</span>)
+110:           <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">error_message</span>)
+111:           <span class="ruby-identifier">error</span>.<span class="ruby-identifier">backtrace</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">backtrace</span><span class="ruby-operator">|</span>
+112:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+113:               <span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">line</span>(<span class="ruby-identifier">:number</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">number</span>,
+114:                              <span class="ruby-identifier">:file</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">file</span>,
+115:                              <span class="ruby-identifier">:method</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">method</span>)
+116:             <span class="ruby-keyword kw">end</span>
+117:           <span class="ruby-keyword kw">end</span>
+118:         <span class="ruby-keyword kw">end</span>
+119:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">url</span> <span class="ruby-operator">||</span>
+120:             <span class="ruby-identifier">controller</span> <span class="ruby-operator">||</span>
+121:             <span class="ruby-identifier">action</span> <span class="ruby-operator">||</span>
+122:             <span class="ruby-operator">!</span><span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span>
+123:             <span class="ruby-operator">!</span><span class="ruby-identifier">cgi_data</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span>
+124:             <span class="ruby-operator">!</span><span class="ruby-identifier">session_data</span>.<span class="ruby-identifier">blank?</span>
+125:           <span class="ruby-identifier">notice</span>.<span class="ruby-identifier">request</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">request</span><span class="ruby-operator">|</span>
+126:             <span class="ruby-identifier">request</span>.<span class="ruby-identifier">url</span>(<span class="ruby-identifier">url</span>)
+127:             <span class="ruby-identifier">request</span>.<span class="ruby-identifier">component</span>(<span class="ruby-identifier">controller</span>)
+128:             <span class="ruby-identifier">request</span>.<span class="ruby-identifier">action</span>(<span class="ruby-identifier">action</span>)
+129:             <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">blank?</span>
+130:               <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">params</span><span class="ruby-operator">|</span>
+131:                 <span class="ruby-identifier">xml_vars_for</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">parameters</span>)
+132:               <span class="ruby-keyword kw">end</span>
+133:             <span class="ruby-keyword kw">end</span>
+134:             <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">session_data</span>.<span class="ruby-identifier">blank?</span>
+135:               <span class="ruby-identifier">request</span>.<span class="ruby-identifier">session</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">session</span><span class="ruby-operator">|</span>
+136:                 <span class="ruby-identifier">xml_vars_for</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">session_data</span>)
+137:               <span class="ruby-keyword kw">end</span>
+138:             <span class="ruby-keyword kw">end</span>
+139:             <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">cgi_data</span>.<span class="ruby-identifier">blank?</span>
+140:               <span class="ruby-identifier">request</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">&quot;cgi-data&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cgi_datum</span><span class="ruby-operator">|</span>
+141:                 <span class="ruby-identifier">xml_vars_for</span>(<span class="ruby-identifier">cgi_datum</span>, <span class="ruby-identifier">cgi_data</span>)
+142:               <span class="ruby-keyword kw">end</span>
+143:             <span class="ruby-keyword kw">end</span>
+144:           <span class="ruby-keyword kw">end</span>
+145:         <span class="ruby-keyword kw">end</span>
+146:         <span class="ruby-identifier">notice</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">&quot;server-environment&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">env</span><span class="ruby-operator">|</span>
+147:           <span class="ruby-identifier">env</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">&quot;project-root&quot;</span>, <span class="ruby-identifier">project_root</span>)
+148:           <span class="ruby-identifier">env</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">&quot;environment-name&quot;</span>, <span class="ruby-identifier">environment_name</span>)
+149:         <span class="ruby-keyword kw">end</span>
+150:       <span class="ruby-keyword kw">end</span>
+151:       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">to_s</span>
+152:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

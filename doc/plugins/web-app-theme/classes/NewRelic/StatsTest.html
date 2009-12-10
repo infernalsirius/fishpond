@@ -1,0 +1,1117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: NewRelic::StatsTest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">NewRelic::StatsTest</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test_rb.html">
+                vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb
+                </a>
+        <br />
+                <a href="../../files/vendor/plugins/newrelic_rpm/test/new_relic/stats_test_rb.html">
+                vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Test/Unit/TestCase.html">
+                Test::Unit::TestCase
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+require &quot;new_relic/stats&quot;
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000959">test_apdex_score</a>&nbsp;&nbsp;
+      <a href="#M000960">test_as_percentage</a>&nbsp;&nbsp;
+      <a href="#M000961">test_calls_per_minute</a>&nbsp;&nbsp;
+      <a href="#M000962">test_calls_per_second</a>&nbsp;&nbsp;
+      <a href="#M000945">test_equal</a>&nbsp;&nbsp;
+      <a href="#M000965">test_exclusive_time_percentage</a>&nbsp;&nbsp;
+      <a href="#M000955">test_fraction_of</a>&nbsp;&nbsp;
+      <a href="#M000956">test_fraction_of2</a>&nbsp;&nbsp;
+      <a href="#M000970">test_freeze</a>&nbsp;&nbsp;
+      <a href="#M000949">test_freeze</a>&nbsp;&nbsp;
+      <a href="#M000958">test_get_apdex</a>&nbsp;&nbsp;
+      <a href="#M000966">test_merge</a>&nbsp;&nbsp;
+      <a href="#M000946">test_merge</a>&nbsp;&nbsp;
+      <a href="#M000968">test_merge_array</a>&nbsp;&nbsp;
+      <a href="#M000948">test_merge_array</a>&nbsp;&nbsp;
+      <a href="#M000967">test_merge_with_exclusive</a>&nbsp;&nbsp;
+      <a href="#M000947">test_merge_with_exclusive</a>&nbsp;&nbsp;
+      <a href="#M000957">test_multiply_by</a>&nbsp;&nbsp;
+      <a href="#M000969">test_round</a>&nbsp;&nbsp;
+      <a href="#M000944">test_simple</a>&nbsp;&nbsp;
+      <a href="#M000952">test_simple</a>&nbsp;&nbsp;
+      <a href="#M000971">test_std_dev</a>&nbsp;&nbsp;
+      <a href="#M000950">test_std_dev</a>&nbsp;&nbsp;
+      <a href="#M000951">test_std_dev_merge</a>&nbsp;&nbsp;
+      <a href="#M000972">test_std_dev_merge</a>&nbsp;&nbsp;
+      <a href="#M000964">test_time_percentage</a>&nbsp;&nbsp;
+      <a href="#M000954">test_time_str</a>&nbsp;&nbsp;
+      <a href="#M000953">test_to_s</a>&nbsp;&nbsp;
+      <a href="#M000963">test_total_call_time_per_minute</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000959" class="method-detail">
+        <a name="M000959"></a>
+
+        <div class="method-heading">
+          <a href="#M000959" class="method-signature">
+          <span class="method-name">test_apdex_score</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000959-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000959-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 72</span>
+72:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_apdex_score</span>
+73:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+74:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+75:     <span class="ruby-comment cmt"># FIXME make this test the real logic</span>
+76:     <span class="ruby-comment cmt"># don't ask me what this means, but it's what's coming out the</span>
+77:     <span class="ruby-comment cmt"># other end when I actually run it.</span>
+78:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">apdex_score</span>, <span class="ruby-value">0</span><span class="ruby-value">.285714285714286</span>, <span class="ruby-value">0</span><span class="ruby-value">.0000001</span>)
+79:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000960" class="method-detail">
+        <a name="M000960"></a>
+
+        <div class="method-heading">
+          <a href="#M000960" class="method-signature">
+          <span class="method-name">test_as_percentage</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000960-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000960-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 81</span>
+81:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_as_percentage</span>
+82:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+83:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+84:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">as_percentage</span>, <span class="ruby-value">1000.0</span>)
+85:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000961" class="method-detail">
+        <a name="M000961"></a>
+
+        <div class="method-heading">
+          <a href="#M000961" class="method-signature">
+          <span class="method-name">test_calls_per_minute</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000961-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000961-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 87</span>
+87:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_calls_per_minute</span>
+88: 
+89:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">TestObjectForStats</span>.<span class="ruby-identifier">new</span>
+90:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">call_count</span> =  <span class="ruby-value">1</span>
+91:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+92:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">30</span>)
+93:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">calls_per_minute</span>, <span class="ruby-value">2</span>)
+94:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000962" class="method-detail">
+        <a name="M000962"></a>
+
+        <div class="method-heading">
+          <a href="#M000962" class="method-signature">
+          <span class="method-name">test_calls_per_second</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000962-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000962-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 96</span>
+ 96:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_calls_per_second</span>
+ 97:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">TestObjectForStats</span>.<span class="ruby-identifier">new</span>
+ 98:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">call_count</span> = <span class="ruby-value">90</span>
+ 99:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+100:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">30</span>)
+101:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">calls_per_second</span>, <span class="ruby-value">3</span>)
+102:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000945" class="method-detail">
+        <a name="M000945"></a>
+
+        <div class="method-heading">
+          <a href="#M000945" class="method-signature">
+          <span class="method-name">test_equal</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000945-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000945-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb, line 17</span>
+17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_equal</span>
+18:     <span class="ruby-identifier">spec1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MetricSpec</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'Controller'</span>)
+19:     <span class="ruby-identifier">spec2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MetricSpec</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'Controller'</span>, <span class="ruby-keyword kw">nil</span>)
+20:     
+21:     <span class="ruby-identifier">assert</span> <span class="ruby-identifier">spec1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MetricSpec</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'Controller'</span>))
+22:     <span class="ruby-identifier">assert</span> <span class="ruby-identifier">spec2</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MetricSpec</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'Controller'</span>, <span class="ruby-keyword kw">nil</span>))
+23:     <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">spec1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">spec2</span>)
+24:     <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">spec2</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MetricSpec</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'Controller'</span>, <span class="ruby-value str">'/dude'</span>))
+25:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000965" class="method-detail">
+        <a name="M000965"></a>
+
+        <div class="method-heading">
+          <a href="#M000965" class="method-signature">
+          <span class="method-name">test_exclusive_time_percentage</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000965-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000965-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 128</span>
+128:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_exclusive_time_percentage</span>
+129:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">TestObjectForStats</span>.<span class="ruby-identifier">new</span>
+130:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+131:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+132:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">exclusive_time_percentage</span>)
+133:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">total_exclusive_time</span> = <span class="ruby-value">10</span>
+134:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+135:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">30</span>)
+136:     <span class="ruby-identifier">assert_equal</span>((<span class="ruby-value">1.0</span> <span class="ruby-operator">/</span> <span class="ruby-value">3.0</span>), <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">exclusive_time_percentage</span>)
+137:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">total_exclusive_time</span> = <span class="ruby-value">20</span>
+138:     <span class="ruby-identifier">assert_equal</span>((<span class="ruby-value">2.0</span> <span class="ruby-operator">/</span> <span class="ruby-value">3.0</span>), <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">exclusive_time_percentage</span>)
+139:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000955" class="method-detail">
+        <a name="M000955"></a>
+
+        <div class="method-heading">
+          <a href="#M000955" class="method-signature">
+          <span class="method-name">test_fraction_of</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000955-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000955-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 45</span>
+45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_fraction_of</span>
+46:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+47:     <span class="ruby-identifier">s2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+48:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+49:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>
+50:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">fraction_of</span>(<span class="ruby-identifier">s2</span>).<span class="ruby-identifier">to_s</span>, <span class="ruby-value str">'NaN'</span>)
+51:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000956" class="method-detail">
+        <a name="M000956"></a>
+
+        <div class="method-heading">
+          <a href="#M000956" class="method-signature">
+          <span class="method-name">test_fraction_of2</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000956-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000956-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 53</span>
+53:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_fraction_of2</span>
+54:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+55:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+56:     <span class="ruby-identifier">s2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+57:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">fraction_of</span>(<span class="ruby-identifier">s2</span>).<span class="ruby-identifier">to_s</span>, <span class="ruby-value str">'NaN'</span>)
+58:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000970" class="method-detail">
+        <a name="M000970"></a>
+
+        <div class="method-heading">
+          <a href="#M000970" class="method-signature">
+          <span class="method-name">test_freeze</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000970-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000970-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 203</span>
+203:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_freeze</span>
+204:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+205:     
+206:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+207:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">freeze</span>
+208:     
+209:     <span class="ruby-keyword kw">begin</span>
+210:       <span class="ruby-comment cmt"># the following should throw an exception because s1 is frozen</span>
+211:       <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>
+212:       <span class="ruby-identifier">assert</span> <span class="ruby-keyword kw">false</span>
+213:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">StandardError</span>
+214:       <span class="ruby-identifier">assert</span> <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">frozen?</span>
+215:       <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>
+216:     <span class="ruby-keyword kw">end</span>
+217:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000949" class="method-detail">
+        <a name="M000949"></a>
+
+        <div class="method-heading">
+          <a href="#M000949" class="method-signature">
+          <span class="method-name">test_freeze</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000949-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000949-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb, line 104</span>
+104:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_freeze</span>
+105:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+106:     
+107:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+108:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">freeze</span>
+109:     
+110:     <span class="ruby-keyword kw">begin</span>
+111:       <span class="ruby-comment cmt"># the following should throw an exception because s1 is frozen</span>
+112:       <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>
+113:       <span class="ruby-identifier">assert</span> <span class="ruby-keyword kw">false</span>
+114:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">StandardError</span>
+115:       <span class="ruby-identifier">assert</span> <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">frozen?</span>
+116:       <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>
+117:     <span class="ruby-keyword kw">end</span>
+118:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000958" class="method-detail">
+        <a name="M000958"></a>
+
+        <div class="method-heading">
+          <a href="#M000958" class="method-signature">
+          <span class="method-name">test_get_apdex</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000958-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000958-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_get_apdex</span>
+67:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+68:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+69:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">get_apdex</span>, [<span class="ruby-value">1</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>])
+70:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000966" class="method-detail">
+        <a name="M000966"></a>
+
+        <div class="method-heading">
+          <a href="#M000966" class="method-signature">
+          <span class="method-name">test_merge</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000966-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000966-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 141</span>
+141:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_merge</span>
+142:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+143:     <span class="ruby-identifier">s2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+144:     
+145:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+146:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>
+147:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">freeze</span>
+148:     
+149:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>
+150:     <span class="ruby-identifier">s3</span> = <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">s2</span>
+151:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s3</span>, <span class="ruby-value">2</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span>), <span class="ruby-value">10</span>, <span class="ruby-value">20</span>
+152:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>
+153:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>
+154:     
+155:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">s2</span>
+156:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">2</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span>), <span class="ruby-value">10</span>, <span class="ruby-value">20</span>
+157:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>
+158:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000946" class="method-detail">
+        <a name="M000946"></a>
+
+        <div class="method-heading">
+          <a href="#M000946" class="method-signature">
+          <span class="method-name">test_merge</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000946-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000946-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb, line 54</span>
+54:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_merge</span>
+55:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+56:     <span class="ruby-identifier">s2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+57:     
+58:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+59:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>
+60:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">freeze</span>
+61:     
+62:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>
+63:     <span class="ruby-identifier">s3</span> = <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">s2</span>
+64:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s3</span>, <span class="ruby-value">2</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span>), <span class="ruby-value">10</span>, <span class="ruby-value">20</span>
+65:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>
+66:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>
+67:     
+68:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">s2</span>
+69:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">2</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span>), <span class="ruby-value">10</span>, <span class="ruby-value">20</span>
+70:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>
+71:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000968" class="method-detail">
+        <a name="M000968"></a>
+
+        <div class="method-heading">
+          <a href="#M000968" class="method-signature">
+          <span class="method-name">test_merge_array</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000968-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000968-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 180</span>
+180:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_merge_array</span>
+181:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+182:     <span class="ruby-identifier">merges</span> = []
+183:     <span class="ruby-identifier">merges</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1</span>)
+184:     <span class="ruby-identifier">merges</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1</span>)
+185:     <span class="ruby-identifier">merges</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1</span>)
+186:     
+187:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">merges</span>
+188:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>
+189:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000948" class="method-detail">
+        <a name="M000948"></a>
+
+        <div class="method-heading">
+          <a href="#M000948" class="method-signature">
+          <span class="method-name">test_merge_array</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000948-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000948-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb, line 93</span>
+ 93:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_merge_array</span>
+ 94:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+ 95:     <span class="ruby-identifier">merges</span> = []
+ 96:     <span class="ruby-identifier">merges</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1</span>)
+ 97:     <span class="ruby-identifier">merges</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1</span>)
+ 98:     <span class="ruby-identifier">merges</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1</span>)
+ 99:     
+100:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">merges</span>
+101:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>
+102:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000967" class="method-detail">
+        <a name="M000967"></a>
+
+        <div class="method-heading">
+          <a href="#M000967" class="method-signature">
+          <span class="method-name">test_merge_with_exclusive</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000967-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000967-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 160</span>
+160:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_merge_with_exclusive</span>
+161:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+162:     
+163:     <span class="ruby-identifier">s2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+164:     
+165:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>, <span class="ruby-value">5</span>
+166:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>, <span class="ruby-value">10</span>
+167:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">freeze</span>
+168:     
+169:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">10</span>
+170:     <span class="ruby-identifier">s3</span> = <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">s2</span>
+171:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s3</span>, <span class="ruby-value">2</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span>), <span class="ruby-value">10</span>, <span class="ruby-value">20</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">5</span>)
+172:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>, <span class="ruby-value">5</span>
+173:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">10</span>
+174:     
+175:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">s2</span>
+176:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">2</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span>), <span class="ruby-value">10</span>, <span class="ruby-value">20</span>, (<span class="ruby-value">5</span><span class="ruby-operator">+</span><span class="ruby-value">10</span>)
+177:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">10</span>
+178:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000947" class="method-detail">
+        <a name="M000947"></a>
+
+        <div class="method-heading">
+          <a href="#M000947" class="method-signature">
+          <span class="method-name">test_merge_with_exclusive</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000947-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000947-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb, line 73</span>
+73:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_merge_with_exclusive</span>
+74:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+75:     
+76:     <span class="ruby-identifier">s2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+77:     
+78:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>, <span class="ruby-value">5</span>
+79:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>, <span class="ruby-value">10</span>
+80:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">freeze</span>
+81:     
+82:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">10</span>
+83:     <span class="ruby-identifier">s3</span> = <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">s2</span>
+84:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s3</span>, <span class="ruby-value">2</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span>), <span class="ruby-value">10</span>, <span class="ruby-value">20</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">5</span>)
+85:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>, <span class="ruby-value">10</span>, <span class="ruby-value">5</span>
+86:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">10</span>
+87:     
+88:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">s2</span>
+89:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s1</span>, <span class="ruby-value">2</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span>), <span class="ruby-value">10</span>, <span class="ruby-value">20</span>, (<span class="ruby-value">5</span><span class="ruby-operator">+</span><span class="ruby-value">10</span>)
+90:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">s2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">20</span>, <span class="ruby-value">10</span>
+91:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000957" class="method-detail">
+        <a name="M000957"></a>
+
+        <div class="method-heading">
+          <a href="#M000957" class="method-signature">
+          <span class="method-name">test_multiply_by</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000957-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000957-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 60</span>
+60:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_multiply_by</span>
+61:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+62:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+63:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">multiply_by</span>(<span class="ruby-value">10</span>).<span class="ruby-identifier">to_s</span>, <span class="ruby-value str">&quot;Begin=0.0, Duration=0.0 s, Count=10, Total=100000, Total Exclusive=10000, Avg=10000, Min=10000, Max=10000, StdDev=0&quot;</span>)
+64:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000969" class="method-detail">
+        <a name="M000969"></a>
+
+        <div class="method-heading">
+          <a href="#M000969" class="method-signature">
+          <span class="method-name">test_round</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000969-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000969-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 190</span>
+190:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_round</span>
+191:     <span class="ruby-identifier">stats</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+192:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">record_data_point</span>(<span class="ruby-value">0</span><span class="ruby-value">.125222</span>, <span class="ruby-value">0</span><span class="ruby-value">.025</span>)
+193:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">record_data_point</span>(<span class="ruby-value">0</span><span class="ruby-value">.125222</span>, <span class="ruby-value">0</span><span class="ruby-value">.025</span>)
+194:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">record_data_point</span>(<span class="ruby-value">0</span><span class="ruby-value">.125222</span>, <span class="ruby-value">0</span><span class="ruby-value">.025</span>)
+195:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span><span class="ruby-value">.047041647852</span>, <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">sum_of_squares</span>
+196:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span><span class="ruby-value">.375666</span>, <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">total_call_time</span>
+197:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">round!</span>
+198:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span><span class="ruby-value">.376</span>, <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">total_call_time</span>
+199:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span><span class="ruby-value">.047</span>, <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">sum_of_squares</span>
+200:     
+201:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000944" class="method-detail">
+        <a name="M000944"></a>
+
+        <div class="method-heading">
+          <a href="#M000944" class="method-signature">
+          <span class="method-name">test_simple</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000944-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000944-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb, line 5</span>
+ 5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_simple</span>
+ 6:     <span class="ruby-identifier">stats</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span> 
+ 7:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">stats</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>
+ 8:     
+ 9:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">call_count</span>,<span class="ruby-value">0</span>
+10:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+11:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>
+12:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">30</span>
+13:     
+14:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">stats</span>, <span class="ruby-value">3</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span><span class="ruby-operator">+</span><span class="ruby-value">30</span>), <span class="ruby-value">10</span>, <span class="ruby-value">30</span>
+15:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000952" class="method-detail">
+        <a name="M000952"></a>
+
+        <div class="method-heading">
+          <a href="#M000952" class="method-signature">
+          <span class="method-name">test_simple</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000952-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000952-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 16</span>
+16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_simple</span>
+17:     <span class="ruby-identifier">stats</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span> 
+18:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">stats</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>
+19:     
+20:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">call_count</span>,<span class="ruby-value">0</span>
+21:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+22:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">20</span>
+23:     <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">30</span>
+24:     
+25:     <span class="ruby-identifier">validate</span> <span class="ruby-identifier">stats</span>, <span class="ruby-value">3</span>, (<span class="ruby-value">10</span><span class="ruby-operator">+</span><span class="ruby-value">20</span><span class="ruby-operator">+</span><span class="ruby-value">30</span>), <span class="ruby-value">10</span>, <span class="ruby-value">30</span>
+26:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000971" class="method-detail">
+        <a name="M000971"></a>
+
+        <div class="method-heading">
+          <a href="#M000971" class="method-signature">
+          <span class="method-name">test_std_dev</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000971-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000971-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 219</span>
+219:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_std_dev</span>
+220:     <span class="ruby-identifier">s</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+221:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1</span>
+222:     <span class="ruby-identifier">assert</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">standard_deviation</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+223:     
+224:     <span class="ruby-identifier">s</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+225:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+226:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+227:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">sum_of_squares</span> = <span class="ruby-keyword kw">nil</span>
+228:     <span class="ruby-identifier">assert</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">standard_deviation</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+229:     
+230:     <span class="ruby-identifier">s</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+231:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">0</span><span class="ruby-value">.001</span>
+232:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">0</span><span class="ruby-value">.001</span>
+233:     <span class="ruby-identifier">assert</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">standard_deviation</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+234: 
+235:     
+236:     <span class="ruby-identifier">s</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+237:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+238:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+239:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+240:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+241:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+242:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+243:     <span class="ruby-identifier">assert</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">standard_deviation</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+244:     
+245:     <span class="ruby-identifier">s</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+246:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">4</span>
+247:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">7</span>
+248:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">13</span>
+249:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">16</span>
+250:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">8</span>
+251:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">4</span>
+252:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">sum_of_squares</span>, <span class="ruby-value">4</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">7</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">13</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">16</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">8</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span><span class="ruby-operator">**</span><span class="ruby-value">2</span>)
+253:     
+254:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">9</span>
+255:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">3</span>
+256:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1000</span>
+257:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">4</span>
+258:     
+259:     <span class="ruby-comment cmt"># calculated stdev (population, not sample) from a spreadsheet.</span>
+260:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">standard_deviation</span>, <span class="ruby-value">297.76</span>, <span class="ruby-value">0</span><span class="ruby-value">.01</span>)
+261:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000950" class="method-detail">
+        <a name="M000950"></a>
+
+        <div class="method-heading">
+          <a href="#M000950" class="method-signature">
+          <span class="method-name">test_std_dev</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000950-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000950-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb, line 120</span>
+120:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_std_dev</span>
+121:     <span class="ruby-identifier">s</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+122:     
+123:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+124:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+125:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+126:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+127:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+128:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+129:     <span class="ruby-identifier">assert</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">standard_deviation</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+130:     
+131:     <span class="ruby-identifier">s</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+132:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">4</span>
+133:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">7</span>
+134:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">13</span>
+135:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">16</span>
+136:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">8</span>
+137:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">4</span>
+138:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">sum_of_squares</span>, <span class="ruby-value">4</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">7</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">13</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">16</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">8</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span><span class="ruby-operator">**</span><span class="ruby-value">2</span>)
+139:     
+140:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">9</span>
+141:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">3</span>
+142:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">1000</span>
+143:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">4</span>
+144:     
+145:     <span class="ruby-comment cmt"># calculated stdev (population, not sample) from a spreadsheet.</span>
+146:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">standard_deviation</span>, <span class="ruby-value">297.76</span>, <span class="ruby-value">0</span><span class="ruby-value">.01</span>)
+147:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000951" class="method-detail">
+        <a name="M000951"></a>
+
+        <div class="method-heading">
+          <a href="#M000951" class="method-signature">
+          <span class="method-name">test_std_dev_merge</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000951-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000951-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/metric_spec_test.rb, line 149</span>
+149:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_std_dev_merge</span>
+150:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+151:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">4</span>
+152:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">7</span>
+153:     
+154:     <span class="ruby-identifier">s2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+155:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">13</span>
+156:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">16</span>
+157:     
+158:     <span class="ruby-identifier">s3</span> = <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">s2</span>)
+159:     
+160:     <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">sum_of_squares</span>, <span class="ruby-value">4</span><span class="ruby-operator">*</span><span class="ruby-value">4</span> <span class="ruby-operator">+</span> <span class="ruby-value">7</span><span class="ruby-operator">*</span><span class="ruby-value">7</span>)
+161:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">standard_deviation</span>, <span class="ruby-value">1.5</span>, <span class="ruby-value">0</span><span class="ruby-value">.01</span>)
+162:     
+163:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s2</span>.<span class="ruby-identifier">standard_deviation</span>, <span class="ruby-value">1.5</span>, <span class="ruby-value">0</span><span class="ruby-value">.01</span>)
+164:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s3</span>.<span class="ruby-identifier">sum_of_squares</span>, <span class="ruby-value">4</span><span class="ruby-operator">*</span><span class="ruby-value">4</span> <span class="ruby-operator">+</span> <span class="ruby-value">7</span><span class="ruby-operator">*</span><span class="ruby-value">7</span> <span class="ruby-operator">+</span> <span class="ruby-value">13</span><span class="ruby-operator">*</span><span class="ruby-value">13</span> <span class="ruby-operator">+</span> <span class="ruby-value">16</span><span class="ruby-operator">*</span><span class="ruby-value">16</span>, <span class="ruby-value str">&quot;check sum of squares&quot;</span>)
+165:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s3</span>.<span class="ruby-identifier">standard_deviation</span>, <span class="ruby-value">4.743</span>, <span class="ruby-value">0</span><span class="ruby-value">.01</span>)
+166:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000972" class="method-detail">
+        <a name="M000972"></a>
+
+        <div class="method-heading">
+          <a href="#M000972" class="method-signature">
+          <span class="method-name">test_std_dev_merge</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000972-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000972-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 263</span>
+263:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_std_dev_merge</span>
+264:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+265:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">4</span>
+266:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">7</span>
+267:     
+268:     <span class="ruby-identifier">s2</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+269:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">13</span>
+270:     <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">16</span>
+271:     
+272:     <span class="ruby-identifier">s3</span> = <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">s2</span>)
+273:     
+274:     <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">sum_of_squares</span>, <span class="ruby-value">4</span><span class="ruby-operator">*</span><span class="ruby-value">4</span> <span class="ruby-operator">+</span> <span class="ruby-value">7</span><span class="ruby-operator">*</span><span class="ruby-value">7</span>)
+275:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">standard_deviation</span>, <span class="ruby-value">1.5</span>, <span class="ruby-value">0</span><span class="ruby-value">.01</span>)
+276:     
+277:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s2</span>.<span class="ruby-identifier">standard_deviation</span>, <span class="ruby-value">1.5</span>, <span class="ruby-value">0</span><span class="ruby-value">.01</span>)
+278:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s3</span>.<span class="ruby-identifier">sum_of_squares</span>, <span class="ruby-value">4</span><span class="ruby-operator">*</span><span class="ruby-value">4</span> <span class="ruby-operator">+</span> <span class="ruby-value">7</span><span class="ruby-operator">*</span><span class="ruby-value">7</span> <span class="ruby-operator">+</span> <span class="ruby-value">13</span><span class="ruby-operator">*</span><span class="ruby-value">13</span> <span class="ruby-operator">+</span> <span class="ruby-value">16</span><span class="ruby-operator">*</span><span class="ruby-value">16</span>, <span class="ruby-value str">&quot;check sum of squares&quot;</span>)
+279:     <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-identifier">s3</span>.<span class="ruby-identifier">standard_deviation</span>, <span class="ruby-value">4.743</span>, <span class="ruby-value">0</span><span class="ruby-value">.01</span>)
+280:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000964" class="method-detail">
+        <a name="M000964"></a>
+
+        <div class="method-heading">
+          <a href="#M000964" class="method-signature">
+          <span class="method-name">test_time_percentage</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000964-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000964-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 115</span>
+115:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_time_percentage</span>
+116:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">TestObjectForStats</span>.<span class="ruby-identifier">new</span>
+117:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+118:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+119:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_percentage</span>)
+120:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">total_call_time</span> = <span class="ruby-value">10</span>
+121:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+122:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">30</span>)
+123:     <span class="ruby-identifier">assert_equal</span>((<span class="ruby-value">1.0</span> <span class="ruby-operator">/</span> <span class="ruby-value">3.0</span>), <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_percentage</span>)
+124:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">total_call_time</span> = <span class="ruby-value">20</span>
+125:     <span class="ruby-identifier">assert_equal</span>((<span class="ruby-value">2.0</span> <span class="ruby-operator">/</span> <span class="ruby-value">3.0</span>), <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_percentage</span>)
+126:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000954" class="method-detail">
+        <a name="M000954"></a>
+
+        <div class="method-heading">
+          <a href="#M000954" class="method-signature">
+          <span class="method-name">test_time_str</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000954-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000954-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 34</span>
+34:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_time_str</span>
+35:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+36:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_str</span>(<span class="ruby-value">10</span>), <span class="ruby-value str">&quot;10 ms&quot;</span>)
+37:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_str</span>(<span class="ruby-value">4999</span>), <span class="ruby-value str">&quot;4999 ms&quot;</span>)    
+38:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_str</span>(<span class="ruby-value">5000</span>), <span class="ruby-value str">&quot;5.00 s&quot;</span>)
+39:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_str</span>(<span class="ruby-value">5010</span>), <span class="ruby-value str">&quot;5.01 s&quot;</span>)
+40:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_str</span>(<span class="ruby-value">9999</span>), <span class="ruby-value str">&quot;10.00 s&quot;</span>)
+41:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_str</span>(<span class="ruby-value">10000</span>), <span class="ruby-value str">&quot;10.0 s&quot;</span>)
+42:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">time_str</span>(<span class="ruby-value">20000</span>), <span class="ruby-value str">&quot;20.0 s&quot;</span>)
+43:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000953" class="method-detail">
+        <a name="M000953"></a>
+
+        <div class="method-heading">
+          <a href="#M000953" class="method-signature">
+          <span class="method-name">test_to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000953-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000953-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 28</span>
+28:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_to_s</span>
+29:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodTraceStats</span>.<span class="ruby-identifier">new</span>
+30:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">trace_call</span> <span class="ruby-value">10</span>
+31:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s1</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value str">&quot;Begin=0.0, Duration=0.0 s, Count=1, Total=10000, Total Exclusive=10000, Avg=10000, Min=10000, Max=10000, StdDev=0&quot;</span>)
+32:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000963" class="method-detail">
+        <a name="M000963"></a>
+
+        <div class="method-heading">
+          <a href="#M000963" class="method-signature">
+          <span class="method-name">test_total_call_time_per_minute</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000963-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000963-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/test/new_relic/stats_test.rb, line 104</span>
+104:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_total_call_time_per_minute</span>
+105:     <span class="ruby-identifier">s1</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">TestObjectForStats</span>.<span class="ruby-identifier">new</span>
+106:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+107:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+108:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">total_call_time_per_minute</span>)
+109:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+110:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">30</span>)
+111:     <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">total_call_time</span> = <span class="ruby-value">10</span>
+112:     <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">20</span>, <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">total_call_time_per_minute</span>)
+113:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: NewRelic::TransactionSample::Segment</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">NewRelic::TransactionSample::Segment</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample_rb.html">
+                vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000925">[]</a>&nbsp;&nbsp;
+      <a href="#M000924">[]=</a>&nbsp;&nbsp;
+      <a href="#M000914">add_called_segment</a>&nbsp;&nbsp;
+      <a href="#M000920">called_segments</a>&nbsp;&nbsp;
+      <a href="#M000932">called_segments=</a>&nbsp;&nbsp;
+      <a href="#M000922">duration</a>&nbsp;&nbsp;
+      <a href="#M000927">each_segment</a>&nbsp;&nbsp;
+      <a href="#M000913">end_trace</a>&nbsp;&nbsp;
+      <a href="#M000923">exclusive_duration</a>&nbsp;&nbsp;
+      <a href="#M000929">explain_sql</a>&nbsp;&nbsp;
+      <a href="#M000928">find_segment</a>&nbsp;&nbsp;
+      <a href="#M000921">freeze</a>&nbsp;&nbsp;
+      <a href="#M000917">from_json</a>&nbsp;&nbsp;
+      <a href="#M000930">handle_exception_in_explain</a>&nbsp;&nbsp;
+      <a href="#M000912">new</a>&nbsp;&nbsp;
+      <a href="#M000931">obfuscated_sql</a>&nbsp;&nbsp;
+      <a href="#M000926">params</a>&nbsp;&nbsp;
+      <a href="#M000934">params=</a>&nbsp;&nbsp;
+      <a href="#M000933">parent_segment=</a>&nbsp;&nbsp;
+      <a href="#M000918">path_string</a>&nbsp;&nbsp;
+      <a href="#M000919">to_debug_str</a>&nbsp;&nbsp;
+      <a href="#M000916">to_json</a>&nbsp;&nbsp;
+      <a href="#M000915">to_s</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">entry_timestamp</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">exit_timestamp</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">metric_name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parent_segment</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">segment_id</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000917" class="method-detail">
+        <a name="M000917"></a>
+
+        <div class="method-heading">
+          <a href="#M000917" class="method-signature">
+          <span class="method-name">from_json</span><span class="method-args">(json)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000917-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000917-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 69</span>
+69:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">from_json</span>(<span class="ruby-identifier">json</span>)
+70:         <span class="ruby-identifier">json</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">json</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">json</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+71:         <span class="ruby-identifier">segment</span> = <span class="ruby-constant">Segment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">json</span>[<span class="ruby-value str">&quot;entry_timestamp&quot;</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-identifier">json</span>[<span class="ruby-value str">&quot;metric_name&quot;</span>], <span class="ruby-identifier">json</span>[<span class="ruby-value str">&quot;segment_id&quot;</span>])
+72:         <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">end_trace</span> <span class="ruby-identifier">json</span>[<span class="ruby-value str">&quot;exit_timestamp&quot;</span>].<span class="ruby-identifier">to_f</span>
+73:         <span class="ruby-identifier">params</span> = <span class="ruby-identifier">json</span>[<span class="ruby-value str">&quot;params&quot;</span>]
+74:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>
+75:           <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">send</span> <span class="ruby-identifier">:params=</span>, <span class="ruby-constant">HashWithIndifferentAccess</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>)
+76:         <span class="ruby-keyword kw">end</span>
+77:         <span class="ruby-identifier">called_segments</span> = <span class="ruby-identifier">json</span>[<span class="ruby-value str">&quot;called_segments&quot;</span>]
+78:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">called_segments</span>
+79:           <span class="ruby-identifier">called_segments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+80:             <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">add_called_segment</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">from_json</span>(<span class="ruby-identifier">child</span>))
+81:           <span class="ruby-keyword kw">end</span>
+82:         <span class="ruby-keyword kw">end</span>
+83:         <span class="ruby-identifier">segment</span>
+84:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000912" class="method-detail">
+        <a name="M000912"></a>
+
+        <div class="method-heading">
+          <a href="#M000912" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(timestamp, metric_name, segment_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000912-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000912-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 35</span>
+35:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">timestamp</span>, <span class="ruby-identifier">metric_name</span>, <span class="ruby-identifier">segment_id</span>)
+36:         <span class="ruby-ivar">@entry_timestamp</span> = <span class="ruby-identifier">timestamp</span>
+37:         <span class="ruby-ivar">@metric_name</span> = <span class="ruby-identifier">metric_name</span>
+38:         <span class="ruby-ivar">@segment_id</span> = <span class="ruby-identifier">segment_id</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">object_id</span>
+39:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000925" class="method-detail">
+        <a name="M000925"></a>
+
+        <div class="method-heading">
+          <a href="#M000925" class="method-signature">
+          <span class="method-name">[]</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000925-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000925-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 149</span>
+149:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+150:         <span class="ruby-identifier">params</span>[<span class="ruby-identifier">key</span>]
+151:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000924" class="method-detail">
+        <a name="M000924"></a>
+
+        <div class="method-heading">
+          <a href="#M000924" class="method-signature">
+          <span class="method-name">[]=</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000924-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000924-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 143</span>
+143:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+144:         <span class="ruby-comment cmt"># only create a parameters field if a parameter is set; this will save</span>
+145:         <span class="ruby-comment cmt"># bandwidth etc as most segments have no parameters</span>
+146:         <span class="ruby-identifier">params</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+147:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000914" class="method-detail">
+        <a name="M000914"></a>
+
+        <div class="method-heading">
+          <a href="#M000914" class="method-signature">
+          <span class="method-name">add_called_segment</span><span class="method-args">(s)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000914-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000914-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 45</span>
+45:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_called_segment</span>(<span class="ruby-identifier">s</span>)
+46:         <span class="ruby-ivar">@called_segments</span> <span class="ruby-operator">||=</span> []
+47:         <span class="ruby-ivar">@called_segments</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span>
+48:         <span class="ruby-identifier">s</span>.<span class="ruby-identifier">parent_segment</span> = <span class="ruby-keyword kw">self</span>
+49:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000920" class="method-detail">
+        <a name="M000920"></a>
+
+        <div class="method-heading">
+          <a href="#M000920" class="method-signature">
+          <span class="method-name">called_segments</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000920-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000920-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 111</span>
+111:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">called_segments</span>
+112:         <span class="ruby-ivar">@called_segments</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@@empty_array</span>
+113:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000932" class="method-detail">
+        <a name="M000932"></a>
+
+        <div class="method-heading">
+          <a href="#M000932" class="method-signature">
+          <span class="method-name">called_segments=</span><span class="method-args">(segments)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000932-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000932-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 233</span>
+233:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">called_segments=</span>(<span class="ruby-identifier">segments</span>)
+234:         <span class="ruby-ivar">@called_segments</span> = <span class="ruby-identifier">segments</span>
+235:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000922" class="method-detail">
+        <a name="M000922"></a>
+
+        <div class="method-heading">
+          <a href="#M000922" class="method-signature">
+          <span class="method-name">duration</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+return the total <a href="Segment.html#M000922">duration</a> of this
+segment
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000922-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000922-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 126</span>
+126:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">duration</span>
+127:         <span class="ruby-ivar">@exit_timestamp</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@entry_timestamp</span>
+128:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000927" class="method-detail">
+        <a name="M000927"></a>
+
+        <div class="method-heading">
+          <a href="#M000927" class="method-signature">
+          <span class="method-name">each_segment</span><span class="method-args">(&amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+call the provided block for this segment and each of the called segments
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000927-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000927-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 159</span>
+159:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each_segment</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+160:         <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-keyword kw">self</span>
+161:         
+162:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@called_segments</span>
+163:           <span class="ruby-ivar">@called_segments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">segment</span><span class="ruby-operator">|</span>
+164:             <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">each_segment</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+165:           <span class="ruby-keyword kw">end</span>
+166:         <span class="ruby-keyword kw">end</span>
+167:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000913" class="method-detail">
+        <a name="M000913"></a>
+
+        <div class="method-heading">
+          <a href="#M000913" class="method-signature">
+          <span class="method-name">end_trace</span><span class="method-args">(timestamp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000913-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000913-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 41</span>
+41:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">end_trace</span>(<span class="ruby-identifier">timestamp</span>)
+42:         <span class="ruby-ivar">@exit_timestamp</span> = <span class="ruby-identifier">timestamp</span>
+43:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000923" class="method-detail">
+        <a name="M000923"></a>
+
+        <div class="method-heading">
+          <a href="#M000923" class="method-signature">
+          <span class="method-name">exclusive_duration</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+return the <a href="Segment.html#M000922">duration</a> of this segment
+without including the time in the called segments
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000923-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000923-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 132</span>
+132:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exclusive_duration</span>
+133:         <span class="ruby-identifier">d</span> = <span class="ruby-identifier">duration</span>
+134:         
+135:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@called_segments</span>
+136:           <span class="ruby-ivar">@called_segments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">segment</span><span class="ruby-operator">|</span>
+137:             <span class="ruby-identifier">d</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">duration</span>
+138:           <span class="ruby-keyword kw">end</span>
+139:         <span class="ruby-keyword kw">end</span>
+140:         <span class="ruby-identifier">d</span>
+141:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000929" class="method-detail">
+        <a name="M000929"></a>
+
+        <div class="method-heading">
+          <a href="#M000929" class="method-signature">
+          <span class="method-name">explain_sql</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+perform this in the runtime environment of a managed application, to
+explain the sql statement(s) executed within a segment of a transaction
+sample. returns an array of explanations (which is an array rows consisting
+of an array of strings for each column returned by the the explain query)
+Note this happens only for statements whose execution time exceeds a
+threshold (e.g. 500ms) and only within the slowest transaction in a report
+period, selected for shipment to RPM
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000929-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000929-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 184</span>
+184:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">explain_sql</span>        
+185:         <span class="ruby-identifier">sql</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:sql</span>]
+186:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">sql</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:connection_config</span>]
+187:         <span class="ruby-identifier">statements</span> = <span class="ruby-identifier">sql</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;;\n&quot;</span>)
+188:         <span class="ruby-identifier">explanations</span> = []
+189:         <span class="ruby-identifier">statements</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">statement</span><span class="ruby-operator">|</span>
+190:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">statement</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">$;</span>, <span class="ruby-value">2</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">upcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'SELECT'</span>
+191:             <span class="ruby-identifier">explain_resultset</span> = []
+192:             <span class="ruby-keyword kw">begin</span>
+193:               <span class="ruby-identifier">connection</span> = <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">TransactionSample</span>.<span class="ruby-identifier">get_connection</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:connection_config</span>])    
+194:               <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">connection</span>
+195:                 <span class="ruby-comment cmt"># The resultset type varies for different drivers.  Only thing you can count on is</span>
+196:                 <span class="ruby-comment cmt"># that it implements each.  Also: can't use select_rows because the native postgres</span>
+197:                 <span class="ruby-comment cmt"># driver doesn't know that method.</span>
+198:                 <span class="ruby-identifier">explain_resultset</span> = <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;EXPLAIN #{statement}&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">connection</span>
+199:                 <span class="ruby-identifier">rows</span> = []
+200:                 <span class="ruby-comment cmt"># Note: we can't use map.</span>
+201:                 <span class="ruby-comment cmt"># Note: have to convert from native column element types to string so we can</span>
+202:                 <span class="ruby-comment cmt"># serialize.  Esp. for postgresql.</span>
+203:                 <span class="ruby-comment cmt"># Can't use map.  Suck it up.</span>
+204:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">explain_resultset</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:each</span>)
+205:                   <span class="ruby-identifier">explain_resultset</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span> <span class="ruby-identifier">row</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:to_s</span>) }
+206:                 <span class="ruby-keyword kw">else</span>
+207:                   <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> [ <span class="ruby-identifier">explain_resultset</span> ]
+208:                 <span class="ruby-keyword kw">end</span>
+209:                 <span class="ruby-identifier">explanations</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rows</span>
+210:                 <span class="ruby-comment cmt"># sleep for a very short period of time in order to yield to the main thread</span>
+211:                 <span class="ruby-comment cmt"># this is because a remote database call will likely hang the VM</span>
+212:                 <span class="ruby-identifier">sleep</span> <span class="ruby-value">0</span><span class="ruby-value">.05</span>
+213:               <span class="ruby-keyword kw">end</span>
+214:             <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+215:               <span class="ruby-identifier">handle_exception_in_explain</span>(<span class="ruby-identifier">e</span>)
+216:             <span class="ruby-keyword kw">end</span>
+217:           <span class="ruby-keyword kw">end</span>
+218:         <span class="ruby-keyword kw">end</span>
+219: 
+220:         <span class="ruby-identifier">explanations</span>
+221:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000928" class="method-detail">
+        <a name="M000928"></a>
+
+        <div class="method-heading">
+          <a href="#M000928" class="method-signature">
+          <span class="method-name">find_segment</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000928-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000928-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 169</span>
+169:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_segment</span>(<span class="ruby-identifier">id</span>)
+170:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@segment_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">id</span>
+171:         <span class="ruby-identifier">called_segments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">segment</span><span class="ruby-operator">|</span>
+172:           <span class="ruby-identifier">found</span> = <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">find_segment</span>(<span class="ruby-identifier">id</span>)
+173:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">found</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">found</span>
+174:         <span class="ruby-keyword kw">end</span>
+175:         <span class="ruby-keyword kw">nil</span>
+176:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000921" class="method-detail">
+        <a name="M000921"></a>
+
+        <div class="method-heading">
+          <a href="#M000921" class="method-signature">
+          <span class="method-name">freeze</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000921-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000921-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 115</span>
+115:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">freeze</span>
+116:         <span class="ruby-identifier">params</span>.<span class="ruby-identifier">freeze</span>
+117:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@called_segments</span>
+118:           <span class="ruby-ivar">@called_segments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+119:             <span class="ruby-identifier">s</span>.<span class="ruby-identifier">freeze</span>
+120:           <span class="ruby-keyword kw">end</span>
+121:         <span class="ruby-keyword kw">end</span>
+122:         <span class="ruby-keyword kw">super</span>
+123:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000930" class="method-detail">
+        <a name="M000930"></a>
+
+        <div class="method-heading">
+          <a href="#M000930" class="method-signature">
+          <span class="method-name">handle_exception_in_explain</span><span class="method-args">(e)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000930-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000930-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 223</span>
+223:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">handle_exception_in_explain</span>(<span class="ruby-identifier">e</span>)
+224:         <span class="ruby-identifier">x</span> = <span class="ruby-value">1</span> <span class="ruby-comment cmt"># this is here so that code coverage knows we've entered this block</span>
+225:         <span class="ruby-comment cmt"># swallow failed attempts to run an explain.  One example of a failure is the</span>
+226:         <span class="ruby-comment cmt"># connection for the sql statement is to a different db than the default connection</span>
+227:         <span class="ruby-comment cmt"># specified in AR::Base</span>
+228:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000931" class="method-detail">
+        <a name="M000931"></a>
+
+        <div class="method-heading">
+          <a href="#M000931" class="method-signature">
+          <span class="method-name">obfuscated_sql</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000931-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000931-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 229</span>
+229:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">obfuscated_sql</span>
+230:         <span class="ruby-constant">TransactionSample</span>.<span class="ruby-identifier">obfuscate_sql</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:sql</span>])
+231:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000926" class="method-detail">
+        <a name="M000926"></a>
+
+        <div class="method-heading">
+          <a href="#M000926" class="method-signature">
+          <span class="method-name">params</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000926-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000926-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 153</span>
+153:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">params</span>
+154:         <span class="ruby-ivar">@params</span> <span class="ruby-operator">||=</span> {}
+155:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000918" class="method-detail">
+        <a name="M000918"></a>
+
+        <div class="method-heading">
+          <a href="#M000918" class="method-signature">
+          <span class="method-name">path_string</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000918-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000918-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 86</span>
+86:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path_string</span>
+87:         <span class="ruby-node">&quot;#{metric_name}[#{called_segments.collect {|segment| segment.path_string }.join('')}]&quot;</span>
+88:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000919" class="method-detail">
+        <a name="M000919"></a>
+
+        <div class="method-heading">
+          <a href="#M000919" class="method-signature">
+          <span class="method-name">to_debug_str</span><span class="method-args">(depth)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000919-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000919-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 90</span>
+ 90:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_debug_str</span>(<span class="ruby-identifier">depth</span>)
+ 91:         <span class="ruby-identifier">tab</span> = <span class="ruby-value str">&quot;&quot;</span> 
+ 92:         <span class="ruby-identifier">depth</span>.<span class="ruby-identifier">times</span> {<span class="ruby-identifier">tab</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;  &quot;</span>}
+ 93:         
+ 94:         <span class="ruby-identifier">s</span> = <span class="ruby-identifier">tab</span>.<span class="ruby-identifier">clone</span>
+ 95:         <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&gt;&gt; #{metric_name}: #{(@entry_timestamp*1000).round}\n&quot;</span>
+ 96:         <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span>
+ 97:           <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{tab}#{tab}{\n&quot;</span>
+ 98:           <span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+ 99:             <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{tab}#{tab}#{k}: #{v}\n&quot;</span>
+100:           <span class="ruby-keyword kw">end</span>
+101:           <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{tab}#{tab}}\n&quot;</span>
+102:         <span class="ruby-keyword kw">end</span>
+103:         <span class="ruby-identifier">called_segments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cs</span><span class="ruby-operator">|</span>
+104:           <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cs</span>.<span class="ruby-identifier">to_debug_str</span>(<span class="ruby-identifier">depth</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+105:         <span class="ruby-keyword kw">end</span>
+106:         <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tab</span>
+107:         <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&lt;&lt; #{metric_name}: #{@exit_timestamp ? (@exit_timestamp*1000).round : 'n/a'}\n&quot;</span>
+108:         <span class="ruby-identifier">s</span>
+109:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000916" class="method-detail">
+        <a name="M000916"></a>
+
+        <div class="method-heading">
+          <a href="#M000916" class="method-signature">
+          <span class="method-name">to_json</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000916-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000916-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 55</span>
+55:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_json</span>
+56:         <span class="ruby-identifier">map</span> = {<span class="ruby-identifier">:entry_timestamp</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@entry_timestamp</span>,
+57:           <span class="ruby-identifier">:exit_timestamp</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@exit_timestamp</span>,
+58:           <span class="ruby-identifier">:metric_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@metric_name</span>,
+59:           <span class="ruby-identifier">:segment_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@segment_id</span>}
+60:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@called_segments</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@called_segments</span>.<span class="ruby-identifier">empty?</span>
+61:           <span class="ruby-identifier">map</span>[<span class="ruby-identifier">:called_segments</span>] = <span class="ruby-ivar">@called_segments</span>
+62:         <span class="ruby-keyword kw">end</span>
+63:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@params</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@params</span>.<span class="ruby-identifier">empty?</span>
+64:           <span class="ruby-identifier">map</span>[<span class="ruby-identifier">:params</span>] = <span class="ruby-ivar">@params</span>
+65:         <span class="ruby-keyword kw">end</span>
+66:         <span class="ruby-identifier">map</span>.<span class="ruby-identifier">to_json</span>
+67:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000915" class="method-detail">
+        <a name="M000915"></a>
+
+        <div class="method-heading">
+          <a href="#M000915" class="method-signature">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000915-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000915-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 51</span>
+51:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+52:         <span class="ruby-identifier">to_debug_str</span>(<span class="ruby-value">0</span>)
+53:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000934" class="method-detail">
+        <a name="M000934"></a>
+
+        <div class="method-heading">
+          <a href="#M000934" class="method-signature">
+          <span class="method-name">params=</span><span class="method-args">(p)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000934-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000934-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 241</span>
+241:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">params=</span>(<span class="ruby-identifier">p</span>)
+242:           <span class="ruby-ivar">@params</span> = <span class="ruby-identifier">p</span>
+243:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000933" class="method-detail">
+        <a name="M000933"></a>
+
+        <div class="method-heading">
+          <a href="#M000933" class="method-signature">
+          <span class="method-name">parent_segment=</span><span class="method-args">(s)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000933-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000933-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/lib/new_relic/transaction_sample.rb, line 238</span>
+238:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parent_segment=</span>(<span class="ruby-identifier">s</span>)
+239:           <span class="ruby-ivar">@parent_segment</span> = <span class="ruby-identifier">s</span>
+240:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

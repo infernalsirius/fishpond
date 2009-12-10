@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: NewrelicHelper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">NewrelicHelper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper_rb.html">
+                vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001583">agent_views_path</a>&nbsp;&nbsp;
+      <a href="#M001580">application_caller</a>&nbsp;&nbsp;
+      <a href="#M001581">application_stack_trace</a>&nbsp;&nbsp;
+      <a href="#M001596">collapsed_image_path</a>&nbsp;&nbsp;
+      <a href="#M001594">colorize</a>&nbsp;&nbsp;
+      <a href="#M001586">dev_name</a>&nbsp;&nbsp;
+      <a href="#M001602">expand_segment_image</a>&nbsp;&nbsp;
+      <a href="#M001595">expanded_image_path</a>&nbsp;&nbsp;
+      <a href="#M001608">explain_sql_link</a>&nbsp;&nbsp;
+      <a href="#M001609">explain_sql_links</a>&nbsp;&nbsp;
+      <a href="#M001597">explain_sql_url</a>&nbsp;&nbsp;
+      <a href="#M001593">format_timestamp</a>&nbsp;&nbsp;
+      <a href="#M001599">line_wrap_sql</a>&nbsp;&nbsp;
+      <a href="#M001591">link_to_source</a>&nbsp;&nbsp;
+      <a href="#M001582">render_backtrace</a>&nbsp;&nbsp;
+      <a href="#M001606">render_indentation_classes</a>&nbsp;&nbsp;
+      <a href="#M001600">render_sample_details</a>&nbsp;&nbsp;
+      <a href="#M001601">rows_logger_present?</a>&nbsp;&nbsp;
+      <a href="#M001603">segment_child_row_class</a>&nbsp;&nbsp;
+      <a href="#M001598">segment_duration_value</a>&nbsp;&nbsp;
+      <a href="#M001605">segment_row_classes</a>&nbsp;&nbsp;
+      <a href="#M001576">server</a>&nbsp;&nbsp;
+      <a href="#M001588">source_available</a>&nbsp;&nbsp;
+      <a href="#M001607">sql_link_mouseover_options</a>&nbsp;&nbsp;
+      <a href="#M001579">stripped_sample</a>&nbsp;&nbsp;
+      <a href="#M001604">summary_pie_chart</a>&nbsp;&nbsp;
+      <a href="#M001592">timestamp</a>&nbsp;&nbsp;
+      <a href="#M001577">trace_row_display_limit</a>&nbsp;&nbsp;
+      <a href="#M001578">trace_row_display_limit_reached</a>&nbsp;&nbsp;
+      <a href="#M001584">url_for_metric_doc</a>&nbsp;&nbsp;
+      <a href="#M001585">url_for_source</a>&nbsp;&nbsp;
+      <a href="#M001587">write_segment_label</a>&nbsp;&nbsp;
+      <a href="#M001590">write_stack_trace_line</a>&nbsp;&nbsp;
+      <a href="#M001589">write_summary_segment_label</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="NewRelic/Agent/CollectionHelper.html">NewRelic::Agent::CollectionHelper</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001583" class="method-detail">
+        <a name="M001583"></a>
+
+        <div class="method-heading">
+          <a href="#M001583" class="method-signature">
+          <span class="method-name">agent_views_path</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001583-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001583-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 59</span>
+59:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">agent_views_path</span>(<span class="ruby-identifier">path</span>)
+60:     <span class="ruby-identifier">path</span>
+61:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001580" class="method-detail">
+        <a name="M001580"></a>
+
+        <div class="method-heading">
+          <a href="#M001580" class="method-signature">
+          <span class="method-name">application_caller</span><span class="method-args">(trace)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+return the highest level in the call stack for the trace that is not rails
+or newrelic agent code
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001580-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001580-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 33</span>
+33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">application_caller</span>(<span class="ruby-identifier">trace</span>)
+34:     <span class="ruby-identifier">trace</span> = <span class="ruby-identifier">strip_nr_from_backtrace</span>(<span class="ruby-identifier">trace</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_nr</span>]
+35:     <span class="ruby-identifier">trace</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">trace_line</span><span class="ruby-operator">|</span>
+36:       <span class="ruby-identifier">file</span> = <span class="ruby-identifier">file_and_line</span>(<span class="ruby-identifier">trace_line</span>).<span class="ruby-identifier">first</span>
+37:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">exclude_file_from_stack_trace?</span>(<span class="ruby-identifier">file</span>, <span class="ruby-keyword kw">false</span>)
+38:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">trace_line</span>
+39:       <span class="ruby-keyword kw">end</span>
+40:     <span class="ruby-keyword kw">end</span>
+41:     <span class="ruby-identifier">trace</span>.<span class="ruby-identifier">last</span>
+42:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001581" class="method-detail">
+        <a name="M001581"></a>
+
+        <div class="method-heading">
+          <a href="#M001581" class="method-signature">
+          <span class="method-name">application_stack_trace</span><span class="method-args">(trace, include_rails = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001581-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001581-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 44</span>
+44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">application_stack_trace</span>(<span class="ruby-identifier">trace</span>, <span class="ruby-identifier">include_rails</span> = <span class="ruby-keyword kw">false</span>)
+45:     <span class="ruby-identifier">trace</span> = <span class="ruby-identifier">strip_nr_from_backtrace</span>(<span class="ruby-identifier">trace</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:show_nr</span>]
+46:     <span class="ruby-identifier">trace</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">trace_line</span><span class="ruby-operator">|</span>
+47:       <span class="ruby-identifier">file</span> = <span class="ruby-identifier">file_and_line</span>(<span class="ruby-identifier">trace_line</span>).<span class="ruby-identifier">first</span>
+48:       <span class="ruby-identifier">exclude_file_from_stack_trace?</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">include_rails</span>)
+49:     <span class="ruby-keyword kw">end</span>
+50:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001596" class="method-detail">
+        <a name="M001596"></a>
+
+        <div class="method-heading">
+          <a href="#M001596" class="method-signature">
+          <span class="method-name">collapsed_image_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001596-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001596-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 142</span>
+142:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">collapsed_image_path</span>()
+143:     <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:newrelic</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:image</span>, <span class="ruby-identifier">:file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'arrow-close.png'</span>)
+144:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001594" class="method-detail">
+        <a name="M001594"></a>
+
+        <div class="method-heading">
+          <a href="#M001594" class="method-signature">
+          <span class="method-name">colorize</span><span class="method-args">(value, yellow_threshold = 0.05, red_threshold = 0.15, s=to_ms(value))</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001594-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001594-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 129</span>
+129:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">colorize</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">yellow_threshold</span> = <span class="ruby-value">0</span><span class="ruby-value">.05</span>, <span class="ruby-identifier">red_threshold</span> = <span class="ruby-value">0</span><span class="ruby-value">.15</span>, <span class="ruby-identifier">s</span>=<span class="ruby-identifier">to_ms</span>(<span class="ruby-identifier">value</span>))
+130:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">yellow_threshold</span>
+131:       <span class="ruby-identifier">color</span> = (<span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">red_threshold</span> <span class="ruby-value">? </span><span class="ruby-value str">'red'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'orange'</span>)
+132:       <span class="ruby-node">&quot;&lt;font color=#{color}&gt;#{s}&lt;/font&gt;&quot;</span>
+133:     <span class="ruby-keyword kw">else</span>
+134:       <span class="ruby-node">&quot;#{s}&quot;</span>
+135:     <span class="ruby-keyword kw">end</span>
+136:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001586" class="method-detail">
+        <a name="M001586"></a>
+
+        <div class="method-heading">
+          <a href="#M001586" class="method-signature">
+          <span class="method-name">dev_name</span><span class="method-args">(metric_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001586-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001586-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 87</span>
+87:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dev_name</span>(<span class="ruby-identifier">metric_name</span>)
+88:     <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">MetricParser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">metric_name</span>).<span class="ruby-identifier">developer_name</span>
+89:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001602" class="method-detail">
+        <a name="M001602"></a>
+
+        <div class="method-heading">
+          <a href="#M001602" class="method-signature">
+          <span class="method-name">expand_segment_image</span><span class="method-args">(segment, depth)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001602-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001602-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 175</span>
+175:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expand_segment_image</span>(<span class="ruby-identifier">segment</span>, <span class="ruby-identifier">depth</span>)
+176:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">depth</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+177:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">segment</span>.<span class="ruby-identifier">called_segments</span>.<span class="ruby-identifier">empty?</span>
+178:         <span class="ruby-identifier">row_class</span> =<span class="ruby-identifier">segment_child_row_class</span>(<span class="ruby-identifier">segment</span>)
+179:         <span class="ruby-identifier">link_to_function</span>(<span class="ruby-identifier">tag</span>(<span class="ruby-value str">'img'</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">collapsed_image_path</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;image_#{row_class}&quot;</span>,
+180:             <span class="ruby-identifier">:class_for_children</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">row_class</span>, 
+181:             <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">segment</span>.<span class="ruby-identifier">called_segments</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">'parent_segment_image'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'child_segment_image'</span>), 
+182:             <span class="ruby-value str">&quot;toggle_row_class(this)&quot;</span>)
+183:       <span class="ruby-keyword kw">end</span>
+184:     <span class="ruby-keyword kw">end</span>
+185:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001595" class="method-detail">
+        <a name="M001595"></a>
+
+        <div class="method-heading">
+          <a href="#M001595" class="method-signature">
+          <span class="method-name">expanded_image_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001595-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001595-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 138</span>
+138:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expanded_image_path</span>()
+139:     <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:newrelic</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:image</span>, <span class="ruby-identifier">:file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'arrow-open.png'</span>)
+140:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001608" class="method-detail">
+        <a name="M001608"></a>
+
+        <div class="method-heading">
+          <a href="#M001608" class="method-signature">
+          <span class="method-name">explain_sql_link</span><span class="method-args">(segment, child_sql = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001608-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001608-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 225</span>
+225:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">explain_sql_link</span>(<span class="ruby-identifier">segment</span>, <span class="ruby-identifier">child_sql</span> = <span class="ruby-keyword kw">false</span>)
+226:     <span class="ruby-identifier">link_to</span> <span class="ruby-value str">'SQL'</span>, <span class="ruby-identifier">explain_sql_url</span>(<span class="ruby-identifier">segment</span>), <span class="ruby-identifier">sql_link_mouseover_options</span>(<span class="ruby-identifier">segment</span>)
+227:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001609" class="method-detail">
+        <a name="M001609"></a>
+
+        <div class="method-heading">
+          <a href="#M001609" class="method-signature">
+          <span class="method-name">explain_sql_links</span><span class="method-args">(segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001609-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001609-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 229</span>
+229:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">explain_sql_links</span>(<span class="ruby-identifier">segment</span>)
+230:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">segment</span>[<span class="ruby-identifier">:sql_obfuscated</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">segment</span>[<span class="ruby-identifier">:sql</span>]
+231:       <span class="ruby-identifier">explain_sql_link</span> <span class="ruby-identifier">segment</span>
+232:     <span class="ruby-keyword kw">else</span>
+233:       <span class="ruby-identifier">links</span> = []
+234:       <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">called_segments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+235:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">child</span>[<span class="ruby-identifier">:sql_obfuscated</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">child</span>[<span class="ruby-identifier">:sql</span>]
+236:           <span class="ruby-identifier">links</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">explain_sql_link</span>(<span class="ruby-identifier">child</span>, <span class="ruby-keyword kw">true</span>)
+237:         <span class="ruby-keyword kw">end</span>
+238:       <span class="ruby-keyword kw">end</span>
+239:       <span class="ruby-identifier">links</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>) <span class="ruby-operator">+</span> (<span class="ruby-identifier">links</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span><span class="ruby-operator">?</span><span class="ruby-value str">', ...'</span><span class="ruby-operator">:</span><span class="ruby-value str">''</span>)
+240:     <span class="ruby-keyword kw">end</span>
+241:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001597" class="method-detail">
+        <a name="M001597"></a>
+
+        <div class="method-heading">
+          <a href="#M001597" class="method-signature">
+          <span class="method-name">explain_sql_url</span><span class="method-args">(segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001597-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001597-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 146</span>
+146:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">explain_sql_url</span>(<span class="ruby-identifier">segment</span>)
+147:     <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:explain_sql</span>, 
+148:       <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@sample</span>.<span class="ruby-identifier">sample_id</span>, 
+149:       <span class="ruby-identifier">:segment</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">segment_id</span>)
+150:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001593" class="method-detail">
+        <a name="M001593"></a>
+
+        <div class="method-heading">
+          <a href="#M001593" class="method-signature">
+          <span class="method-name">format_timestamp</span><span class="method-args">(time)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001593-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001593-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 125</span>
+125:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">format_timestamp</span>(<span class="ruby-identifier">time</span>)
+126:     <span class="ruby-identifier">time</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">&quot;%H:%M:%S&quot;</span>) 
+127:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001599" class="method-detail">
+        <a name="M001599"></a>
+
+        <div class="method-heading">
+          <a href="#M001599" class="method-signature">
+          <span class="method-name">line_wrap_sql</span><span class="method-args">(sql)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001599-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001599-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 156</span>
+156:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">line_wrap_sql</span>(<span class="ruby-identifier">sql</span>)
+157:     <span class="ruby-identifier">h</span>(<span class="ruby-identifier">sql</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\,/</span>,<span class="ruby-value str">', '</span>).<span class="ruby-identifier">squeeze</span>(<span class="ruby-value str">' '</span>)) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">sql</span>
+158:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001591" class="method-detail">
+        <a name="M001591"></a>
+
+        <div class="method-heading">
+          <a href="#M001591" class="method-signature">
+          <span class="method-name">link_to_source</span><span class="method-args">(trace)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+write a link to the source for a trace
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001591-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001591-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 114</span>
+114:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to_source</span>(<span class="ruby-identifier">trace</span>)
+115:     <span class="ruby-identifier">image_url</span> = <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:newrelic</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:image</span>, <span class="ruby-identifier">:file</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">using_textmate?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;textmate.png&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;file_icon.png&quot;</span>), <span class="ruby-identifier">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'image/png'</span>)
+116:     
+117:     <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">image_tag</span>(<span class="ruby-identifier">image_url</span>, <span class="ruby-identifier">:alt</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">title</span> = <span class="ruby-value str">'View Source'</span>), <span class="ruby-identifier">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">title</span>), <span class="ruby-identifier">url_for_source</span>(<span class="ruby-identifier">application_caller</span>(<span class="ruby-identifier">trace</span>))
+118:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001582" class="method-detail">
+        <a name="M001582"></a>
+
+        <div class="method-heading">
+          <a href="#M001582" class="method-signature">
+          <span class="method-name">render_backtrace</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001582-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001582-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 52</span>
+52:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_backtrace</span>
+53:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@segment</span>[<span class="ruby-identifier">:backtrace</span>]
+54:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'h3'</span>, <span class="ruby-value str">'Application Stack Trace'</span>) <span class="ruby-operator">+</span> 
+55:           <span class="ruby-identifier">render</span>(<span class="ruby-identifier">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">agent_views_path</span>(<span class="ruby-value str">'stack_trace'</span>), <span class="ruby-identifier">:locals</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:segment</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@segment</span>})
+56:     <span class="ruby-keyword kw">end</span>
+57:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001606" class="method-detail">
+        <a name="M001606"></a>
+
+        <div class="method-heading">
+          <a href="#M001606" class="method-signature">
+          <span class="method-name">render_indentation_classes</span><span class="method-args">(depth)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+render_segment_details should be called before calling this method
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001606-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001606-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 213</span>
+213:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_indentation_classes</span>(<span class="ruby-identifier">depth</span>)
+214:     <span class="ruby-identifier">styles</span> = [] 
+215:     (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">depth</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+216:       <span class="ruby-identifier">styles</span> <span class="ruby-operator">&lt;&lt;</span>  <span class="ruby-node">&quot;.segment_indent_level#{d} { display: inline-block; margin-left: #{(d-1)*20}px }&quot;</span>
+217:     <span class="ruby-keyword kw">end</span>
+218:     <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;style&quot;</span>, <span class="ruby-identifier">styles</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>))    
+219:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001600" class="method-detail">
+        <a name="M001600"></a>
+
+        <div class="method-heading">
+          <a href="#M001600" class="method-signature">
+          <span class="method-name">render_sample_details</span><span class="method-args">(sample)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001600-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001600-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 160</span>
+160:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_sample_details</span>(<span class="ruby-identifier">sample</span>)
+161:     <span class="ruby-ivar">@indentation_depth</span>=<span class="ruby-value">0</span>
+162:     <span class="ruby-comment cmt"># skip past the root segments to the first child, which is always the controller</span>
+163:     <span class="ruby-identifier">first_segment</span> = <span class="ruby-identifier">sample</span>.<span class="ruby-identifier">root_segment</span>.<span class="ruby-identifier">called_segments</span>.<span class="ruby-identifier">first</span>
+164:     
+165:     <span class="ruby-comment cmt"># render the segments, then the css classes to indent them</span>
+166:     <span class="ruby-identifier">render_segment_details</span>(<span class="ruby-identifier">first_segment</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">render_indentation_classes</span>(<span class="ruby-ivar">@indentation_depth</span>)
+167:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001601" class="method-detail">
+        <a name="M001601"></a>
+
+        <div class="method-heading">
+          <a href="#M001601" class="method-signature">
+          <span class="method-name">rows_logger_present?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+the rows logger plugin disables the sql tracing functionality of the <a
+href="NewRelic.html">NewRelic</a> agent - notify the user about this
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001601-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001601-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 171</span>
+171:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rows_logger_present?</span>
+172:     <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword kw">__FILE__</span>), <span class="ruby-value str">&quot;../../../rows_logger/init.rb&quot;</span>))
+173:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001603" class="method-detail">
+        <a name="M001603"></a>
+
+        <div class="method-heading">
+          <a href="#M001603" class="method-signature">
+          <span class="method-name">segment_child_row_class</span><span class="method-args">(segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001603-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001603-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 187</span>
+187:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">segment_child_row_class</span>(<span class="ruby-identifier">segment</span>)
+188:     <span class="ruby-node">&quot;segment#{segment.segment_id}&quot;</span>
+189:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001598" class="method-detail">
+        <a name="M001598"></a>
+
+        <div class="method-heading">
+          <a href="#M001598" class="method-signature">
+          <span class="method-name">segment_duration_value</span><span class="method-args">(segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001598-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001598-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 152</span>
+152:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">segment_duration_value</span>(<span class="ruby-identifier">segment</span>)
+153:     <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">colorize</span>(<span class="ruby-identifier">segment</span>.<span class="ruby-identifier">duration</span>, <span class="ruby-value">0</span><span class="ruby-value">.05</span>, <span class="ruby-value">0</span><span class="ruby-value">.15</span>, <span class="ruby-node">&quot;#{with_delimiter(to_ms(segment.duration))} ms&quot;</span>), <span class="ruby-identifier">explain_sql_url</span>(<span class="ruby-identifier">segment</span>)
+154:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001605" class="method-detail">
+        <a name="M001605"></a>
+
+        <div class="method-heading">
+          <a href="#M001605" class="method-signature">
+          <span class="method-name">segment_row_classes</span><span class="method-args">(segment, depth)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001605-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001605-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 201</span>
+201:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">segment_row_classes</span>(<span class="ruby-identifier">segment</span>, <span class="ruby-identifier">depth</span>)
+202:     <span class="ruby-identifier">classes</span> = []
+203:     
+204:     <span class="ruby-identifier">classes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;segment#{segment.parent_segment.segment_id}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">depth</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> 
+205:   
+206:     <span class="ruby-identifier">classes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;view_segment&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">metric_name</span>.<span class="ruby-identifier">starts_with?</span>(<span class="ruby-value str">'View'</span>)
+207:     <span class="ruby-identifier">classes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;summary_segment&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">TransactionSample</span><span class="ruby-operator">::</span><span class="ruby-constant">CompositeSegment</span>)
+208: 
+209:     <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>)
+210:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001576" class="method-detail">
+        <a name="M001576"></a>
+
+        <div class="method-heading">
+          <a href="#M001576" class="method-signature">
+          <span class="method-name">server</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+return the host that serves static content (css, metric documentation,
+images, etc) that supports the desktop edition.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001576-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001576-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 8</span>
+ 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">server</span>
+ 9:     <span class="ruby-constant">NewRelic</span><span class="ruby-operator">::</span><span class="ruby-constant">Control</span>.<span class="ruby-identifier">instance</span>[<span class="ruby-value str">'desktop_server'</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;http://rpm.newrelic.com&quot;</span>
+10:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001588" class="method-detail">
+        <a name="M001588"></a>
+
+        <div class="method-heading">
+          <a href="#M001588" class="method-signature">
+          <span class="method-name">source_available</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001588-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001588-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 100</span>
+100:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">source_available</span>
+101:     <span class="ruby-keyword kw">true</span>
+102:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001607" class="method-detail">
+        <a name="M001607"></a>
+
+        <div class="method-heading">
+          <a href="#M001607" class="method-signature">
+          <span class="method-name">sql_link_mouseover_options</span><span class="method-args">(segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001607-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001607-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 221</span>
+221:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sql_link_mouseover_options</span>(<span class="ruby-identifier">segment</span>)
+222:     { <span class="ruby-identifier">:onmouseover</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;sql_mouse_over(#{segment.segment_id})&quot;</span>, <span class="ruby-identifier">:onmouseout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;sql_mouse_out(#{segment.segment_id})&quot;</span>}
+223:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001579" class="method-detail">
+        <a name="M001579"></a>
+
+        <div class="method-heading">
+          <a href="#M001579" class="method-signature">
+          <span class="method-name">stripped_sample</span><span class="method-args">(sample = @sample)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+return the sample but post processed to strip out segments that normally
+don&#8216;t show up in production (after the first execution, at least)
+such as application code loading
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001579-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001579-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 23</span>
+23:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">stripped_sample</span>(<span class="ruby-identifier">sample</span> = <span class="ruby-ivar">@sample</span>)
+24:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:newrelic_strip_code_loading</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">true</span>
+25:       <span class="ruby-identifier">sample</span>.<span class="ruby-identifier">omit_segments_with</span>(<span class="ruby-value str">'(Rails/Application Code Loading)|(Database/.*/.+ Columns)'</span>)
+26:     <span class="ruby-keyword kw">else</span>
+27:       <span class="ruby-identifier">sample</span>
+28:     <span class="ruby-keyword kw">end</span>
+29:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001604" class="method-detail">
+        <a name="M001604"></a>
+
+        <div class="method-heading">
+          <a href="#M001604" class="method-signature">
+          <span class="method-name">summary_pie_chart</span><span class="method-args">(sample, width, height)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001604-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001604-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 191</span>
+191:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">summary_pie_chart</span>(<span class="ruby-identifier">sample</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+192:     <span class="ruby-identifier">pie_chart</span> = <span class="ruby-constant">GooglePieChart</span>.<span class="ruby-identifier">new</span>
+193:     <span class="ruby-identifier">pie_chart</span>.<span class="ruby-identifier">color</span>, <span class="ruby-identifier">pie_chart</span>.<span class="ruby-identifier">width</span>, <span class="ruby-identifier">pie_chart</span>.<span class="ruby-identifier">height</span> = <span class="ruby-value str">'6688AA'</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>
+194:     
+195:     <span class="ruby-identifier">chart_data</span> = <span class="ruby-identifier">sample</span>.<span class="ruby-identifier">breakdown_data</span>(<span class="ruby-value">6</span>)
+196:     <span class="ruby-identifier">chart_data</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pie_chart</span>.<span class="ruby-identifier">add_data_point</span> <span class="ruby-identifier">dev_name</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">metric_name</span>), <span class="ruby-identifier">to_ms</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">exclusive_time</span>) }
+197:     
+198:     <span class="ruby-identifier">pie_chart</span>.<span class="ruby-identifier">render</span>
+199:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001592" class="method-detail">
+        <a name="M001592"></a>
+
+        <div class="method-heading">
+          <a href="#M001592" class="method-signature">
+          <span class="method-name">timestamp</span><span class="method-args">(segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+print the formatted <a href="NewrelicHelper.html#M001592">timestamp</a> for
+a segment
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001592-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001592-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 121</span>
+121:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">timestamp</span>(<span class="ruby-identifier">segment</span>)
+122:     <span class="ruby-identifier">sprintf</span>(<span class="ruby-value str">&quot;%1.3f&quot;</span>, <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">entry_timestamp</span>)
+123:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001577" class="method-detail">
+        <a name="M001577"></a>
+
+        <div class="method-heading">
+          <a href="#M001577" class="method-signature">
+          <span class="method-name">trace_row_display_limit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+limit of how many detail/SQL rows we display - very large data sets
+(~10000+) crash browsers
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001577-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001577-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 13</span>
+13:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trace_row_display_limit</span>
+14:     <span class="ruby-value">2000</span>
+15:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001578" class="method-detail">
+        <a name="M001578"></a>
+
+        <div class="method-heading">
+          <a href="#M001578" class="method-signature">
+          <span class="method-name">trace_row_display_limit_reached</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001578-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001578-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 17</span>
+17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trace_row_display_limit_reached</span>
+18:     (<span class="ruby-operator">!</span><span class="ruby-ivar">@detail_segment_count</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@detail_segment_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">trace_row_display_limit</span>) <span class="ruby-operator">||</span> <span class="ruby-ivar">@sample</span>.<span class="ruby-identifier">sql_segments</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">trace_row_display_limit</span>
+19:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001584" class="method-detail">
+        <a name="M001584"></a>
+
+        <div class="method-heading">
+          <a href="#M001584" class="method-signature">
+          <span class="method-name">url_for_metric_doc</span><span class="method-args">(metric_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001584-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001584-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 63</span>
+63:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">url_for_metric_doc</span>(<span class="ruby-identifier">metric_name</span>)
+64:     <span class="ruby-node">&quot;#{server}/metric_doc?metric=#{CGI::escape(metric_name)}&quot;</span>
+65:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001585" class="method-detail">
+        <a name="M001585"></a>
+
+        <div class="method-heading">
+          <a href="#M001585" class="method-signature">
+          <span class="method-name">url_for_source</span><span class="method-args">(trace_line)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001585-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001585-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 67</span>
+67:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">url_for_source</span>(<span class="ruby-identifier">trace_line</span>)
+68:     <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span> = <span class="ruby-identifier">file_and_line</span>(<span class="ruby-identifier">trace_line</span>)
+69:     
+70:     <span class="ruby-keyword kw">begin</span>
+71:       <span class="ruby-identifier">file</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">realpath</span>
+72:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>
+73:       <span class="ruby-comment cmt"># we hit this exception when Pathame.realpath fails for some reason; attempt a link to</span>
+74:       <span class="ruby-comment cmt"># the file without a real path.  It may also fail, only when the user clicks on this specific</span>
+75:       <span class="ruby-comment cmt"># entry in the stack trace</span>
+76:     <span class="ruby-keyword kw">rescue</span> 
+77:       <span class="ruby-comment cmt"># catch all other exceptions.  We're going to create an invalid link below, but that's okay.</span>
+78:     <span class="ruby-keyword kw">end</span>
+79:       
+80:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">using_textmate?</span>
+81:       <span class="ruby-node">&quot;txmt://open?url=file://#{file}&amp;line=#{line}&quot;</span>
+82:     <span class="ruby-keyword kw">else</span>
+83:       <span class="ruby-identifier">url_for</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'show_source'</span>, <span class="ruby-identifier">:file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">file</span>, <span class="ruby-identifier">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">line</span>, <span class="ruby-identifier">:anchor</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'selected_line'</span>
+84:     <span class="ruby-keyword kw">end</span>
+85:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001587" class="method-detail">
+        <a name="M001587"></a>
+
+        <div class="method-heading">
+          <a href="#M001587" class="method-signature">
+          <span class="method-name">write_segment_label</span><span class="method-args">(segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+write the metric label for a segment metric in the detail view
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001587-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001587-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 92</span>
+92:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">write_segment_label</span>(<span class="ruby-identifier">segment</span>)
+93:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">source_available</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">segment</span>[<span class="ruby-identifier">:backtrace</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">source_url</span> = <span class="ruby-identifier">url_for_source</span>(<span class="ruby-identifier">application_caller</span>(<span class="ruby-identifier">segment</span>[<span class="ruby-identifier">:backtrace</span>])))
+94:       <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">dev_name</span>(<span class="ruby-identifier">segment</span>.<span class="ruby-identifier">metric_name</span>), <span class="ruby-identifier">source_url</span>
+95:     <span class="ruby-keyword kw">else</span>
+96:       <span class="ruby-identifier">h</span>(<span class="ruby-identifier">dev_name</span>(<span class="ruby-identifier">segment</span>.<span class="ruby-identifier">metric_name</span>))
+97:     <span class="ruby-keyword kw">end</span>
+98:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001590" class="method-detail">
+        <a name="M001590"></a>
+
+        <div class="method-heading">
+          <a href="#M001590" class="method-signature">
+          <span class="method-name">write_stack_trace_line</span><span class="method-args">(trace_line)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001590-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001590-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 109</span>
+109:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">write_stack_trace_line</span>(<span class="ruby-identifier">trace_line</span>)
+110:     <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">h</span>(<span class="ruby-identifier">trace_line</span>), <span class="ruby-identifier">url_for_source</span>(<span class="ruby-identifier">trace_line</span>)
+111:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M001589" class="method-detail">
+        <a name="M001589"></a>
+
+        <div class="method-heading">
+          <a href="#M001589" class="method-signature">
+          <span class="method-name">write_summary_segment_label</span><span class="method-args">(segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+write the metric label for a segment metric in the summary table of metrics
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M001589-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M001589-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/newrelic_rpm/ui/helpers/newrelic_helper.rb, line 105</span>
+105:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">write_summary_segment_label</span>(<span class="ruby-identifier">segment</span>)
+106:     <span class="ruby-identifier">dev_name</span>(<span class="ruby-identifier">segment</span>.<span class="ruby-identifier">metric_name</span>)
+107:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
