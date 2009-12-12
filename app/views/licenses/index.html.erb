@@ -11,8 +11,7 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-          <th>Logiciel</th>
+          <th><%= order @search, :by => :software, :as  => "Logiciel", :html => {:classe => "white"} %></th>
           <th>Version</th>
 					<th>Type</th>
 					<th>Système d'exploitation</th>
@@ -20,9 +19,6 @@
         </tr>
         <% @licenses.each do |license| -%>
         <tr class='<%= cycle("even", "odd") %>'>
-          <td>
-            <%= license.id %>
-          </td>
           <td>
             <%= link_to license.software, license_path(license) %>
           </td>
@@ -55,4 +51,4 @@
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<% content_for :sidebar, render(:partial => "sidebar") %>
