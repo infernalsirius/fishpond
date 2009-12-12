@@ -1,19 +1,9 @@
 <div class="block">
-  <h3>Recherche</h3>
-  <div class="content">
-    <% form_for @search do |f| -%>
-      <ol class="formlist">
-      	<li>
-					<%= f.label :software_like, "Logiciel" %>
-					<%= f.text_field :software_like %>
-				</li>
-				<li>
-					<%= f.submit "Recherche", :disable_with => 'Recherche...' %>
-				</li>
-      </ol>
-    <% end -%>
+ 	<h3>Recherche</h3>
+  <div id="sidebar_content" class="content">
+		<%= render(:partial => "search") %>
   </div>
-</div>
+<div> 
 <div class="block">
   <h3>Links</h3>
   <ul class="navigation">

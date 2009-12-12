@@ -1,0 +1,17 @@
+<% form_for @search, :html => { :class => :form } do |f| -%>
+	<div class="group">
+		<%= f.label :software_like, "Logiciel", :class => :label %>
+		<%= f.text_field :software_like, :class => :text_field %>
+	</div>
+	<div class="group">
+		<%= f.label :licenseType_like, "Type de license", :class => :label %>
+		<%= f.text_field :licenseType_like, :class => :text_field %>
+	</div>
+	<div class="group">
+		<%= f.label :serial_like, "Numéro de série", :class => :label %>
+		<%= f.text_field :serial_like, :class => :text_field %>
+	</div>
+	<div class="group">
+		<%= f.submit "Recherche", :disable_with => 'Recherche...' %>
+	</div>
+<% end -%>
