@@ -3,7 +3,8 @@ class HardwaresController < ApplicationController
   layout 'dark'
   
   def index
-    @hardwares = Hardware.paginate(:per_page => 10, :page => params[:page])
+    @search = Hardware.search(params[:search])
+    @hardwares = @search.all.paginate(:per_page => 15, :page => params[:page])
         
     respond_to do |wants|
       wants.html
