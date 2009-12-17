@@ -3,9 +3,8 @@ class HardwaresController < ApplicationController
   layout 'dark'
   
   def index
-    @hardwares = Hardware.paginate(:per_page => 10, :page => params[:page])
-    #@makers = Maker.find(:all)
-    #@modelnums = ModelNumber.find(:all)
+    @search = Hardware.search(params[:search])
+    @hardwares = @search.all.paginate(:per_page => 15, :page => params[:page])
         
     respond_to do |wants|
       wants.html
@@ -53,8 +52,8 @@ class HardwaresController < ApplicationController
   
   def edit
     @hardware = Hardware.find(params[:id])
-    @servers = Server.find(:all)
-    @locations = Location.find(:all)
+    @makers = Maker.find(:all)
+    @modelnums = ModelNumber.find(:all)
     
     respond_to do |wants|
       wants.html
