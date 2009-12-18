@@ -29,7 +29,7 @@ class AccessoriesController < ApplicationController
           wants.html { redirect_to accessories_path}
       else
         flash[:notice] = "Le périphérique saisi n'a pus être sauvegardé."
-        wants.html {render new_accessory_path, :layout => 'dark'}
+        wants.html { render new_accessory_path, :layout => 'dark'}
       end
     end
   end
