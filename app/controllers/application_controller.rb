@@ -42,6 +42,10 @@ class ApplicationController < ActionController::Base
         session[:return_to] = nil
       end
       
+      def languages
+          @languages = { "Français" => :francais, "Anglais" => :anglais, "Multilingue" => :multilingue }
+       end
+      
     protected
 
       def clear_authlogic_session

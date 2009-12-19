@@ -14,33 +14,12 @@ class LicensesController < ApplicationController
   end
   
   def new
-    @languages = { "Français" => :francais, "Anglais" => :anglais, "Multilingue" => :multilingue}
+    languages
     @license = License.new
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
     @os = OperatingSystem.find(:all)
     @licenses = License.find(:all)
-  end
-  
-  def clonage
-    @hardwares = Hardware.find(:all)
-    @servers = Server.find(:all)
-    @license = License.new(params[:license])
-    @clone_license = @license.clone
-    @languages = {"Français" => :french, "Anglais" => :english}
-    @os = OperatingSystem.find(:all)
-    
-    respond_to do |wants|
-      if @clone_license.save
-          flash[:notice] = "La license a été dupliquée avec succès."  
-         wants.html { licenses_path }
-      else
-        flash[:notice] = "La license dupliquée n'a pus être sauvegardée."
-        wants.html {render new_license_path, :layout => 'dark'}
-      end
-       
-    end
-    
   end
   
   def create
@@ -50,7 +29,7 @@ class LicensesController < ApplicationController
     @os = OperatingSystem.find(:all)
     
     respond_to do |wants|
-      if @license.save
+      if @license.save!
           flash[:notice] = "La license a été sauvegardée avec succès."
           wants.html { redirect_to licenses_path}
       else
@@ -68,12 +47,36 @@ class LicensesController < ApplicationController
     end
   end
   
+  def clonage
+    @license = License.find(params[:id])
+    @hardwares = Hardware.find(:all)
+    @servers = Server.find(:all)
+    @os = OperatingSystem.find(:all)
+    languages
+    
+    @license.serial = ""
+  end
+  
+  def create_clone
+    @license = License.new(params[:license])
+    @clone_license = @license.clone
+    
+    respond_to do |wants|
+      if @clone_license.save!
+        wants.html { redirect_to licenses_path }
+      else
+        flash[:notice] = "La license n'a pu être dupliquée."
+        wants.html { render clonage_license_path(params[:id]) }
+      end
+    end
+  end
+  
   def edit
     @license = License.find(params[:id])
     @hardwares = Hardware.find(:all)
     @servers = Server.find(:all)
-    @languages = {"Français" => :french, "Anglais" => :english}
     @os = OperatingSystem.find(:all)
+    languages
   end
   
   def update
