@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   config.gem "thin"
   config.gem "newrelic_rpm"
   config.gem 'will_paginate'
-  config.gem "rails-footnotes", :source => "http://gemcutter.org"
+  config.gem "rails-footnotes"
   config.gem "populator"
   config.gem "faker"
   config.gem "lockdown", :lib => false, :version => "1.6.2"
