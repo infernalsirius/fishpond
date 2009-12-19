@@ -11,19 +11,17 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-          <th>Nom</th>
+          <th class="first">Nom</th>
           <th>Fabriquant</th>
+					<th>Usage</th>
+					
           <th class="last">&nbsp;</th>
         </tr>
         <% @servers.each do |server| -%>
         <tr class='<%= cycle("even", "odd") %>'>
-          <td><%= server.id %></td>
-					<td><%= server.servName %></td>
-					<td><%= server.privIp %></td>
-          <td><%= link_to server.usage, server_path(server) %></td>
-          <td>
-          </td>
+					<td><%= link_to server.servName, server_path(server) %></td>
+					<td><%= server.maker.name %></td>
+          <td><%= server.usage %></td>
           <td class="last">
             <%= link_to 'Voir', server_path(server) %> |
             <%= link_to 'Édition', edit_server_path(server) %> |

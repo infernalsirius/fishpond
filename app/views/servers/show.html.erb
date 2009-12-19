@@ -9,110 +9,85 @@
   </div>          
   <div class="content">
     <div class="inner">
-      
+				<p>
+          <b>Nom du serveur:</b>
+          <%= @server.servName %>
+        </p>
+      	<p>
+          <b>Fabriquant:</b>
+          <%= @server.maker.name %>
+        </p>
+				<p>
+          <b>Model:</b>
+          <%= @server.model_number_id %>
+        </p>
         <p>
           <b>Usage:</b>
           <%= @server.usage %>
         </p>
-
-        <p>
-          <b>Privip:</b>
-          <%= @server.privIp %>
-        </p>
-
-        <p>
-          <b>Pubip:</b>
-          <%= @server.pubIp %>
-        </p>
-
-        <p>
-          <b>Servname:</b>
-          <%= @server.servName %>
-        </p>
-
-        <p>
-          <b>Priurl:</b>
-          <%= @server.priUrl %>
-        </p>
-
-        <p>
-          <b>Securl:</b>
-          <%= @server.secUrl %>
-        </p>
-
-        <p>
-          <b>Usrlocal:</b>
+				<p>
+          <b>Utilisateur local:</b>
           <%= @server.usrLocal %>
         </p>
-
         <p>
-          <b>Passlocal:</b>
+          <b>Mot de passe local:</b>
           <%= @server.passLocal %>
         </p>
-
         <p>
-          <b>Maker:</b>
-          <%= @server.maker %>
+          <b>IP privée:</b>
+          <%= @server.privIp %>
         </p>
-
         <p>
-          <b>Model:</b>
-          <%= @server.model %>
+          <b>IP publique:</b>
+          <%= @server.pubIp %>
         </p>
-
         <p>
-          <b>Raid:</b>
+          <b>URL principale:</b>
+          <%= @server.priUrl %>
+        </p>
+        <p>
+          <b>URL secondaire:</b>
+          <%= @server.secUrl %>
+        </p>
+			  <p>
+          <b>Configuration Raid:</b>
           <%= @server.raid %>
         </p>
-
-        <p>
-          <b>Confighd:</b>
-          <%= @server.configHd %>
-        </p>
-
-        <p>
-          <b>Os:</b>
-          <%= @server.os %>
-        </p>
-
-        <p>
-          <b>Osversion:</b>
-          <%= @server.osVersion %>
-        </p>
-
-        <p>
-          <b>Oslang:</b>
-          <%= @server.osLang %>
-        </p>
-
-        <p>
-          <b>Location:</b>
-          <%= @server.location %>
-        </p>
-
-        <p>
-          <b>Rack:</b>
-          <%= @server.rack %>
-        </p>
-
-        <p>
-          <b>Relation:</b>
-          <%= @server.relation %>
-        </p>
-
-        <p>
-          <b>Numhd:</b>
+				<p>
+          <b>Nombres de disque dur:</b>
           <%= @server.numHd %>
         </p>
-
         <p>
-          <b>Rackposition:</b>
+          <b>Configuration des disques:</b>
+          <%= @server.configHd %>
+        </p>
+        <p>
+          <b>Système d'exploitation:</b>
+          <%= @server.operating_system.name %>
+        </p>
+        <p>
+          <b>Version du système d'exploitation:</b>
+          <%= @server.osVersion %>
+        </p>
+        <p>
+          <b>Langue du système d'exploitation:</b>
+          <%= @server.osLang %>
+        </p>
+	      <p>
+					<b>EMplacement:</b>
+					<%= @server.location_id %>
+				</p>
+        <p>
+          <b>Cabinet:</b>
+          <%= @server.rack %>
+        </p>
+				<p>
+          <b>Position dans le cabinet (à partir du haut):</b>
           <%= @server.rackPosition %>
         </p>
-
         <p>
-          <b>Location_id:</b>
-          <%= @server.location_id %>
+          <b>Relation avec un autre seveur:</b>
+          <%= @server.relation %>
         </p>
       <%= link_to 'Edit', edit_server_path(@server) %>
     </div>

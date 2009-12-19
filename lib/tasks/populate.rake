@@ -28,6 +28,10 @@ namespace :db do
     Critical.populate 9 do |c|
       c.name = 1..9
     end
+    
+    Location.populate 10 do |l|
+      l.name = ["1.1.1", "1.1.2","1.2.3", "2.3.6", "2.6.4", "2.6.4", "2.3.6"]
+    end
     #########
     # For model data
     #######################################################
@@ -83,6 +87,7 @@ namespace :db do
       s.operating_system_id = 1..5
       s.department_id = 1..4
       s.location_id = 1..4
+      s.maker_id = 1..15
     end
   end  
 end
