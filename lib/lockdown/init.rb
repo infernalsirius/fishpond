@@ -164,7 +164,7 @@ Lockdown::System.configure do
    # User Groups
    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-   set_user_group(:admin, :my_account, :edition)
+   set_user_group(:administrators, :my_account, :edition)
    set_user_group(:cadre, :my_account, :viewing)
    
 end 
