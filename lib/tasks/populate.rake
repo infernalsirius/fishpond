@@ -46,12 +46,12 @@ namespace :db do
       l.operating_system_id = 1..5
     end
     
-    Accessory.populate 3 do |a|
-      a.idNum = 45000..47000.step(10)
-      a.serial = 234254..234560982
-      a.maker_id = 1..15
-      a.model_number_id = 1..50
-    end
+    #Accessory.populate 4 do |a|
+     # a.idNum = 45000..47000.step(10)
+      #a.serial = 234254..234560982
+      #a.maker_id = 1..15
+      #a.model_number_id = 1..50
+    #end
     
     Hardware.populate 150 do |h|
       h.maker_id = 1..15
