@@ -141,7 +141,8 @@ Lockdown::System.configure do
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Protected Access
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    set_permission(:my_account).with_controller(:users).only_methods(:show, :edit, :update)
+    set_permission(:my_account).with_controller(:users).only_methods(:show, :edit, :update, 
+                                                                     :clonage, :create_clone)
     set_permission(:edition).with_controller(:users).
                             and_controller(:hardwares).
                             and_controller(:makers).
