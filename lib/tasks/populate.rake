@@ -59,6 +59,8 @@ namespace :db do
       h.idNum = 43000..44000.step(10)
       h.serial = 1435972..32097831290
       h.poste_id = 1..5
+      h.ram = [256, 512, 1000, 2000]
+      h.disk1 = [40, 60, 80, 120, 160]
     end
     
     def randIP
