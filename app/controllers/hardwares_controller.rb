@@ -95,15 +95,15 @@ class HardwaresController < ApplicationController
   end
   
   def create_clone
-    @license = License.new(params[:license])
-    @clone_license = @license.clone
+    @hardware = Hardware.new(params[:hardware])
+    @clone_hardware = @hardware.clone
     
     respond_to do |wants|
-      if @clone_license.save!
-        wants.html { redirect_to licenses_path }
+      if @clone_hardware.save!
+        wants.html { redirect_to hardwares_path }
       else
-        flash[:notice] = "La license n'a pu être dupliquée."
-        wants.html { render clonage_license_path(params[:id]) }
+        flash[:notice] = "Le matériel n'a pu être dupliqué."
+        wants.html { render clonage_hardware_path(params[:id]) }
       end
     end
   end
