@@ -19,7 +19,7 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   #config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem "rack", :version => "1.0.1" #Version 1.1.0 create problems with
+  config.gem "rack", :version => "1.0.1" #Version 1.1.0 create problems with rails
   config.gem "authlogic"
   config.gem "searchlogic"
   config.gem "thin"

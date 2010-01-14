@@ -80,5 +80,31 @@ class HardwaresController < ApplicationController
     respond_to do |wants|
       wants.html { redirect_to hardwares_path }
     end
-  end  
+  end
+  
+  def clonage
+    @hardware = Hardware.find(params[:id])
+    @maker = Maker.new
+    @departments = Department.find(:all)
+    @makers = Maker.find(:all)
+    @locations = Location.find(:all)
+    @modelnums = ModelNumber.find(:all)
+    
+    @hardware.idNum = ""
+    @hardware.serial =""
+  end
+  
+  def create_clone
+    @hardware = Hardware.new(params[:hardware])
+    @clone_hardware = @hardware.clone
+    
+    respond_to do |wants|
+      if @clone_hardware.save!
+        wants.html { redirect_to hardwares_path }
+      else
+        flash[:notice] = "Le matériel n'a pu être dupliqué."
+        wants.html { render clonage_hardware_path(params[:id]) }
+      end
+    end
+  end
 end

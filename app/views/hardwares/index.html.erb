@@ -28,6 +28,7 @@
           <td class="last">
             <%= link_to 'Voir', hardware_path(h) %> | 
 						<%= link_to "Éditer", edit_hardware_path(h.id) %> |
+						<%= link_to "Dupliquer", clonage_hardware_path(h) %> |
 						<%= link_to "Effacer", hardware_path(h.id), :confirm => "Êtes-vous sûr?", :method => :delete %>
           </td>
         </tr>          
