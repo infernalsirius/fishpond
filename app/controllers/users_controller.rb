@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    load_and_authorize_resource
     before_filter :require_user, :only => [:index, :show, :update, :edit]
     layout 'dark'
     
@@ -24,11 +25,10 @@ class UsersController < ApplicationController
       respond_to do |wants|
         if @user.save
           flash[:notice] = "Compte enregistré!"
-          add_lockdown_session_values # Lockdown helper
           
-          wants.html { redirect_back_or_default new_user_session_path }
+          wants.html { redirect_back_or_default(new_user_session_path) }
         else
-          wants.html {redirect_back_or_default( new_user_path )}
+          wants.html {redirect_back_or_default( new_user_path)}
         end
       end
     end

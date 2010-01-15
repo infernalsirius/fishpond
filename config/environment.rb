@@ -15,20 +15,15 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  #config.gem "sqlite3-ruby", :lib => "sqlite3"
-  # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "rack", :version => "1.0.1" #Version 1.1.0 create problems with rails
   config.gem "authlogic"
   config.gem "searchlogic"
   config.gem "thin"
   config.gem "newrelic_rpm"
   config.gem 'will_paginate'
-  config.gem "rails-footnotes"
   config.gem "populator"
   config.gem "faker"
-  config.gem "lockdown", :lib => false, :version => "1.6.2"
+  config.gem "cancan"
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]

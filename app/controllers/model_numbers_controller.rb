@@ -1,4 +1,5 @@
 class ModelNumbersController < ApplicationController
+  load_and_authorize_resource
   before_filter :require_user
   auto_complete_for :model_number, :name
   layout "dark"

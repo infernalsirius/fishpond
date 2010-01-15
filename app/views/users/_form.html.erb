@@ -34,6 +34,15 @@
         </div>              
         <div class="clear"></div>
       </div>
+			<div class="group">
+        <div class="left">
+         <%= f.label :role, "Rôle", :class => "label" %>
+        </div>
+        <div class="right">
+          <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+        </div>              
+        <div class="clear"></div>
+      </div>
       <div class="group">
         <div class="left">
           <%= f.label :password, "Mot de passe",:class => "label" %>

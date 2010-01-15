@@ -1,4 +1,5 @@
 class LicensesController < ApplicationController
+  load_and_authorize_resource
   before_filter :require_user
   auto_complete_for :license, :software
   auto_complete_for :license, :licenseType
