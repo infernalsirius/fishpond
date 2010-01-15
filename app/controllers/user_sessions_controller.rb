@@ -11,9 +11,10 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Connexion réussie!"
-      redirect_back_or_default(hardwares_path)
+      redirect_to hardwares_path
     else
-      render new_user_session_path
+      flash[:error] = "Vous n'avez pas entrer le bon utilisateur / mot de passe."
+      render :action => "new"
     end
   end
   

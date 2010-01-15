@@ -23,4 +23,5 @@ end
                      :name => "administrator", 
                      :email => "support@lesoleil.com",
                      :password => "secret",
-                     :password_confirmation => "secret"
+                     :password_confirmation => "secret",
+                     :role => "admin"

@@ -3,10 +3,14 @@
 class ApplicationController < ActionController::Base
   include Oink::MemoryUsageLogger
   include Memorylogic
-
+  
   helper_method :current_user_session, :current_user
-                
   filter_parameter_logging :password, :password_confirmation
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = exception.message
+    redirect_to root_url
+  end
   
     private
       def current_user_session

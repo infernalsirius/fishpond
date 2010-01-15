@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
     validates_presence_of :password, :on => :create
     validates_presence_of :name, :on => :create
     validates_confirmation_of :password, :on => :create
+    
+    ROLES = %w[admin cadre]
+    
 end
