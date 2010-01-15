@@ -45,7 +45,7 @@ class HardwaresController < ApplicationController
         flash[:notice] = "Le matériel a été sauvegardé avec succès"
         wants.html { redirect_to hardwares_path }
       else
-        flash[:notice] = "Le matériel n'a pas été sauvegardé"
+        flash[:error] = "Le matériel n'a pas été sauvegardé"
         wants.html { render new_hardware_path, :layout => 'dark' }
       end
     end
@@ -103,7 +103,7 @@ class HardwaresController < ApplicationController
       if @clone_hardware.save!
         wants.html { redirect_to hardwares_path }
       else
-        flash[:notice] = "Le matériel n'a pu être dupliqué."
+        flash[:error] = "Le matériel n'a pu être dupliqué."
         wants.html { render clonage_hardware_path(params[:id]) }
       end
     end
