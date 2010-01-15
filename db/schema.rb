@@ -114,17 +114,6 @@ ActiveRecord::Schema.define(:version => 20091106042923) do
 
   add_index "operating_systems", ["name"], :name => "index_operating_systems_on_name"
 
-  create_table "permissions", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "permissions_user_groups", :id => false, :force => true do |t|
-    t.integer "permission_id"
-    t.integer "user_group_id"
-  end
-
   create_table "postes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -170,25 +159,14 @@ ActiveRecord::Schema.define(:version => 20091106042923) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-  create_table "user_groups", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_groups_users", :id => false, :force => true do |t|
-    t.integer "user_group_id"
-    t.integer "user_id"
-  end
-
   create_table "users", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "login",                               :null => false
-    t.string   "crypted_password",                    :null => false
-    t.string   "password_salt",                       :null => false
-    t.string   "persistence_token",                   :null => false
-    t.integer  "login_count",        :default => 0,   :null => false
+    t.string   "login",                            :null => false
+    t.string   "crypted_password",                 :null => false
+    t.string   "password_salt",                    :null => false
+    t.string   "persistence_token",                :null => false
+    t.integer  "login_count",       :default => 0, :null => false
     t.datetime "last_request_at"
     t.datetime "last_login_at"
     t.datetime "current_login_at"
@@ -196,14 +174,11 @@ ActiveRecord::Schema.define(:version => 20091106042923) do
     t.string   "current_login_ip"
     t.string   "name"
     t.string   "email"
-    t.string   "perishable_token",   :default => "0", :null => false
-    t.integer  "failed_login_count", :default => 0,   :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"
   add_index "users", ["login"], :name => "index_users_on_login"
-  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
 
 end

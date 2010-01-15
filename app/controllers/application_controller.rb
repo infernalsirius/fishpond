@@ -4,14 +4,9 @@ class ApplicationController < ActionController::Base
   include Oink::MemoryUsageLogger
   include Memorylogic
 
-  helper_method :current_user_session, 
-                :current_user, 
-                :logged_in?,            # Lockdown helper
-                :current_user_is_admin? # Lockdown helper
+  helper_method :current_user_session, :current_user
                 
   filter_parameter_logging :password, :password_confirmation
-
-  protect_from_forgery
   
     private
       def current_user_session

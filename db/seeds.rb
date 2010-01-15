@@ -24,7 +24,3 @@ end
                      :email => "support@lesoleil.com",
                      :password => "secret",
                      :password_confirmation => "secret"
-           
-# This will create the 'Administrator' user group and 
-# associate it to the user.
-Lockdown::System.make_user_administrator(User.find(1))

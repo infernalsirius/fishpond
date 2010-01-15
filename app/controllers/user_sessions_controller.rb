@@ -1,7 +1,6 @@
 class UserSessionsController < ApplicationController
   
   before_filter :require_user, :only => :destroy
-  after_filter :set_lockdown_values, :only => :create
   layout 'dark'
 
   def new
@@ -12,24 +11,15 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Connexion réussie!"
-      redirect_back_or_default hardwares_path
+      redirect_back_or_default(hardwares_path)
     else
-      render :action => :new
+      render new_user_session_path
     end
   end
   
   def destroy
     current_user_session.destroy
-    reset_lockdown_session
     flash[:notice] = "Déconnexion réussi!"
-    redirect_back_or_default new_user_session_url
-  end
-  
-  private
-  
-  def set_lockdown_values
-    if user = @user_session.user
-      add_lockdown_session_values(user)
-    end
+    redirect_back_or_default(new_user_session_path)
   end
 end
