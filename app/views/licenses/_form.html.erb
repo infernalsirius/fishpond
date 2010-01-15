@@ -1,4 +1,8 @@
-  <div class="group">
+<div class="group">
+  <%= f.label :maker, "Logiciel", :class => :label %>
+  <%= text_field_with_auto_complete :license, :maker, {:class => 'text_field'}, :method => :get %>
+</div>  
+<div class="group">
     <%= f.label :software, "Logiciel", :class => :label %>
     <%= text_field_with_auto_complete :license, :software, {:class => 'text_field'}, :method => :get %>
   </div>
@@ -7,7 +11,7 @@
     <%= f.label :version, "Version", :class => :label %>
     <%= f.text_field :version, :class => 'text_field', :size => 5 %>
   </div>
-
+
   <div class="group">
     <%= f.label :licenseType, "Type de license", :class => :label %>
     <%= text_field_with_auto_complete :license, :licenseType, {:class => "text_field"},:method => :get %>																	
