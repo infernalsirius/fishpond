@@ -3,6 +3,7 @@ class LicensesController < ApplicationController
   before_filter :require_user
   auto_complete_for :license, :software
   auto_complete_for :license, :licenseType
+  auto_complete_for :license, :maker
   layout 'dark'
   
   def index
