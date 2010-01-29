@@ -7,5 +7,8 @@ class User < ActiveRecord::Base
     validates_confirmation_of :password, :on => :create
     
     ROLES = %w[admin cadre]
-    
+   
+    def is?(role)
+      ROLES.include?(role.to_s)
+    end
 end

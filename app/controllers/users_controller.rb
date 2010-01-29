@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+    # cancan method to automatically authorize all 
+    # actions in a RESTful style resource controller
     load_and_authorize_resource
+    
     before_filter :require_user, :only => [:index, :show, :update, :edit]
     layout 'dark'
     
