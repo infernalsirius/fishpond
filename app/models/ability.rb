@@ -2,22 +2,11 @@ class Ability
   include CanCan::Ability
   
   def initialize(user)
-    
-    can :manage, :all if user.is? :admin
-    can :assign_roles, User do
-      user.is? :admin
-    end
-    
-    if user.is? :cadre
-      can :update, User
-      can :read, :all
+    if user.role == "admin"
+      can :manage, :all
     else
-      can :read, :all
+      can :read, [Hardware, License, Server, Accessory, Critical]
+      can :manage, User
     end
-    
-    
   end
-  
-  
-  
 end

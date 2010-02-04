@@ -76,6 +76,7 @@ class HardwaresController < ApplicationController
   
   def destroy
     @hardware = Hardware.find(params[:id])
+    
     @hardware.destroy
     
     respond_to do |wants|
