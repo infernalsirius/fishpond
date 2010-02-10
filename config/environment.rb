@@ -19,7 +19,6 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "searchlogic"
   config.gem "thin"
-  config.gem "newrelic_rpm"
   config.gem 'will_paginate'
   config.gem "populator"
   config.gem "faker"
