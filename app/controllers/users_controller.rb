@@ -54,7 +54,7 @@ class UsersController < ApplicationController
       respond_to do |wants|
         if @user.update_attributes(params[:user])
           flash[:notice] = "Compte mis à jour!"
-          wants.html { redirect_to account_path }
+          wants.html { redirect_to users_path }
         else
           wants.html { render edit_user_path(:id) }
         end
