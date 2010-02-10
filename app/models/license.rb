@@ -6,4 +6,10 @@ class License < ActiveRecord::Base
   validates_presence_of :serial, :software, :version, :language, 
                         :licenseType, :operating_system_id, 
                         :on => :create, :message => "ne peut être vide"          
+
+
+  def find_windows_licenses
+    
+  end
+
 end

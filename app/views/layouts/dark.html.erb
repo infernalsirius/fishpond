@@ -19,7 +19,7 @@
 							Ticket / Suggestions
 							<a/></li>
 					<% else %>
-					  <li><%= link_to "Profil", profile_user_path(current_user) %></li>
+					  <li><%= link_to "Profil", user_path(current_user) %></li>
 						<li><a href="#">Paramètres</a></li>
 					  <li><%= link_to "Déconnection", user_session_path, :method => :delete, :confirm => "Voulez-vous vraiment déconnecter?" %></li>
 					  <li><a href="http://infernalsirius.lighthouseapp.com/projects/32738-network-hardware-manager/overview">Ticket / Suggestions<a/></li>

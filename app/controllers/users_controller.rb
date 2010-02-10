@@ -45,11 +45,11 @@ class UsersController < ApplicationController
     end
 
     def edit
-      @user = @current_user
+      @user = User.find(params[:id])
     end
 
     def update
-      @user = @current_user # makes our views "cleaner" and more consistent
+      @user = User.find(params[:id]) # makes our views "cleaner" and more consistent
       
       respond_to do |wants|
         if @user.update_attributes(params[:user])
@@ -68,13 +68,5 @@ class UsersController < ApplicationController
       respond_to do |wants|
         wants.html { redirect_to users_path }
       end      
-    end
-    
-    def profile
-      @user = current_user
-      
-      respond_to do |wants|
-        wants.html { render :action => "show" }
-      end
     end
 end

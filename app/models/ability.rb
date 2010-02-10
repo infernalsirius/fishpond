@@ -9,8 +9,9 @@ class Ability
       can :manage, User
     end
   end
-  
+=begin
   can :assign_roles, User do 
     user.is? :admin
   end
+=end
 end
