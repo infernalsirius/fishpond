@@ -8,8 +8,9 @@ class License < ActiveRecord::Base
                         :on => :create, :message => "ne peut être vide"          
 
 
-  def find_licenses_by_os(operating_system)
+  def self.find_licenses_by_os(operating_system)
     @licenses = License.find(:all, :conditions => [":operating_system_id = ?", operating_system])
+    
   end
 
 end

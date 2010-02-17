@@ -1,0 +1,26 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'Liste', licenses_path  %></li>
+      <li><%= link_to 'Nouveau', new_license_path %></li>
+      <li class="active"><%= link_to 'Édition', edit_license_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">            
+    <h2 class="title">Visualisation des statistique des licenses</h2>
+    <div class="inner">
+	<% form_for @os do |f| -%>
+		<%= f.label :name, "Name" %>
+		f.collection_select :name, @os, :id, :name
+	<% end -%>
+		<table>
+			<tr>
+				<th>Système d'exploitation</th>
+				<th>Nombre de licences</th>
+			</tr>
+			<tr><td>Data</td></tr>
+		</table>
+    </div>
+  </div>
+</div>

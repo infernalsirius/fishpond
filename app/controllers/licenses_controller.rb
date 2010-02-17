@@ -49,6 +49,10 @@ class LicensesController < ApplicationController
     end
   end
   
+  def taco
+    @os = OperatingSystem.find(:all)
+  end
+  
   def clonage
     @license = License.find(params[:id])
     @hardwares = Hardware.find(:all)
