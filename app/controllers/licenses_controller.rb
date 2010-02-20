@@ -12,6 +12,8 @@ class LicensesController < ApplicationController
     
     respond_to do |wants|
       wants.html
+      
+      wants.pdf { render :layout => false}
     end
   end
   
