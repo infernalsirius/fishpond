@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :model_numbers,:collection => {:auto_complete_for_model_number_name => :get}
   map.resources :hardwares, :member => {:clonage => :get, :create_clone => :post}
                           
-  map.resources :licenses, :member => { :clonage => :get, :create_clone => :post, :taco => :get}, 
+  map.resources :licenses, :member => { :clonage => :get, :create_clone => :post}, 
                            :collection => {:auto_complete_for_license_licenseType => :get,
                            :auto_complete_for_license_software => :get,
                            :auto_complete_for_license_maker => :get}

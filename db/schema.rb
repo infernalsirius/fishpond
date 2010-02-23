@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100115043816) do
+ActiveRecord::Schema.define(:version => 20100115043817) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
@@ -79,9 +79,9 @@ ActiveRecord::Schema.define(:version => 20100115043816) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "maker"
+    t.string   "maker_id"
+    t.string   "asset_number"
   end
-
-  add_index "licenses", ["software"], :name => "index_licenses_on_software"
 
   create_table "locations", :force => true do |t|
     t.string   "building"

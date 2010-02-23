@@ -56,7 +56,7 @@ namespace :db do
     Hardware.populate 150 do |h|
       h.maker_id = 1..15
       h.model_number_id = 1..50
-      h.idNum = 43000..44000.step(10)
+      h.idNum = 43000..44000
       h.serial = 1435972..32097831290
       h.poste_id = 1..5
       h.ram = [256, 512, 1000, 2000]

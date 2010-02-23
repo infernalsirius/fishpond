@@ -12,8 +12,7 @@ class LicensesController < ApplicationController
     
     respond_to do |wants|
       wants.html
-      
-      wants.pdf { render :layout => false}
+      wants.pdf {render :layout => false}
     end
   end
   
@@ -49,10 +48,6 @@ class LicensesController < ApplicationController
     respond_to do |wants|
       wants.html
     end
-  end
-  
-  def taco
-    @os = OperatingSystem.find(:all)
   end
   
   def clonage
