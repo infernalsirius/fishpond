@@ -12,7 +12,10 @@ class LicensesController < ApplicationController
     
     respond_to do |wants|
       wants.html
-      wants.pdf {render :layout => false}
+      wants.pdf do
+        render :layout => false,
+        :show_as_html => !params[:debug].blank?
+      end
     end
   end
   
