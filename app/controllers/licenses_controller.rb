@@ -10,11 +10,10 @@ class LicensesController < ApplicationController
     @search = License.search(params[:search])
     @licenses = @search.all.paginate(:per_page => 15, :page => params[:page])
     
-    respond_to do |wants|
-      wants.html
-      wants.pdf do
-        render :layout => false,
-        :show_as_html => !params[:debug].blank?
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "liste_license.pdf"
       end
     end
   end
