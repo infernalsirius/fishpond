@@ -12,9 +12,14 @@ class LicensesController < ApplicationController
     
     respond_to do |format|
       format.html
-      for.pdf do
-        render :pdf => "liste_license.pdf"
-      end
+    end
+  end
+  
+  def biglisting
+    @licenses = License.find(:all)
+    
+    respond_to do |wants|
+      wants.html
     end
   end
   

@@ -15,7 +15,7 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  config.gem "rack", :version => "1.0.1" #Version 1.1.0 create problems with rails
+  config.gem "rack", :version => "1.0.1" #Version 1.1.0 create problems with rails 
   config.gem "authlogic"
   config.gem "searchlogic"
   config.gem "thin"
