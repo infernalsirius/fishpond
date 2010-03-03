@@ -12,7 +12,7 @@ class LicensesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.pdf do
+      for.pdf do
         render :pdf => "liste_license.pdf"
       end
     end
