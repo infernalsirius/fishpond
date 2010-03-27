@@ -6,12 +6,6 @@ class License < ActiveRecord::Base
   validates_uniqueness_of :serial, :on => :create, :message => "a déjà été enregistrer"
   validates_presence_of :serial, :software, :version, :language, 
                         :licenseType, :operating_system_id, 
-                        :on => :create, :message => "ne peut être vide"          
-
-
-  def self.find_licenses_by_os(operating_system)
-    @licenses = License.find(:all, :conditions => [":operating_system_id = ?", operating_system])
-    
-  end
+                        :on => :create, :message => "ne peut être vide"
 
 end
