@@ -44,6 +44,14 @@
       </div>
     </div>
   </div>
+	<div style="width: 300px;">
+		<%= netzke :my_tree, :ext_config => {
+		  :html => 'Just a simple panel for now',
+		  :title => 'Here comes the tree',
+		  :body_style => "padding: 5px;",
+		  :border => true
+		}%>
+	</div>
 </div>
 
 <% content_for :sidebar, render(:partial => 'sidebar') -%>

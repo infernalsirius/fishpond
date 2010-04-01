@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout "/logout", :controller => "user_sessions", :action => "destroy"
   map.resources :accessories, :servers, :locations, :makers
   map.resource :user_session
+  map.netzke
   map.root :controller => "user_sessions", :action => "new"
 
 end
