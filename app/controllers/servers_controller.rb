@@ -4,8 +4,9 @@ class ServersController < ApplicationController
   layout 'dark'
   
   def index
-    
-    @servers = Server.paginate(:per_page => 10, :page => params[:page])
+
+    @search = Server.search(params[:search])
+    @servers = @search.all.paginate(:per_page => 10, :page => params[:page])
     
     respond_to do |wants|
       wants.html

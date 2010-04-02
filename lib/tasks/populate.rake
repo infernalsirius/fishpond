@@ -61,6 +61,7 @@ namespace :db do
       h.poste_id = 1..5
       h.ram = [256, 512, 1000, 2000]
       h.disk1 = [40, 60, 80, 120, 160]
+      h.department_id = 1..5
     end
     
     def randIP

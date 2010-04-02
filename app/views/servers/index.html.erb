@@ -11,9 +11,9 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">Nom</th>
-          <th>Fabriquant</th>
-					<th>Usage</th>
+					<th class="first"><%= order @search, :by => :servName, :as => "Nom" %></th>
+          <th><%= order @search, :by => :maker_name, :as  => "Fabriquant" %></th>
+					<th><%= order @search, :by => :department_name, :as => "Département"  %></th>
 					
           <th class="last">&nbsp;</th>
         </tr>

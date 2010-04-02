@@ -10,21 +10,19 @@
     <h2 class="title">Index du matériel</h2>
     <div class="inner">
       <table class="table">
-        <tr>             
-          <th class="first">ID</th>
-          <th>Identifiant</th>
-					<th>Fabriquant</th>
-					<th>Modèle</th>
-					<th>Numéro de série</th>
+        <tr>
+					<th class="first"><%= order @search, :by => :idNum, :as => "Identifiant" %></th>
+          <th><%= order @search, :by => :maker_name, :as  => "Fabriquant" %></th>
+          <th><%= order @search, :by => :model_number_name, :as => "Modèle" %></th>
+					<th><%= order @search, :by => :department_name, :as => "Département"  %></th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @hardwares.each do |h| -%>
         <tr class='<%= cycle("even", "odd") %>'>
-					<td><%= h.id %></td>
 					<td><%= link_to h.idNum, hardware_path(h) %></td>
 					<td><%= h.maker.name %></td>
 					<td><%= h.model_number.name %></td>
-					<td><%= h.serial %></td>
+					<td><%= h.department.name %></td>
           <td class="last">
             <%= link_to 'Voir', hardware_path(h) %> | 
 						<%= link_to "Éditer", edit_hardware_path(h.id) %> |

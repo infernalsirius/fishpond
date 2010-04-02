@@ -8,6 +8,10 @@
 		<%= f.text_field :serial_like, :class => :text_field %>
 	</div>
 	<div class="group">
+		<%= f.label :model_number_name_like, "Modèle", :class => :label %>
+		<%= f.text_field :model_number_name_like, :class => :text_field %>
+	</div>
+	<div class="group">
 		<%= f.submit "Recherche", :disable_with => 'Recherche...' %>
 	</div>
 <% end -%>
