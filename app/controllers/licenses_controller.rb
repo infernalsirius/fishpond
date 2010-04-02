@@ -16,7 +16,8 @@ class LicensesController < ApplicationController
   end
   
   def biglisting
-    @licenses = License.find(:all)
+    @search = License.search(params[:search])
+    @licenses = @search.all
     
     respond_to do |wants|
       wants.html
