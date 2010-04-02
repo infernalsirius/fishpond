@@ -17,9 +17,9 @@
       <table class="table">
         <tr>             
           <th><%= order @search, :by => :software, :as  => "Logiciel" %></th>
-          <th>Version</th>
-					<th>Type</th>
-					<th>Système d'exploitation</th>
+          <th><%= order @search, :by => :version, :as => "Version" %></th>
+					<th><%= order @search, :by => :licenseType, :as => "Type"  %></th>
+					<th><%= order @search, :by => :operating_system, :as => "Système d'exploitation" %></th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @licenses.each do |license| -%>
