@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100115043818) do
+ActiveRecord::Schema.define(:version => 20100115043819) do
 
   create_table "accessories", :force => true do |t|
     t.string   "idNum"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20100115043818) do
     t.string   "idNum"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "location"
   end
 
   add_index "hardwares", ["idNum"], :name => "index_hardwares_on_idNum"
@@ -80,14 +81,6 @@ ActiveRecord::Schema.define(:version => 20100115043818) do
     t.datetime "updated_at"
     t.string   "maker_id"
     t.string   "asset_number"
-  end
-
-  create_table "locations", :force => true do |t|
-    t.string   "building"
-    t.integer  "num"
-    t.integer  "floor"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "makers", :force => true do |t|
