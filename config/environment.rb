@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "populator"
   config.gem "faker"
   config.gem "cancan"
+  config.gem "exception_notification"
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -50,3 +51,5 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
     html_tag
   end
 end
+
+ExceptionNotification::Notifier.exception_recipients = %w(pmeunier@infopremiere.com support@lesoleil.com)

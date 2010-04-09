@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   include Oink::MemoryUsageLogger
   include Memorylogic
-  
+  include ExceptionNotification::Notifiable
   helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
   
