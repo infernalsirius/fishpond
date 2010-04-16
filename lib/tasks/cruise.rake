@@ -10,6 +10,10 @@ task :cruise do
 
         # perform standard Rails database cleanup/preparation tasks if they are defined in project
         # this is necessary because there is no up-to-date development database on a continuous integration box
+        if Rake.application.lookup('gems:install')
+          CruiseControl::invoke_rake_task 'gems:install'
+        end
+        
         if Rake.application.lookup('db:test:purge')
           CruiseControl::invoke_rake_task 'db:test:purge'
         end
@@ -20,5 +24,5 @@ task :cruise do
         end
       end
 
-      CruiseControl::invoke_rake_task 'spec:all'
+      CruiseControl::invoke_rake_task 'spec'
 end
