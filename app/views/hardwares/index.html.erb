@@ -22,7 +22,7 @@
 					<td><%= link_to h.idNum, hardware_path(h) %></td>
 					<td><%= h.maker.name %></td>
 					<td><%= h.model_number.name %></td>
-					<td><%= h.department.name %></td>
+					<td><%= h.department.name rescue nil %></td>
           <td class="last">
             <%= link_to 'Voir', hardware_path(h) %> | 
 						<%= link_to "Éditer", edit_hardware_path(h.id) %> |
