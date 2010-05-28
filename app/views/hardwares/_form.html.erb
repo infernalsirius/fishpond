@@ -4,6 +4,10 @@
   <span class="description">Alphanumérique</span>
 </div>
 <div class="group">
+	<%= f.label :department_id, "Department" %>
+	<%= f.collection_select :department_id, @departments, :id, :name, :prompt => true %>
+</div>
+<div class="group">
 	<%= f.label :location, "Emplacement", :class => :label %>
 	<%= f.text_field :location, :class => "text_field" %>
 </div>

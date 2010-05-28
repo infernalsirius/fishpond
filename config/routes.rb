@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.netzke
   map.resources :model_numbers,:collection => {:auto_complete_for_model_number_name => :get}
   map.resources :hardwares, :member => {:clonage => :get, :create_clone => :post}
   map.resources :licenses, :member => { :clonage => :get, :create_clone => :post}, 
