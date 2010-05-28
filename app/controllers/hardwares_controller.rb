@@ -35,7 +35,6 @@ class HardwaresController < ApplicationController
   def create
     @hardware = Hardware.new(params[:hardware])
     @departments = Department.find(:all)
-    @locations = Location.find(:all)
     @makers = Maker.find(:all)
     @modelnums = ModelNumber.find(:all)
     
@@ -88,7 +87,6 @@ class HardwaresController < ApplicationController
     @maker = Maker.new
     @departments = Department.find(:all)
     @makers = Maker.find(:all)
-    @locations = Location.find(:all)
     @modelnums = ModelNumber.find(:all)
     
     @hardware.idNum = ""

@@ -5,7 +5,7 @@ namespace :db do
     require 'faker'
     
     #Delete all entry in those tables in the development database
-    [Hardware, Maker, License, Accessory, Server, Location].each(&:delete_all)
+    [Hardware, Maker, License, Accessory, Server].each(&:delete_all)
     
     #########
     # For relationship data
@@ -29,9 +29,9 @@ namespace :db do
       c.name = 1..9
     end
     
-    Location.populate 10 do |l|
-      l.num = ["1.1.1", "1.1.2","1.2.3", "2.3.6", "2.6.4", "2.6.4", "2.3.6"]
-    end
+    #Location.populate 10 do |l|
+      #l.num = ["1.1.1", "1.1.2","1.2.3", "2.3.6", "2.6.4", "2.6.4", "2.3.6"]
+    #end
     #########
     # For model data
     #######################################################
@@ -61,7 +61,7 @@ namespace :db do
       h.poste_id = 1..5
       h.ram = [256, 512, 1000, 2000]
       h.disk1 = [40, 60, 80, 120, 160]
-      h.department_id = 1..5
+      #h.department_id = 1..5
     end
     
     def randIP
