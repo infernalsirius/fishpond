@@ -8,4 +8,9 @@ class License < ActiveRecord::Base
                         :licenseType, :operating_system_id, 
                         :on => :create, :message => "ne peut être vide"
 
+
+  def search_for_soft(name)
+    softwares = Licenses.find_by_name
+  end
+
 end
